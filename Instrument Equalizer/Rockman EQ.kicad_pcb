@@ -95,7 +95,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "00ab5edc-f2f8-49eb-b243-6d3d78d8c17d")
-		(at -76.040614 16.199894 90)
+		(at 142.664796 106.353257 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R303"
@@ -286,7 +286,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "01ba136c-2c6e-4029-96da-4b6887f47213")
-		(at -68.688188 16.199894 90)
+		(at 148.232892 106.298127 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R305"
@@ -477,7 +477,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "06241f4a-74b2-4a9f-a998-3acb5c5d8140")
-		(at -98.097892 31.941596 90)
+		(at 113.483138 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R202"
@@ -668,7 +668,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "062f58bd-1a35-4816-b3c1-49601db4f194")
-		(at -109.126531 63.425 90)
+		(at 133.484622 54.450849 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C104"
@@ -859,7 +859,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "06d5c805-f177-47e7-8ca7-6d7fcd5e4d83")
-		(at -65.011975 31.941596 90)
+		(at 152.332924 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R211"
@@ -1050,7 +1050,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "079e0ae1-3003-47e4-a1fb-60decfa9d558")
-		(at -98.097892 63.425 90)
+		(at 175.814339 54.450849 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C107"
@@ -1241,7 +1241,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "0868eee3-d214-4ab3-96a0-9c4dd2d19525")
-		(at -79.716827 47.683298 90)
+		(at 221.959536 122.778838 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C406"
@@ -1432,7 +1432,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "0876ad6c-e577-4f8d-af77-928839e9677d")
-		(at -101.774105 16.199894 90)
+		(at 208.193679 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R223"
@@ -1623,7 +1623,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "10729d92-198c-484f-ba40-a371feed4df2")
-		(at -72.364401 31.941596 90)
+		(at 143.946063 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R209"
@@ -1811,10 +1811,259 @@
 			)
 		)
 	)
+	(footprint "Package_TO_SOT_THT:TO-92_Wide"
+		(layer "F.Cu")
+		(uuid "109dfa28-aeb9-4ac1-9d2a-0f9839c26813")
+		(at 240.67521 138.212626 90)
+		(descr "TO-92 leads molded, wide, drill 0.75mm (see NXP sot054_po.pdf)")
+		(tags "to-92 sc-43 sc-43a sot54 PA33 transistor")
+		(property "Reference" "Q503"
+			(at 2.55 -4.19 90)
+			(layer "F.SilkS")
+			(uuid "c1c1904a-ab9e-441f-b888-8b4352275656")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "MMBFJ112"
+			(at 2.54 2.79 90)
+			(layer "F.Fab")
+			(uuid "a4206176-2c6e-4f81-8f09-e79f3159b2a4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/MMBFJ113-D.PDF"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "befd114c-b279-415b-b369-a9dfc6f3656b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "5mA min, 35V, 50mOhm max, 1-5V Vgs(off), N-Channel JFET, SOT-23"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "053dc8f3-e469-491e-8806-f21ab3f3f30a")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "SOT?23*")
+		(path "/0ce83da4-49c5-4315-b426-43b55c111609")
+		(sheetname "/")
+		(sheetfile "Rockman EQ.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "3" "1" "2")
+			)
+		)
+		(attr through_hole)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start 0.74 1.85)
+			(end 4.34 1.85)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "84cddde5-5aa1-42d3-9111-1e4350fdd919")
+		)
+		(fp_arc
+			(start 3.65 -2.35)
+			(mid 4.382279 -1.833196)
+			(end 4.895458 -1.098371)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8d6a5cb9-3b4c-439c-b304-94078ec3bea6")
+		)
+		(fp_arc
+			(start 0.172801 -1.103842)
+			(mid 0.678995 -1.832692)
+			(end 1.4 -2.35)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "af4df83e-250a-405e-93ad-ebd262365cb9")
+		)
+		(fp_arc
+			(start 4.864184 1.122795)
+			(mid 4.633903 1.509328)
+			(end 4.34 1.85)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "df4c93ef-55ff-4dc7-8457-8cd8632c6015")
+		)
+		(fp_arc
+			(start 0.74 1.85)
+			(mid 0.446097 1.509328)
+			(end 0.215816 1.122795)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "dacd70df-afc7-493e-ba3e-bb0f29d4724e")
+		)
+		(fp_line
+			(start -1.01 -3.55)
+			(end 6.09 -3.55)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "b5e8a9e3-51e8-49f7-9ced-e976c7a329e3")
+		)
+		(fp_line
+			(start -1.01 -3.55)
+			(end -1.01 2.01)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "151782d3-524e-464d-8a5f-3328b7fab3dc")
+		)
+		(fp_line
+			(start 6.09 2.01)
+			(end 6.09 -3.55)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "4afdfe91-5a79-4342-99ff-a0e7f2ab8699")
+		)
+		(fp_line
+			(start 6.09 2.01)
+			(end -1.01 2.01)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "565d8288-647d-4016-b81f-289814bbcfe3")
+		)
+		(fp_line
+			(start 0.8 1.75)
+			(end 4.3 1.75)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "5b13dbe9-611c-4246-9993-40c64105e31e")
+		)
+		(fp_arc
+			(start 2.54 -2.48)
+			(mid 4.831221 -0.949055)
+			(end 4.293625 1.753625)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "ec1d086e-177a-4ea1-bf10-59c165b0a385")
+		)
+		(fp_arc
+			(start 0.786375 1.753625)
+			(mid 0.248779 -0.949055)
+			(end 2.54 -2.48)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "2db8253b-58a0-4dc1-b393-75a6723b408c")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 2.54 0 90)
+			(layer "F.Fab")
+			(uuid "79a16561-1fc1-4ba1-ad49-af8816c3586a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" thru_hole rect
+			(at 0 0 90)
+			(size 1.5 1.5)
+			(drill 0.8)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "unconnected-(Q503-D-Pad1)")
+			(pinfunction "D_1")
+			(pintype "passive")
+			(uuid "97ed63f8-bbea-457a-ad35-73e93cccdf29")
+		)
+		(pad "2" thru_hole circle
+			(at 2.54 -2.54 90)
+			(size 1.5 1.5)
+			(drill 0.8)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "unconnected-(Q503-S-Pad2)")
+			(pinfunction "S_2")
+			(pintype "passive")
+			(uuid "caf9d35a-4452-4b0f-ad42-a0c700698361")
+		)
+		(pad "3" thru_hole circle
+			(at 5.08 0 90)
+			(size 1.5 1.5)
+			(drill 0.8)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "unconnected-(Q503-G-Pad3)")
+			(pinfunction "G_3")
+			(pintype "input")
+			(uuid "57d4022a-76b6-4a9f-8599-3ba692d36236")
+		)
+		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_THT.3dshapes/TO-92_Wide.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "10cbd4ae-d1ba-42c8-b58d-57a31b0810b7")
-		(at -87.069253 0.458192 90)
+		(at 210.249889 122.746945 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R408"
@@ -2005,7 +2254,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "12e67663-6127-4d42-b9ac-154831d07679")
-		(at -50.307123 63.425 90)
+		(at 173.172169 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C208"
@@ -2196,7 +2445,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "13de3ec0-1d03-44b5-baa2-82f3726462b2")
-		(at -90.745466 0.458192 90)
+		(at 207.438276 122.802074 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R407"
@@ -2387,7 +2636,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "1549f58d-eb85-4278-96b2-6a03bee6427a")
-		(at -90.745466 47.683298 90)
+		(at 176.849978 119.608094 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C403"
@@ -2575,10 +2824,263 @@
 			)
 		)
 	)
+	(footprint "Package_TO_SOT_THT:TO-220-3_Vertical"
+		(layer "F.Cu")
+		(uuid "19110352-8b1b-4c7b-a8c8-9f9763414c0b")
+		(at 92.653983 148.080104 180)
+		(descr "TO-220-3, Vertical, RM 2.54mm, see https://www.vishay.com/docs/66542/to-220-1.pdf")
+		(tags "TO-220-3 Vertical RM 2.54mm")
+		(property "Reference" "Q502"
+			(at 2.54 -4.1 0)
+			(layer "F.SilkS")
+			(uuid "b044e4b5-09ba-4cf1-b750-7634a9abe9f9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "L7812"
+			(at 2.54 2.2 0)
+			(layer "F.Fab")
+			(uuid "8ca359e6-3798-40c2-bfc7-12db240f41fe")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.st.com/content/ccc/resource/technical/document/datasheet/41/4f/b3/b0/12/d4/47/88/CD00000444.pdf/files/CD00000444.pdf/jcr:content/translations/en.CD00000444.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "adb5dbcb-d5d2-4de5-a3ec-6cea1263532b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Positive 1.5A 35V Linear Regulator, Fixed Output 12V, TO-220/TO-263/TO-252"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "146a4870-1abd-4135-b08a-555b1092beb6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "package/TO_SOT/THT"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "27172b9b-3504-4abd-9289-ba01f6d0cb20")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "TO?252* TO?263* TO?220*")
+		(path "/a58bf0b1-3bc8-4681-ae02-e86f89123ba4")
+		(sheetname "/")
+		(sheetfile "Rockman EQ.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2" "3")
+			)
+		)
+		(attr through_hole)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start 7.65 1.36)
+			(end -2.57 1.36)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "633e3184-d244-4985-afd3-f877d01d1d52")
+		)
+		(fp_line
+			(start 7.65 -3.26)
+			(end 7.65 1.36)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "bf48fb55-6660-44bb-9eff-99e030c76431")
+		)
+		(fp_line
+			(start 4.39 -3.26)
+			(end 4.39 -1.88)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "126850cc-c7d3-4617-96d2-0dc2e3f50416")
+		)
+		(fp_line
+			(start 0.69 -3.26)
+			(end 0.69 -1.88)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "7116d20d-e144-483c-88b4-705112b5cf91")
+		)
+		(fp_line
+			(start -2.57 1.36)
+			(end -2.57 -3.26)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a34c79d6-6ceb-4e35-b4f8-b29ec2078345")
+		)
+		(fp_line
+			(start -2.57 -1.88)
+			(end 7.65 -1.88)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "2264e399-318b-4399-a0bc-e981a8dd0817")
+		)
+		(fp_line
+			(start -2.57 -3.26)
+			(end 7.65 -3.26)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "e5abc1ed-2862-4c40-84a4-e1fe762b97d8")
+		)
+		(fp_rect
+			(start -2.71 -3.4)
+			(end 7.79 1.5)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "22eb0d71-eddf-4261-a1cf-f48bbe6f004d")
+		)
+		(fp_line
+			(start 4.39 -3.15)
+			(end 4.39 -1.88)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "913a00a3-c9eb-4455-8ffb-c627f13d78eb")
+		)
+		(fp_line
+			(start 0.69 -3.15)
+			(end 0.69 -1.88)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "3acd7846-e067-438c-bb33-17855821efec")
+		)
+		(fp_line
+			(start -2.46 -1.88)
+			(end 7.54 -1.88)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "cb0b4254-17be-4401-9a7c-76529e92e731")
+		)
+		(fp_rect
+			(start -2.46 -3.15)
+			(end 7.54 1.25)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "f970d427-d801-4fb4-90e4-98d824144808")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 2.54 -0.95 0)
+			(layer "F.Fab")
+			(uuid "590525cc-5f6c-4ee5-8f5f-1a3a48e36a0b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" thru_hole rect
+			(at 0 0 180)
+			(size 1.905 2)
+			(drill 1.1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "Net-(D501-504-+)")
+			(pinfunction "IN_1")
+			(pintype "power_in")
+			(uuid "c21b6b28-da53-46aa-9fca-8a5c29f41580")
+		)
+		(pad "2" thru_hole oval
+			(at 2.54 0 180)
+			(size 1.905 2)
+			(drill 1.1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "GND")
+			(pinfunction "GND_2")
+			(pintype "power_in")
+			(uuid "a3178e3c-7a71-454f-82f4-2d518f4f9db3")
+		)
+		(pad "3" thru_hole oval
+			(at 5.08 0 180)
+			(size 1.905 2)
+			(drill 1.1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "+12V")
+			(pinfunction "OUT_3")
+			(pintype "power_out")
+			(uuid "83fb010e-200f-4dab-ba24-527042d3079d")
+		)
+		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_THT.3dshapes/TO-220-3_Vertical.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "1bc81c4c-8cf6-4142-83e1-7070f215b5be")
-		(at -50.307123 16.199894 90)
+		(at 211.81332 104.03086 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R310"
@@ -2769,7 +3271,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "1f44b096-5c9e-4706-b951-63e8102c792a")
-		(at -105.450318 63.425 90)
+		(at 154.758019 54.523207 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C105"
@@ -2960,7 +3462,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "1fad63b7-98a8-4820-939d-ab0899da4b94")
-		(at -87.069253 47.683298 90)
+		(at 204.831259 122.778838 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C404"
@@ -3151,7 +3653,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "22523166-a7b9-4947-8e71-b87e82c34919")
-		(at -87.069253 31.941596 90)
+		(at 125.928798 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R205"
@@ -3342,7 +3844,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "22953e3c-0e62-4160-a240-eeb6778009aa")
-		(at -120.15517 63.425 90)
+		(at 111.277289 53.980096 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C101"
@@ -3593,7 +4095,7 @@
 			)
 		)
 		(property ki_fp_filters "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* TO*99* OnSemi*Micro8* TSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm* MSOP*3x3mm*P0.65mm* SSOP*3.9x4.9mm*P0.635mm* LFCSP*2x2mm*P0.5mm* *SIP* SOIC*5.3x6.2mm*P1.27mm*")
-		(path "/a4afe315-40f6-4581-8d20-e54cf4880e8b")
+		(path "/dff850c3-5ae3-4c21-bba4-2a94ca21cb57")
 		(sheetname "/")
 		(sheetfile "Rockman EQ.kicad_sch")
 		(units
@@ -3876,7 +4378,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "24f7d0a5-3d85-48b4-acd4-24f261b2a617")
-		(at -68.688188 0.458192 90)
+		(at 188.719433 146.407644 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R505"
@@ -4067,7 +4569,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "2615f2d8-6323-4924-ae3f-c0f474f6d079")
-		(at -76.040614 0.458192 90)
+		(at 178.89197 138.449796 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R503"
@@ -4511,7 +5013,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "2b49bc28-4490-45b3-98c2-6973b2426326")
-		(at -42.954697 63.425 90)
+		(at 191.913019 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C210"
@@ -4702,7 +5204,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "2b7f64f3-04c4-4afb-9b76-5c8fb3bc3d02")
-		(at -98.097892 0.458192 90)
+		(at 196.63286 122.857204 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R405"
@@ -4893,7 +5395,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "2d299b2c-ace3-4fa9-a24b-3a8ad8c55ad5")
-		(at -112.802744 47.683298 90)
+		(at 210.870943 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C213"
@@ -5499,7 +6001,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "323df426-82d2-4f5e-a9a1-e0a22d381716")
-		(at -112.802744 16.199894 90)
+		(at 194.597007 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R220"
@@ -5690,7 +6192,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "34c5f30d-a152-4ff8-9a25-e572c5c91e16")
-		(at -98.097892 16.199894 90)
+		(at 213.620566 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R224"
@@ -5881,7 +6383,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "3569d8a9-375a-4be7-a3a8-3fa3377956db")
-		(at -90.745466 16.199894 90)
+		(at 227.801158 85.662549 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R226"
@@ -6072,7 +6574,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "36eb8630-6149-4ef7-acb2-65d60dd38714")
-		(at -68.688188 47.683298 90)
+		(at 176.144008 138.384269 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C505"
@@ -6263,7 +6765,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "3a5d33b2-ef68-4186-b938-aca6b4087d77")
-		(at -72.364401 0.458192 90)
+		(at 183.254405 138.593612 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R504"
@@ -6454,7 +6956,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "3af5a6a1-5db2-41ba-bd9d-c253c660544f")
-		(at -53.983336 16.199894 90)
+		(at 189.368735 103.515579 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R309"
@@ -6645,7 +7147,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "3b7410de-7bc9-4392-ad20-bc0e01c0913c")
-		(at -83.39304 47.683298 90)
+		(at 214.092002 122.737861 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C405"
@@ -6836,7 +7338,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "3dec47f0-3e8f-4b07-8a15-b158309ab19d")
-		(at -105.450318 31.941596 90)
+		(at 244.453828 61.827836 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R106"
@@ -6981,7 +7483,7 @@
 			(uuid "f60a6f14-5502-428d-89e0-4c7013ee2c1e")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 6.35 0 90)
+			(at 6.295851 -0.006724 90)
 			(layer "F.Fab")
 			(uuid "460ca524-700a-4e0a-b35c-29416933d8f0")
 			(effects
@@ -7027,7 +7529,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "413ca51e-30c0-40f1-88a1-015f7ac3c9b6")
-		(at -53.983336 63.425 90)
+		(at 165.074742 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C207"
@@ -7218,7 +7720,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "42b5aa28-f9bd-4bd0-b9b8-50c141de5533")
-		(at -87.069253 16.199894 90)
+		(at 230.695497 85.59019 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R227"
@@ -7409,7 +7911,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "4639ad94-8bea-4572-beb9-ce5221909e73")
-		(at -72.364401 63.425 90)
+		(at 119.048018 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C202"
@@ -7600,7 +8102,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "466e7c3b-c8a1-4771-b9f4-aa968aaf025c")
-		(at -87.069253 63.425 90)
+		(at 205.119528 54.089057 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C110"
@@ -7791,7 +8293,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "476c59a1-d26e-41c8-bd73-3cbb941915f9")
-		(at -101.774105 0.458192 90)
+		(at 190.733985 127.984263 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R404"
@@ -7982,7 +8484,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "4bbe17dc-6c4f-4701-9672-69414e6e1e7e")
-		(at -83.39304 63.425 90)
+		(at 213.013328 53.980096 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C111"
@@ -8173,7 +8675,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "4ede56af-e7fb-4d23-b248-747e48b453ce")
-		(at -46.63091 47.683298 90)
+		(at 216.894811 122.707128 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "D404"
@@ -8392,7 +8894,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "4f9f087c-d286-48c5-8597-f989c97036b9")
-		(at -116.478957 31.941596 90)
+		(at 231.297786 61.703722 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R103"
@@ -8583,7 +9085,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "5337b002-5450-4722-a502-52a3d9f7d793")
-		(at -116.478957 47.683298 90)
+		(at 202.766792 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C212"
@@ -8774,7 +9276,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "5a8300fc-6df9-4943-8130-fe36ac7a7606")
-		(at -112.802744 0.458192 90)
+		(at 125.206656 122.436425 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R401"
@@ -8965,7 +9467,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "5bed204e-e47d-446a-9996-02e6d2e2da19")
-		(at -42.954697 47.683298 90)
+		(at 223.388375 61.772846 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R101"
@@ -9499,7 +10001,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "5d0ad3a0-b26a-4a4c-9e7e-5ff02d6a410d")
-		(at -53.983336 0.458192 90)
+		(at 224.769445 140.894677 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R509"
@@ -9690,7 +10192,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "60db5c4f-6236-472d-b86a-38e9aae324ad")
-		(at -94.421679 47.683298 90)
+		(at 85.738952 101.136895 -90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C402"
@@ -9762,16 +10264,6 @@
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
-			(start 11.66 0)
-			(end 10.97 0)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "a457ff82-00fc-4a86-8d90-30248246c637")
-		)
-		(fp_line
 			(start 1.04 0)
 			(end 1.73 0)
 			(stroke
@@ -9780,6 +10272,16 @@
 			)
 			(layer "F.SilkS")
 			(uuid "b8454b3f-ac44-4b15-80b8-336f3f8b0d0f")
+		)
+		(fp_line
+			(start 11.66 0)
+			(end 10.97 0)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a457ff82-00fc-4a86-8d90-30248246c637")
 		)
 		(fp_rect
 			(start 1.73 -1.187574)
@@ -9804,16 +10306,6 @@
 			(uuid "a6ae454e-4ede-4a3e-8c79-0918ca593a82")
 		)
 		(fp_line
-			(start 12.7 0)
-			(end 10.85 0)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "fee0cf9e-a8fe-4b43-a5ab-a753b638bafd")
-		)
-		(fp_line
 			(start 0 0)
 			(end 1.85 0)
 			(stroke
@@ -9822,6 +10314,16 @@
 			)
 			(layer "F.Fab")
 			(uuid "98836389-2348-4184-8c1b-58f16ef460e7")
+		)
+		(fp_line
+			(start 12.7 0)
+			(end 10.85 0)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "fee0cf9e-a8fe-4b43-a5ab-a753b638bafd")
 		)
 		(fp_rect
 			(start 1.85 -1)
@@ -9846,7 +10348,7 @@
 			)
 		)
 		(pad "1" thru_hole circle
-			(at 0 0 90)
+			(at 0 0 270)
 			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
@@ -9856,7 +10358,7 @@
 			(uuid "8e76473e-4ea7-46ce-b08c-88221a287fc5")
 		)
 		(pad "2" thru_hole circle
-			(at 12.7 0 90)
+			(at 12.7 0 270)
 			(size 1.6 1.6)
 			(drill 0.8)
 			(layers "*.Cu" "*.Mask")
@@ -9881,7 +10383,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "60f7183d-67b8-4c4f-b7f6-99eb4f1a8087")
-		(at -83.39304 16.199894 90)
+		(at 130.30914 106.235558 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R301"
@@ -10072,7 +10574,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "6336e417-6616-421d-968e-4ac099b1dba6")
-		(at -50.307123 0.458192 90)
+		(at 231.289127 140.990554 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R510"
@@ -10263,7 +10765,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "636761fc-87da-4209-b559-d721ddbfda98")
-		(at -83.39304 0.458192 90)
+		(at 158.251598 138.540043 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R501"
@@ -10454,7 +10956,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "65dccd30-ad1d-41b7-ae1f-b543ac0b96ae")
-		(at -90.745466 31.941596 90)
+		(at 121.869999 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R204"
@@ -10705,7 +11207,7 @@
 			)
 		)
 		(property ki_fp_filters "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* TO*99* OnSemi*Micro8* TSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm* MSOP*3x3mm*P0.65mm* SSOP*3.9x4.9mm*P0.635mm* LFCSP*2x2mm*P0.5mm* *SIP* SOIC*5.3x6.2mm*P1.27mm*")
-		(path "/20aa0e0b-6cca-4c9a-8982-1b1a9dd26e1c")
+		(path "/4b3e57f7-d51d-4edc-80ea-efa698d5f741")
 		(sheetname "/")
 		(sheetfile "Rockman EQ.kicad_sch")
 		(units
@@ -10988,7 +11490,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "690baa0a-5208-4c4e-b198-0069aa2f3999")
-		(at -116.478957 16.199894 90)
+		(at 189.17012 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R219"
@@ -11179,7 +11681,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "6a22cc81-f243-45c9-8975-172a1a8920f5")
-		(at -46.63091 63.425 90)
+		(at 183.519434 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C209"
@@ -11370,7 +11872,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "6a8a1470-339f-4900-a618-20a9dbf6ee3c")
-		(at -61.335762 0.458192 90)
+		(at 219.064722 140.894677 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R507"
@@ -11561,7 +12063,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "6ae5b9b2-ddc8-47c4-b764-f3047ba291bc")
-		(at -50.307123 47.683298 90)
+		(at 202.239481 122.801375 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "D403"
@@ -11780,7 +12282,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "6e52f788-d5e9-4646-8a65-3d5ecc2dd996")
-		(at -42.954697 16.199894 90)
+		(at 217.702188 103.883639 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R312"
@@ -11971,7 +12473,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "6f04a6f5-0eb9-4084-9ff1-038828537140")
-		(at -116.478957 63.425 90)
+		(at 118.513138 54.341889 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C102"
@@ -12162,7 +12664,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "711dfdf7-d7f8-4b68-90dd-4ea0efbd26a4")
-		(at -109.126531 31.941596 90)
+		(at 236.806879 61.753481 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R105"
@@ -12353,7 +12855,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "71864dad-6743-4f1f-aba8-8a7e913829ec")
-		(at -94.421679 31.941596 90)
+		(at 116.232761 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R203"
@@ -12544,7 +13046,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "71d5e68d-b2bd-44d3-9724-0ad18865a3ef")
-		(at -101.774105 63.425 90)
+		(at 167.782547 54.378491 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C106"
@@ -12735,7 +13237,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "76d1c48e-4186-4d4e-b487-d46b00d2b44d")
-		(at -61.335762 31.941596 90)
+		(at 157.904528 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R212"
@@ -12926,7 +13428,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "787a5de4-3afc-4ce5-937c-59b663540c27")
-		(at -53.983336 47.683298 90)
+		(at 174.175239 119.623201 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "D402"
@@ -13145,7 +13647,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "7c63fdd9-cad2-4074-ba61-93876b91b4e8")
-		(at -94.421679 63.425 90)
+		(at 186.240686 54.052455 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C108"
@@ -13336,7 +13838,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "7ed11f34-9771-4288-8cba-480dec5ea531")
-		(at -57.659549 0.458192 90)
+		(at 221.988992 140.942616 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R508"
@@ -13527,13 +14029,13 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "8230d050-20f3-4258-b254-71482d63443b")
-		(at -61.335762 47.683298 90)
+		(at 181.126961 103.149233 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "D301"
 			(at 6.35 -2.02834 90)
 			(layer "F.SilkS")
-			(uuid "58522cf9-f3bf-4261-9faf-04dcf4153f89")
+			(uuid "b60d36f8-7c50-4aff-9cae-f553dcc922ea")
 			(effects
 				(font
 					(size 1 1)
@@ -13544,7 +14046,7 @@
 		(property "Value" "1N4148"
 			(at 6.35 2.062127 90)
 			(layer "F.Fab")
-			(uuid "27da0da0-dc52-4dcb-a66b-3f0d0516c9b9")
+			(uuid "66fecad8-a5b6-4ff8-8fd5-46990a9eb1ff")
 			(effects
 				(font
 					(size 1 1)
@@ -13556,7 +14058,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "9331b78a-6b11-4b33-883b-dbd4daa4748f")
+			(uuid "84a0775a-534d-4580-a596-5747154a9210")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13567,7 +14069,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "f53db963-1e30-40ba-8e1e-53deee5f4f5b")
+			(uuid "0cfda543-5ca4-4937-9ac8-6a53aa9625c1")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13746,7 +14248,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "8295bb88-d1df-4b53-bf1c-c37b4aeefad2")
-		(at -79.716827 31.941596 90)
+		(at 134.098584 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R207"
@@ -13937,7 +14439,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "82c81f85-d5e6-4375-ab60-148653f98f3f")
-		(at -120.15517 0.458192 90)
+		(at 222.707726 104.546136 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R313"
@@ -14128,7 +14630,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "897c53a7-f0f4-4a18-9817-be5bc0626ce9")
-		(at -79.716827 16.199894 90)
+		(at 133.003427 106.256284 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R302"
@@ -14319,7 +14821,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "8a7e5922-5019-46cc-aae9-b98552239f0a")
-		(at -65.011975 63.425 90)
+		(at 136.848207 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C204"
@@ -14510,7 +15012,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "8ae52268-75d1-4970-bfc1-a7994e2b135e")
-		(at -109.126531 16.199894 90)
+		(at 200.023894 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R221"
@@ -14701,7 +15203,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "8cf14897-8fba-44cc-9c33-48c54524b5f9")
-		(at -112.802744 63.425 90)
+		(at 126.038421 54.414247 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C103"
@@ -14892,7 +15394,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "8f5e3535-5a34-4d52-aead-9f39d01b89e2")
-		(at -46.63091 31.941596 90)
+		(at 175.921792 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R216"
@@ -15083,7 +15585,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "8f707d14-1f96-402b-82fd-144418bbc1cc")
-		(at -42.954697 31.941596 90)
+		(at 180.776535 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R217"
@@ -15274,7 +15776,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "94ebc5ef-fa25-4202-b781-70406ef961c4")
-		(at -105.450318 16.199894 90)
+		(at 205.516415 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R222"
@@ -15465,7 +15967,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "9608ac15-0103-4c9e-bd0b-4a3f4087c77f")
-		(at -50.307123 31.941596 90)
+		(at 170.494905 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R215"
@@ -15656,7 +16158,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "96a008b8-aa9a-4a22-9f22-553ca1ba99e4")
-		(at -65.011975 0.458192 90)
+		(at 191.451947 146.407644 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R506"
@@ -15847,7 +16349,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "98d022f5-26b3-4e21-9a7c-c3edd6d043c1")
-		(at -83.39304 31.941596 90)
+		(at 131.348961 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R206"
@@ -16038,11 +16540,11 @@
 	(footprint "Diode_THT:D_A-405_P12.70mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "9980187b-51e2-49e4-9805-4bedb7e1e897")
-		(at 16.3 112)
+		(at 90.725794 130.004067 90)
 		(descr "Diode, A-405 series, Axial, Horizontal, pin pitch=12.7mm, length*diameter=5.2*2.7mm^2, http://www.diodes.com/_files/packages/A-405.pdf")
 		(tags "Diode A-405 series Axial Horizontal pin pitch 12.7mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "D505"
-			(at 6.35 -2.47 0)
+			(at 6.35 -2.47 90)
 			(layer "F.SilkS")
 			(uuid "0af43973-2fd7-4e30-a89b-a2a6b902d809")
 			(effects
@@ -16053,7 +16555,7 @@
 			)
 		)
 		(property "Value" "1N4001"
-			(at 6.35 2.47 0)
+			(at 6.35 2.47 90)
 			(layer "F.Fab")
 			(uuid "31906872-06df-4071-8ca5-9117138c4ba9")
 			(effects
@@ -16064,7 +16566,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "12dbf549-b5e7-4307-8ff4-95cc4122aa60")
@@ -16075,7 +16577,7 @@
 			)
 		)
 		(property "Description" "Diode, filled shape"
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "ad91e2da-b41e-4f26-9f8f-43572d8fe0f4")
@@ -16086,7 +16588,7 @@
 			)
 		)
 		(property "KiLib_Generator" "diode/THT"
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "5c3a1b23-c125-4528-8487-f895f7060727")
@@ -16098,7 +16600,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 0 0 0)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -16111,7 +16613,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 0 0 0)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -16136,24 +16638,14 @@
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
-			(start 1.14 0)
-			(end 3.63 0)
+			(start 4.65 -1.47)
+			(end 4.65 1.47)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "9c8655d2-752d-4fc6-863f-73d6f5fe8c27")
-		)
-		(fp_line
-			(start 4.41 -1.47)
-			(end 4.41 1.47)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "86ee5278-f925-4db8-abb9-fa69a75b8d07")
+			(uuid "9913dde8-7b1f-4ee2-b383-a96a8449bb80")
 		)
 		(fp_line
 			(start 4.53 -1.47)
@@ -16166,14 +16658,14 @@
 			(uuid "9088baa1-b3af-439a-8de8-aa1a6ca39474")
 		)
 		(fp_line
-			(start 4.65 -1.47)
-			(end 4.65 1.47)
+			(start 4.41 -1.47)
+			(end 4.41 1.47)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "9913dde8-7b1f-4ee2-b383-a96a8449bb80")
+			(uuid "86ee5278-f925-4db8-abb9-fa69a75b8d07")
 		)
 		(fp_line
 			(start 11.56 0)
@@ -16184,6 +16676,16 @@
 			)
 			(layer "F.SilkS")
 			(uuid "1ae448fc-f807-4e4f-bc47-f18204ca2fbc")
+		)
+		(fp_line
+			(start 1.14 0)
+			(end 3.63 0)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "9c8655d2-752d-4fc6-863f-73d6f5fe8c27")
 		)
 		(fp_rect
 			(start 3.63 -1.47)
@@ -16208,24 +16710,14 @@
 			(uuid "10cae43d-8296-423b-91c4-30d00dea684f")
 		)
 		(fp_line
-			(start 0 0)
-			(end 3.75 0)
+			(start 4.63 -1.35)
+			(end 4.63 1.35)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "d39d8763-5141-49d6-81dc-50ded91e7e81")
-		)
-		(fp_line
-			(start 4.43 -1.35)
-			(end 4.43 1.35)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "773f4ae0-4ede-4e25-affd-494399b19506")
+			(uuid "722601c4-3dde-402f-ba0b-2dcfffc881d1")
 		)
 		(fp_line
 			(start 4.53 -1.35)
@@ -16238,14 +16730,14 @@
 			(uuid "d944d0a6-137a-48cc-9053-84cb1a41b001")
 		)
 		(fp_line
-			(start 4.63 -1.35)
-			(end 4.63 1.35)
+			(start 4.43 -1.35)
+			(end 4.43 1.35)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "722601c4-3dde-402f-ba0b-2dcfffc881d1")
+			(uuid "773f4ae0-4ede-4e25-affd-494399b19506")
 		)
 		(fp_line
 			(start 12.7 0)
@@ -16256,6 +16748,16 @@
 			)
 			(layer "F.Fab")
 			(uuid "cdc0a5cb-2a74-4019-a45f-e12d4920dd2e")
+		)
+		(fp_line
+			(start 0 0)
+			(end 3.75 0)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "d39d8763-5141-49d6-81dc-50ded91e7e81")
 		)
 		(fp_rect
 			(start 3.75 -1.35)
@@ -16269,7 +16771,7 @@
 			(uuid "fbd43a2f-f734-42fe-915c-171287808057")
 		)
 		(fp_text user "K"
-			(at 0 -1.9 0)
+			(at 0 -1.9 90)
 			(layer "F.SilkS")
 			(uuid "805643d6-6bc6-4117-81d6-a7520b12a426")
 			(effects
@@ -16280,7 +16782,7 @@
 			)
 		)
 		(fp_text user "K"
-			(at 0 -1.9 0)
+			(at 0 -1.9 90)
 			(layer "F.Fab")
 			(uuid "15d8f061-ff0e-4155-b645-62cf1f06d8d5")
 			(effects
@@ -16291,7 +16793,7 @@
 			)
 		)
 		(fp_text user "${REFERENCE}"
-			(at 6.74 0 0)
+			(at 6.74 0 90)
 			(layer "F.Fab")
 			(uuid "f886dfee-0d42-49a7-b75e-612e035ee743")
 			(effects
@@ -16302,7 +16804,7 @@
 			)
 		)
 		(pad "1" thru_hole roundrect
-			(at 0 0)
+			(at 0 0 90)
 			(size 1.8 1.8)
 			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
@@ -16314,7 +16816,7 @@
 			(uuid "4f5925fa-00ad-45e1-9d50-151196e3ac9d")
 		)
 		(pad "2" thru_hole circle
-			(at 12.7 0)
+			(at 12.7 0 90)
 			(size 1.8 1.8)
 			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
@@ -16340,7 +16842,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "9aaddc74-6cdf-4770-8ac0-d99248ffbb5c")
-		(at -76.040614 47.683298 90)
+		(at 85.30838 130.161687 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C502"
@@ -16531,13 +17033,13 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "9acdf8ab-ab87-4959-8d09-8d82cb5bc5a3")
-		(at -57.659549 47.683298 90)
+		(at 197.836624 103.590898 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "D302"
 			(at 6.35 -2.02834 90)
 			(layer "F.SilkS")
-			(uuid "4c352db3-2c19-4abf-8e12-f1a413a4e308")
+			(uuid "623d429e-4ae8-4497-aed9-6817bfcfb5cd")
 			(effects
 				(font
 					(size 1 1)
@@ -16548,7 +17050,7 @@
 		(property "Value" "1N4148"
 			(at 6.35 2.062127 90)
 			(layer "F.Fab")
-			(uuid "a3d1bb30-c632-4fea-bbe8-a181778d20cd")
+			(uuid "ed576009-7f24-48e7-b354-be2dde7325f0")
 			(effects
 				(font
 					(size 1 1)
@@ -16560,7 +17062,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "a3453f9b-a407-4b02-a568-13a0a941d103")
+			(uuid "e3c6b945-e5d4-4b16-bdae-78d583d22263")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16571,7 +17073,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "5d377bab-4023-4788-8200-57c9ae5136ec")
+			(uuid "c8e4919f-2992-47e7-862c-2095a4e06df3")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16749,8 +17251,227 @@
 	)
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
+		(uuid "9afc5f9a-2512-4f17-9065-5423951ba4b1")
+		(at 235.225173 140.8174 90)
+		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
+		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
+		(property "Reference" "D506"
+			(at 6.35 -2.02834 90)
+			(layer "F.SilkS")
+			(uuid "c09bee38-b438-473e-b0e8-4827a2fdd04b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "1N4148"
+			(at 6.35 2.062127 90)
+			(layer "F.Fab")
+			(uuid "6e891aed-4164-43c5-bc81-3020042f1c16")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 90)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5e5a680b-d91f-4477-bc5e-aa48fbac9d3f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Diode, filled shape"
+			(at 0 0 90)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4df5af62-1591-4519-8b0c-fba45d6d1e31")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "resistor/THT"
+			(at 0 0 90)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "0710d01d-485b-4cf3-9fe1-a898b201eb42")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Sim.Device" "D"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "572ce84c-440b-4c95-9b4d-da2cbd182296")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a2c5f932-98e9-4943-8757-db38e6a36861")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "TO-???* *_Diode_* *SingleDiode* D_*")
+		(path "/0f4a4965-64bb-4174-b556-a90c6c364346")
+		(sheetname "/")
+		(sheetfile "Rockman EQ.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr through_hole)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start 11.66 0)
+			(end 10.97 0)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8e09f09e-4cd2-405c-b73e-d3ee4545e283")
+		)
+		(fp_line
+			(start 1.04 0)
+			(end 1.73 0)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "4d360d90-6905-4a19-bf0d-6cb810bfabf2")
+		)
+		(fp_rect
+			(start 1.73 -1.187574)
+			(end 10.977702 1.193021)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "19e2fafd-5a45-4bd3-a025-91a60a981d92")
+		)
+		(fp_rect
+			(start -1.05 -1.31983)
+			(end 13.641702 1.306383)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "8123579f-bc8e-4c06-a130-a3c49af01a37")
+		)
+		(fp_line
+			(start 12.7 0)
+			(end 10.85 0)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "d8657817-1e98-4ea6-a7ea-55c6a6128ef8")
+		)
+		(fp_line
+			(start 0 0)
+			(end 1.85 0)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "cd5ddaa6-ba76-417f-a327-4950705578b7")
+		)
+		(fp_rect
+			(start 1.85 -1)
+			(end 10.85 1)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "5a2eadff-f8c7-47d4-96cc-d22196c44fe3")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 6.35 0 90)
+			(layer "F.Fab")
+			(uuid "c7db9470-5609-4844-9f53-da96666d969b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" thru_hole circle
+			(at 0 0 90)
+			(size 1.6 1.6)
+			(drill 0.8)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "unconnected-(D506-K-Pad1)")
+			(pinfunction "K_1")
+			(pintype "passive")
+			(uuid "8841aa5d-4f89-4beb-9e6f-962952feab55")
+		)
+		(pad "2" thru_hole circle
+			(at 12.7 0 90)
+			(size 1.6 1.6)
+			(drill 0.8)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "unconnected-(D506-A-Pad2)")
+			(pinfunction "A_2")
+			(pintype "passive")
+			(uuid "53ed2304-582e-48a4-b44a-95ce99c3a1c5")
+		)
+		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Resistor_THT.3dshapes/R_Axial_DIN0309_L9.0mm_D3.2mm_P12.70mm_Horizontal.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "Rockman:Resistor-Capacitor"
+		(layer "F.Cu")
 		(uuid "9f629310-5435-4a5e-a2b1-446188674147")
-		(at -76.040614 63.425 90)
+		(at 110.805874 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C201"
@@ -16941,7 +17662,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "a17a877b-6f5d-4d75-8193-a9d0d399ab74")
-		(at -72.364401 47.683298 90)
+		(at 173.315617 138.33633 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C504"
@@ -17132,7 +17853,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "a42b9c92-0528-457c-a0dd-a60c9a49c24e")
-		(at -57.659549 16.199894 90)
+		(at 186.343966 103.589195 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R308"
@@ -17323,7 +18044,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "aa506642-0145-43c4-8587-df71ba91ecc4")
-		(at -101.774105 31.941596 90)
+		(at 108.049379 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R201"
@@ -17514,13 +18235,13 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "aa9980cf-2952-408f-ad79-f3bb77cb4223")
-		(at -105.450318 47.683298 90)
+		(at 183.850562 103.149233 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C302"
 			(at 6.35 -2.02834 90)
 			(layer "F.SilkS")
-			(uuid "a30fb469-0a26-4761-859c-a66e87c152ae")
+			(uuid "ba6545a0-92b0-48d9-b1d7-210344a3f75c")
 			(effects
 				(font
 					(size 1 1)
@@ -17531,7 +18252,7 @@
 		(property "Value" "C"
 			(at 6.35 2.062127 90)
 			(layer "F.Fab")
-			(uuid "e5aea341-74a6-4393-b52e-58a914d44dfb")
+			(uuid "e5090f49-537c-45d2-baed-232aa2181435")
 			(effects
 				(font
 					(size 1 1)
@@ -17543,7 +18264,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "06f62389-7d6e-4d70-aec2-07aa53285204")
+			(uuid "9d34eb59-89c1-44ef-a8fa-eba8d058e83b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17554,7 +18275,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "380a0f52-7898-4931-89ad-858c32a7cd9a")
+			(uuid "bb88dbfe-aa8c-4a61-b6ef-3b6f4ce9819f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18048,7 +18769,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "ad69e37d-b479-4ea1-a3ed-087923d5f461")
-		(at -72.364401 16.199894 90)
+		(at 145.421279 106.298127 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R304"
@@ -18239,7 +18960,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "b059a52c-8b74-48dc-9617-1abe948ef4a3")
-		(at -53.983336 31.941596 90)
+		(at 167.752006 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R214"
@@ -18430,7 +19151,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "b6c13504-7c58-4fef-85f6-a3547465717b")
-		(at -61.335762 63.425 90)
+		(at 146.840402 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C205"
@@ -18621,7 +19342,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "b7a2de6c-c6c5-42b6-80bc-f93f3d70fece")
-		(at -116.478957 0.458192 90)
+		(at 234.706295 108.30029 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R314"
@@ -18812,7 +19533,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "b9d7b36b-6170-4ad5-be54-f8817f331fe8")
-		(at -120.15517 31.941596 90)
+		(at 228.567286 61.745093 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R102"
@@ -19003,13 +19724,13 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "bbec3823-02a5-4a37-904f-18b8721dc3c6")
-		(at -98.097892 47.683298 90)
+		(at 231.624004 108.30029 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C304"
 			(at 6.35 -2.02834 90)
 			(layer "F.SilkS")
-			(uuid "14a2930a-8e6d-4e5a-bb1b-7bdc9a84132c")
+			(uuid "9b85a014-4c8b-49ef-9d27-baff41b95b3f")
 			(effects
 				(font
 					(size 1 1)
@@ -19020,7 +19741,7 @@
 		(property "Value" "C"
 			(at 6.35 2.062127 90)
 			(layer "F.Fab")
-			(uuid "27467b49-3345-4895-ace2-f408d439b34e")
+			(uuid "cac48866-180e-4051-bef9-7975363c37dc")
 			(effects
 				(font
 					(size 1 1)
@@ -19032,7 +19753,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "6a7322d0-ff3f-4a5f-9f51-8159862e0d60")
+			(uuid "9fe0d710-ee8e-4926-a4ca-c17476425a6a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19043,7 +19764,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b4ead382-0877-44fb-a6fc-1f02206ce32b")
+			(uuid "515cb1fb-4fa1-4bb6-ba78-05a59c4d0804")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19191,10 +19912,263 @@
 			)
 		)
 	)
+	(footprint "Package_TO_SOT_THT:TO-220-3_Vertical"
+		(layer "F.Cu")
+		(uuid "c2c653d1-0671-430c-950c-9049f2f66ca5")
+		(at 74.17995 148.417928 180)
+		(descr "TO-220-3, Vertical, RM 2.54mm, see https://www.vishay.com/docs/66542/to-220-1.pdf")
+		(tags "TO-220-3 Vertical RM 2.54mm")
+		(property "Reference" "Q501"
+			(at 2.54 -4.1 0)
+			(layer "F.SilkS")
+			(uuid "c83c0a0b-f046-4585-8e4d-793b3d59d93e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "L7912"
+			(at 2.54 2.2 0)
+			(layer "F.Fab")
+			(uuid "25dbbfce-81ee-4b18-b0eb-3c8c33b5c495")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "http://www.st.com/content/ccc/resource/technical/document/datasheet/c9/16/86/41/c7/2b/45/f2/CD00000450.pdf/files/CD00000450.pdf/jcr:content/translations/en.CD00000450.pdf"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9118b01d-2cf4-4f5b-8eeb-19041dcfcfec")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Negative 1.5A 35V Linear Regulator, Fixed Output -12V, TO-220/TO-263"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9f1f4ab3-6c83-47e7-b3b5-3d6056b43af7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "package/TO_SOT/THT"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "3d0bd6eb-4e62-4137-8020-71516875493f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "TO?220* TO?263*")
+		(path "/f9165413-6c19-4084-9e96-1c8306b3cee0")
+		(sheetname "/")
+		(sheetfile "Rockman EQ.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "2" "1" "3")
+			)
+		)
+		(attr through_hole)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start 7.65 1.36)
+			(end -2.57 1.36)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "22aa0478-088f-4bcf-beb6-8053041494fe")
+		)
+		(fp_line
+			(start 7.65 -3.26)
+			(end 7.65 1.36)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "1b8337ce-33e4-4fb9-bc84-cd54cd82657d")
+		)
+		(fp_line
+			(start 4.39 -3.26)
+			(end 4.39 -1.88)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "c4218ac9-d000-4b72-ac51-ace588cedc90")
+		)
+		(fp_line
+			(start 0.69 -3.26)
+			(end 0.69 -1.88)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8fa3393d-a97d-4d38-8e17-4e7966b1c998")
+		)
+		(fp_line
+			(start -2.57 1.36)
+			(end -2.57 -3.26)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "eb4ec79f-110a-4da8-aeab-2472f84bc423")
+		)
+		(fp_line
+			(start -2.57 -1.88)
+			(end 7.65 -1.88)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "d86ab9e7-46d4-45c1-8ebe-2d80697181ab")
+		)
+		(fp_line
+			(start -2.57 -3.26)
+			(end 7.65 -3.26)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "6b49f630-9c47-46f3-b076-2e932077ecdf")
+		)
+		(fp_rect
+			(start -2.71 -3.4)
+			(end 7.79 1.5)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "1a04d418-6d13-4c76-b7dd-4646bc70c991")
+		)
+		(fp_line
+			(start 4.39 -3.15)
+			(end 4.39 -1.88)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "60ae7fc1-9ddc-4f44-818f-0ee57d4d9e6a")
+		)
+		(fp_line
+			(start 0.69 -3.15)
+			(end 0.69 -1.88)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "d9d77f8e-6936-48e8-91d0-cb8aaa538a1b")
+		)
+		(fp_line
+			(start -2.46 -1.88)
+			(end 7.54 -1.88)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "c7f88b00-24a8-4441-af7d-10dddbafede2")
+		)
+		(fp_rect
+			(start -2.46 -3.15)
+			(end 7.54 1.25)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "d49f93e7-aa8c-4dc2-b618-03f4014b0b34")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 2.54 -0.95 0)
+			(layer "F.Fab")
+			(uuid "f9644a83-d152-42e7-9260-e2d5b52d0d59")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" thru_hole rect
+			(at 0 0 180)
+			(size 1.905 2)
+			(drill 1.1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "GND")
+			(pinfunction "GND_1")
+			(pintype "power_in")
+			(uuid "f6d92fa7-9e09-4875-ac94-6a858000a61c")
+		)
+		(pad "2" thru_hole oval
+			(at 2.54 0 180)
+			(size 1.905 2)
+			(drill 1.1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "Net-(D501-504--)")
+			(pinfunction "VI_2")
+			(pintype "power_in")
+			(uuid "3460cc1f-5b99-49b2-816d-be4d331df1a4")
+		)
+		(pad "3" thru_hole oval
+			(at 5.08 0 180)
+			(size 1.905 2)
+			(drill 1.1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "-12V")
+			(pinfunction "VO_3")
+			(pintype "power_out")
+			(uuid "4bfff9ea-865b-46d9-896e-25c0c8798c76")
+		)
+		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_THT.3dshapes/TO-220-3_Vertical.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "c9244e56-ab52-4152-9187-4fb032ee759b")
-		(at -68.688188 31.941596 90)
+		(at 149.590025 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R210"
@@ -19385,11 +20359,11 @@
 	(footprint "Diode_THT:D_A-405_P12.70mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "c960f4c6-967c-4d08-8b62-34ac0de8018e")
-		(at 15.3 118.5)
+		(at 33.02 143.51 90)
 		(descr "Diode, A-405 series, Axial, Horizontal, pin pitch=12.7mm, length*diameter=5.2*2.7mm^2, http://www.diodes.com/_files/packages/A-405.pdf")
 		(tags "Diode A-405 series Axial Horizontal pin pitch 12.7mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "D501-504"
-			(at 6.35 -2.47 0)
+			(at 6.35 -2.47 90)
 			(layer "F.SilkS")
 			(uuid "0a7ca88b-fab0-4b18-89ba-01bf8c773688")
 			(effects
@@ -19400,7 +20374,7 @@
 			)
 		)
 		(property "Value" "1N4001"
-			(at 6.35 2.47 0)
+			(at 6.35 2.47 90)
 			(layer "F.Fab")
 			(uuid "0e2352fd-7008-47d9-b299-e3e3a6378c52")
 			(effects
@@ -19411,7 +20385,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "2741063f-318b-4846-bf33-10665942db62")
@@ -19422,7 +20396,7 @@
 			)
 		)
 		(property "Description" "Diode bridge, +ve/-ve/AC/AC"
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "75080c2c-a29f-48f7-843d-7281195073d7")
@@ -19433,7 +20407,7 @@
 			)
 		)
 		(property "KiLib_Generator" "diode/THT"
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "f459bddb-5230-4966-9aca-8048afe55481")
@@ -19457,24 +20431,14 @@
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
-			(start 1.14 0)
-			(end 3.63 0)
+			(start 4.65 -1.47)
+			(end 4.65 1.47)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "aac3f1bf-5510-4af9-8833-0fb75bdabd72")
-		)
-		(fp_line
-			(start 4.41 -1.47)
-			(end 4.41 1.47)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "1da37a68-5d32-4b5b-9360-4f201a62501f")
+			(uuid "3ba9df8c-3183-40f3-b46e-b49eda230277")
 		)
 		(fp_line
 			(start 4.53 -1.47)
@@ -19487,14 +20451,14 @@
 			(uuid "3bb2f337-3b6a-4456-b7f9-9c2a9a2e642c")
 		)
 		(fp_line
-			(start 4.65 -1.47)
-			(end 4.65 1.47)
+			(start 4.41 -1.47)
+			(end 4.41 1.47)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "3ba9df8c-3183-40f3-b46e-b49eda230277")
+			(uuid "1da37a68-5d32-4b5b-9360-4f201a62501f")
 		)
 		(fp_line
 			(start 11.56 0)
@@ -19505,6 +20469,16 @@
 			)
 			(layer "F.SilkS")
 			(uuid "89d2a7c2-289b-4fba-be91-302ec576c85b")
+		)
+		(fp_line
+			(start 1.14 0)
+			(end 3.63 0)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "aac3f1bf-5510-4af9-8833-0fb75bdabd72")
 		)
 		(fp_rect
 			(start 3.63 -1.47)
@@ -19529,24 +20503,14 @@
 			(uuid "c3f52837-5d85-47c6-9d4d-3f09b0c35005")
 		)
 		(fp_line
-			(start 0 0)
-			(end 3.75 0)
+			(start 4.63 -1.35)
+			(end 4.63 1.35)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "76b29982-999a-4a6a-99da-9b8da077bf03")
-		)
-		(fp_line
-			(start 4.43 -1.35)
-			(end 4.43 1.35)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "dd191f7d-50f1-4f82-a7a6-6d866e786534")
+			(uuid "ae62d961-5fc2-4508-ab74-1a04002e14e8")
 		)
 		(fp_line
 			(start 4.53 -1.35)
@@ -19559,14 +20523,14 @@
 			(uuid "4ba68d30-3696-4e1b-bef4-78f18a80969c")
 		)
 		(fp_line
-			(start 4.63 -1.35)
-			(end 4.63 1.35)
+			(start 4.43 -1.35)
+			(end 4.43 1.35)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "ae62d961-5fc2-4508-ab74-1a04002e14e8")
+			(uuid "dd191f7d-50f1-4f82-a7a6-6d866e786534")
 		)
 		(fp_line
 			(start 12.7 0)
@@ -19577,6 +20541,16 @@
 			)
 			(layer "F.Fab")
 			(uuid "54f00c68-3446-49f5-9cfe-3512009a2d09")
+		)
+		(fp_line
+			(start 0 0)
+			(end 3.75 0)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "76b29982-999a-4a6a-99da-9b8da077bf03")
 		)
 		(fp_rect
 			(start 3.75 -1.35)
@@ -19590,7 +20564,7 @@
 			(uuid "55224381-6359-4c99-b9bf-27cde2dee8f9")
 		)
 		(fp_text user "K"
-			(at 0 -1.9 0)
+			(at 0 -1.9 90)
 			(layer "F.SilkS")
 			(uuid "2251a656-a486-41ba-86d4-054d684ab293")
 			(effects
@@ -19601,7 +20575,7 @@
 			)
 		)
 		(fp_text user "K"
-			(at 0 -1.9 0)
+			(at 0 -1.9 90)
 			(layer "F.Fab")
 			(uuid "67477a48-d8c4-4ff8-8b66-5be0ee2f3818")
 			(effects
@@ -19612,7 +20586,7 @@
 			)
 		)
 		(fp_text user "${REFERENCE}"
-			(at 6.74 0 0)
+			(at 6.74 0 90)
 			(layer "F.Fab")
 			(uuid "946fedfd-d9bd-4211-9dda-e89d340027d8")
 			(effects
@@ -19623,7 +20597,7 @@
 			)
 		)
 		(pad "1" thru_hole roundrect
-			(at 0 0)
+			(at 0 0 90)
 			(size 1.8 1.8)
 			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
@@ -19635,7 +20609,7 @@
 			(uuid "488d340b-9a7e-425f-b0ae-3b830680b608")
 		)
 		(pad "2" thru_hole circle
-			(at 12.7 0)
+			(at 12.7 0 90)
 			(size 1.8 1.8)
 			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
@@ -19661,7 +20635,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "ca703b20-6b25-4eac-bbc9-8f8ed41c17f4")
-		(at -109.126531 47.683298 90)
+		(at 139.867202 106.361121 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C301"
@@ -19912,7 +20886,7 @@
 			)
 		)
 		(property ki_fp_filters "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* TO*99* OnSemi*Micro8* TSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm* MSOP*3x3mm*P0.65mm* SSOP*3.9x4.9mm*P0.635mm* LFCSP*2x2mm*P0.5mm* *SIP* SOIC*5.3x6.2mm*P1.27mm*")
-		(path "/f1cfe584-903c-4ab4-aa01-92d49b6e7186")
+		(path "/98f0aadc-2638-4889-8c58-1a57f04764a6")
 		(sheetname "/")
 		(sheetfile "Rockman EQ.kicad_sch")
 		(units
@@ -20195,7 +21169,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "ce29f43d-74d0-4b7d-8de4-b5b948ad42aa")
-		(at -109.126531 0.458192 90)
+		(at 135.997186 122.436425 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R402"
@@ -20386,7 +21360,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "cf1c9e0a-3c20-43dd-ae22-dfd3a1c9a431")
-		(at -90.745466 63.425 90)
+		(at 194.265755 54.233774 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C109"
@@ -20577,7 +21551,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "d1a30071-a0b1-481e-a096-8ea23522a3a4")
-		(at -57.659549 31.941596 90)
+		(at 162.32512 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R213"
@@ -20768,7 +21742,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "d5bcf748-ca0e-4476-bbb5-989937f2be38")
-		(at -68.688188 63.425 90)
+		(at 128.599339 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C203"
@@ -20959,7 +21933,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "d678f528-a732-4f77-b0c1-cff4246a83c5")
-		(at -105.450318 0.458192 90)
+		(at 171.414706 119.650709 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R403"
@@ -21147,10 +22121,259 @@
 			)
 		)
 	)
+	(footprint "Package_TO_SOT_THT:TO-92_Wide"
+		(layer "F.Cu")
+		(uuid "d9d6e3f6-b62a-4647-85d0-250496ee6f32")
+		(at 172.057778 94.608112 -90)
+		(descr "TO-92 leads molded, wide, drill 0.75mm (see NXP sot054_po.pdf)")
+		(tags "to-92 sc-43 sc-43a sot54 PA33 transistor")
+		(property "Reference" "Q301"
+			(at 2.55 -4.19 90)
+			(layer "F.SilkS")
+			(uuid "668ee29b-c01b-429d-8a1f-04b601861236")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "MMBFJ112"
+			(at 2.54 2.79 90)
+			(layer "F.Fab")
+			(uuid "73bfb696-3466-46ca-8f2d-693209c866da")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/MMBFJ113-D.PDF"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6de260e7-b0ab-405f-9e98-fc863d974ff0")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "5mA min, 35V, 50mOhm max, 1-5V Vgs(off), N-Channel JFET, SOT-23"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4a663ea2-90f0-4e56-bb8f-cf549ba10a56")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "SOT?23*")
+		(path "/31c46d57-1739-47c8-8e2f-31d54681d337")
+		(sheetname "/")
+		(sheetfile "Rockman EQ.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "3" "1" "2")
+			)
+		)
+		(attr through_hole)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start 0.74 1.85)
+			(end 4.34 1.85)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "8eaf8fca-036a-4488-94a1-59083f5d1766")
+		)
+		(fp_arc
+			(start 0.74 1.85)
+			(mid 0.446097 1.509328)
+			(end 0.215816 1.122795)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "5ae854fa-a2ff-4671-95a3-f21a2c8f3087")
+		)
+		(fp_arc
+			(start 4.864184 1.122795)
+			(mid 4.633903 1.509328)
+			(end 4.34 1.85)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "6f533b12-b42c-44f3-b566-4756440f5949")
+		)
+		(fp_arc
+			(start 0.172801 -1.103842)
+			(mid 0.678995 -1.832692)
+			(end 1.4 -2.35)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "3d8685cc-f94a-4be1-9276-02c0b6b169dc")
+		)
+		(fp_arc
+			(start 3.65 -2.35)
+			(mid 4.382279 -1.833196)
+			(end 4.895458 -1.098371)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "5ef04646-5ef8-4d7e-92a9-2e5450adcd3d")
+		)
+		(fp_line
+			(start 6.09 2.01)
+			(end -1.01 2.01)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "d5f9ed3c-f2bd-4134-bada-34c7bccfec82")
+		)
+		(fp_line
+			(start 6.09 2.01)
+			(end 6.09 -3.55)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "b171e365-f80f-40c8-8097-dca997da488a")
+		)
+		(fp_line
+			(start -1.01 -3.55)
+			(end -1.01 2.01)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "bd8690e6-ae0c-4730-9341-deeb3a34bf23")
+		)
+		(fp_line
+			(start -1.01 -3.55)
+			(end 6.09 -3.55)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "a025b40b-9209-4237-ae90-05dd32e87d3c")
+		)
+		(fp_line
+			(start 0.8 1.75)
+			(end 4.3 1.75)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "f0cdf4eb-aaea-4bcc-830c-bc1b30b1c37e")
+		)
+		(fp_arc
+			(start 0.786375 1.753625)
+			(mid 0.248779 -0.949055)
+			(end 2.54 -2.48)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "18f9cede-6aec-4ee2-860d-0dd10fefc7cf")
+		)
+		(fp_arc
+			(start 2.54 -2.48)
+			(mid 4.831221 -0.949055)
+			(end 4.293625 1.753625)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "643eaf78-5906-4865-9292-38ca87cda6ea")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 2.54 0 90)
+			(layer "F.Fab")
+			(uuid "c2b2570f-dc84-4998-96a7-d7a7568837da")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" thru_hole rect
+			(at 0 0 270)
+			(size 1.5 1.5)
+			(drill 0.8)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "unconnected-(Q301-D-Pad1)")
+			(pinfunction "D_1")
+			(pintype "passive")
+			(uuid "f2ac8725-7497-4b80-9536-6d4523dd4147")
+		)
+		(pad "2" thru_hole circle
+			(at 2.54 -2.54 270)
+			(size 1.5 1.5)
+			(drill 0.8)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "unconnected-(Q301-S-Pad2)")
+			(pinfunction "S_2")
+			(pintype "passive")
+			(uuid "4167c59c-60ff-41ef-a1ec-4eab294ca8cf")
+		)
+		(pad "3" thru_hole circle
+			(at 5.08 0 270)
+			(size 1.5 1.5)
+			(drill 0.8)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net "unconnected-(Q301-G-Pad3)")
+			(pinfunction "G_3")
+			(pintype "input")
+			(uuid "375bae13-b940-40d3-9d20-a0431f358785")
+		)
+		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_THT.3dshapes/TO-92_Wide.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "dbc11bb2-785e-4f02-a252-c0d3f8bd778d")
-		(at -79.716827 0.458192 90)
+		(at 169.448018 138.25804 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R502"
@@ -21684,7 +22907,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "de38971e-7531-4554-978c-fbbf9bdd9065")
-		(at -46.63091 0.458192 90)
+		(at 245.71872 140.942616 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R511"
@@ -21875,7 +23098,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "dff6995b-dde6-4d82-a160-dd695edeee2b")
-		(at -120.15517 47.683298 90)
+		(at 197.346629 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C211"
@@ -22066,7 +23289,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "e02147a6-95b0-4e46-9af0-13adde9c3328")
-		(at -79.716827 63.425 90)
+		(at 239.447912 61.703722 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C112"
@@ -22257,7 +23480,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "e10888e7-1408-46ce-8ee0-f7b5862ff1dc")
-		(at -65.011975 16.199894 90)
+		(at 166.835802 102.64474 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R306"
@@ -22508,7 +23731,7 @@
 			)
 		)
 		(property ki_fp_filters "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* TO*99* OnSemi*Micro8* TSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm* MSOP*3x3mm*P0.65mm* SSOP*3.9x4.9mm*P0.635mm* LFCSP*2x2mm*P0.5mm* *SIP* SOIC*5.3x6.2mm*P1.27mm*")
-		(path "/622192eb-1d31-42a5-bfee-94e3cf3097dd")
+		(path "/7a9c1fe1-6757-4396-9ecd-21edf8401d74")
 		(sheetname "/")
 		(sheetfile "Rockman EQ.kicad_sch")
 		(units
@@ -22791,7 +24014,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "e8a7e097-8902-47b7-a168-b144f3f687ae")
-		(at -94.421679 16.199894 90)
+		(at 219.055701 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R225"
@@ -22982,13 +24205,13 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "ea78bd67-2b45-400d-bacf-efa40324ed04")
-		(at -101.774105 47.683298 90)
+		(at 209.032197 104.032558 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C303"
 			(at 6.35 -2.02834 90)
 			(layer "F.SilkS")
-			(uuid "01da69b7-7770-440d-ae6c-7b15b31f3621")
+			(uuid "ae7d879d-2a52-4491-a0a8-8b1ccf27ed4f")
 			(effects
 				(font
 					(size 1 1)
@@ -22999,7 +24222,7 @@
 		(property "Value" "C"
 			(at 6.35 2.062127 90)
 			(layer "F.Fab")
-			(uuid "e294ee5a-336f-465c-8805-81a1a866fefd")
+			(uuid "81e57b8b-84a1-41b5-b2ab-d41e88df3087")
 			(effects
 				(font
 					(size 1 1)
@@ -23011,7 +24234,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "a495acfa-32df-4000-8055-a810c49dd67e")
+			(uuid "a05af7c5-2ec4-428a-a3ec-fc6dbd8dfbfd")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23022,7 +24245,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b8e9cb1c-4d99-426d-b94e-c3dce2bbd6ce")
+			(uuid "33dccccd-965e-4222-b8b9-e248988fdea1")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23173,7 +24396,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "f1235bca-1755-468c-a52e-2485a36d3ff5")
-		(at -46.63091 16.199894 90)
+		(at 214.610533 103.957249 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R311"
@@ -23364,7 +24587,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "f15cca3c-7036-4311-8b72-5daedf11d950")
-		(at -61.335762 16.199894 90)
+		(at 177.443777 103.294747 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R307"
@@ -23555,7 +24778,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "f1728332-6d12-4dc9-9f79-c52ad6a0688c")
-		(at -94.421679 0.458192 90)
+		(at 199.499603 122.802074 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R406"
@@ -24149,7 +25372,7 @@
 			)
 		)
 		(property ki_fp_filters "SOIC*3.9x4.9mm*P1.27mm* DIP*W7.62mm* TO*99* OnSemi*Micro8* TSSOP*3x3mm*P0.65mm* TSSOP*4.4x3mm*P0.65mm* MSOP*3x3mm*P0.65mm* SSOP*3.9x4.9mm*P0.635mm* LFCSP*2x2mm*P0.5mm* *SIP* SOIC*5.3x6.2mm*P1.27mm*")
-		(path "/fb1f2a2a-3988-49b4-b9f6-1febb09ddcb5")
+		(path "/7d4032c5-a446-4cba-9229-0489bb3e435a")
 		(sheetname "/")
 		(sheetfile "Rockman EQ.kicad_sch")
 		(units
@@ -24432,11 +25655,11 @@
 	(footprint "Diode_THT:D_A-405_P12.70mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "f7646414-038f-4494-870f-06ae1b5abdbd")
-		(at 16.8 102.5)
+		(at 90.725794 113.592627 90)
 		(descr "Diode, A-405 series, Axial, Horizontal, pin pitch=12.7mm, length*diameter=5.2*2.7mm^2, http://www.diodes.com/_files/packages/A-405.pdf")
 		(tags "Diode A-405 series Axial Horizontal pin pitch 12.7mm  length 5.2mm diameter 2.7mm")
 		(property "Reference" "D401"
-			(at 6.35 -2.47 0)
+			(at 6.35 -2.47 90)
 			(layer "F.SilkS")
 			(uuid "a64166ff-cb0a-4e9c-847d-bb3b996f41c7")
 			(effects
@@ -24447,7 +25670,7 @@
 			)
 		)
 		(property "Value" "1N4001"
-			(at 6.35 2.47 0)
+			(at 6.35 2.47 90)
 			(layer "F.Fab")
 			(uuid "db4a1daa-3c9e-464f-91b6-516861056327")
 			(effects
@@ -24458,7 +25681,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "a4b212ef-58db-4621-94a4-498c6dca93e1")
@@ -24469,7 +25692,7 @@
 			)
 		)
 		(property "Description" "Diode, filled shape"
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "9f148bd7-7c2e-45da-b4b8-7c8f16eccaaa")
@@ -24480,7 +25703,7 @@
 			)
 		)
 		(property "KiLib_Generator" "diode/THT"
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "0f032bac-4b21-48a3-ae2b-62dd567f44ad")
@@ -24492,7 +25715,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 0 0 0)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -24505,7 +25728,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 0 0 0)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -24530,24 +25753,14 @@
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
-			(start 1.14 0)
-			(end 3.63 0)
+			(start 4.65 -1.47)
+			(end 4.65 1.47)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "97b89346-61d4-4594-9197-0d20332694cd")
-		)
-		(fp_line
-			(start 4.41 -1.47)
-			(end 4.41 1.47)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "173eebb6-0048-4f18-9112-f6349250d1a3")
+			(uuid "b4921c0e-269a-494a-8eb9-56ad1b5d0fbf")
 		)
 		(fp_line
 			(start 4.53 -1.47)
@@ -24560,14 +25773,14 @@
 			(uuid "f300fd1f-9d0d-40dc-a238-b1349c839e87")
 		)
 		(fp_line
-			(start 4.65 -1.47)
-			(end 4.65 1.47)
+			(start 4.41 -1.47)
+			(end 4.41 1.47)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "b4921c0e-269a-494a-8eb9-56ad1b5d0fbf")
+			(uuid "173eebb6-0048-4f18-9112-f6349250d1a3")
 		)
 		(fp_line
 			(start 11.56 0)
@@ -24578,6 +25791,16 @@
 			)
 			(layer "F.SilkS")
 			(uuid "47110879-a934-4a67-8a07-7639c59b0f71")
+		)
+		(fp_line
+			(start 1.14 0)
+			(end 3.63 0)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "97b89346-61d4-4594-9197-0d20332694cd")
 		)
 		(fp_rect
 			(start 3.63 -1.47)
@@ -24602,24 +25825,14 @@
 			(uuid "53cf3925-f6a2-41bc-8f8a-8df2fdba4ba9")
 		)
 		(fp_line
-			(start 0 0)
-			(end 3.75 0)
+			(start 4.63 -1.35)
+			(end 4.63 1.35)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "732f5769-72b3-48fc-a3ba-1440f23bda77")
-		)
-		(fp_line
-			(start 4.43 -1.35)
-			(end 4.43 1.35)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "b80ab385-b50c-42c0-8f1a-1e6733e5221a")
+			(uuid "c89cf391-3a4a-4f78-b5a5-b7ad0fa438e0")
 		)
 		(fp_line
 			(start 4.53 -1.35)
@@ -24632,14 +25845,14 @@
 			(uuid "199544ac-84d1-46eb-8fc4-9d09db247097")
 		)
 		(fp_line
-			(start 4.63 -1.35)
-			(end 4.63 1.35)
+			(start 4.43 -1.35)
+			(end 4.43 1.35)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "c89cf391-3a4a-4f78-b5a5-b7ad0fa438e0")
+			(uuid "b80ab385-b50c-42c0-8f1a-1e6733e5221a")
 		)
 		(fp_line
 			(start 12.7 0)
@@ -24650,6 +25863,16 @@
 			)
 			(layer "F.Fab")
 			(uuid "4377ab24-b7e8-4649-b71e-bb0552d1f9fd")
+		)
+		(fp_line
+			(start 0 0)
+			(end 3.75 0)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "732f5769-72b3-48fc-a3ba-1440f23bda77")
 		)
 		(fp_rect
 			(start 3.75 -1.35)
@@ -24663,7 +25886,7 @@
 			(uuid "d250de54-ff58-4e50-9802-3fbefee595c7")
 		)
 		(fp_text user "K"
-			(at 0 -1.9 0)
+			(at 0 -1.9 90)
 			(layer "F.SilkS")
 			(uuid "6fd54547-3980-4c61-abb0-f805150b7bbd")
 			(effects
@@ -24674,7 +25897,7 @@
 			)
 		)
 		(fp_text user "K"
-			(at 0 -1.9 0)
+			(at 0 -1.9 90)
 			(layer "F.Fab")
 			(uuid "5aadbcd7-4681-46a5-8b99-894fc1f66d6b")
 			(effects
@@ -24685,7 +25908,7 @@
 			)
 		)
 		(fp_text user "${REFERENCE}"
-			(at 6.74 0 0)
+			(at 6.74 0 90)
 			(layer "F.Fab")
 			(uuid "896916d1-68cf-4eb7-8dc6-8b812c7ebc5e")
 			(effects
@@ -24696,7 +25919,7 @@
 			)
 		)
 		(pad "1" thru_hole roundrect
-			(at 0 0)
+			(at 0 0 90)
 			(size 1.8 1.8)
 			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
@@ -24708,7 +25931,7 @@
 			(uuid "c6772816-c96a-4b2d-8d5e-2dfcd61e5d87")
 		)
 		(pad "2" thru_hole circle
-			(at 12.7 0)
+			(at 12.7 0 90)
 			(size 1.8 1.8)
 			(drill 0.9)
 			(layers "*.Cu" "*.Mask")
@@ -24734,7 +25957,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "f80b4e2c-15a4-499a-ae35-8e3a96bad725")
-		(at -65.011975 47.683298 90)
+		(at 227.486511 140.925028 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C506"
@@ -24925,7 +26148,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "f94fbc06-334b-441b-8771-6eabcdaf761d")
-		(at -112.802744 31.941596 90)
+		(at 234.028285 61.703722 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R104"
@@ -25116,7 +26339,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "f9e5ce94-ac7b-4797-abd3-5f96a56e96d1")
-		(at -120.15517 16.199894 90)
+		(at 186.269056 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R218"
@@ -25307,7 +26530,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "fba83e93-198b-4abe-861f-c122e7b21f44")
-		(at -76.040614 31.941596 90)
+		(at 139.525471 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "R208"
@@ -25498,7 +26721,7 @@
 	(footprint "Rockman:Resistor-Capacitor"
 		(layer "F.Cu")
 		(uuid "fc25a0ca-a405-4615-b0f9-98d2354e407c")
-		(at -57.659549 63.425 90)
+		(at 155.08927 71.387075 90)
 		(descr "Resistor, Axial_DIN0309 series, Axial, Horizontal, pin pitch=12.7mm, 0.5W = 1/2W, length*diameter=9*3.2mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0309 series Axial Horizontal pin pitch 12.7mm 0.5W = 1/2W length 9mm diameter 3.2mm")
 		(property "Reference" "C206"

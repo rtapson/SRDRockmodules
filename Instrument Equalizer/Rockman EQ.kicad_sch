@@ -3380,6 +3380,226 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Transistor_FET:MMBFJ112"
+			(pin_names
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "Q"
+				(at 5.08 1.905 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "MMBFJ112"
+				(at 5.08 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 5.08 -1.905 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(justify left)
+				)
+			)
+			(property "Datasheet" "https://www.onsemi.com/pub/Collateral/MMBFJ113-D.PDF"
+				(at 5.08 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Description" "5mA min, 35V, 50mOhm max, 1-5V Vgs(off), N-Channel JFET, SOT-23"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "N-Channel FET Transistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "SOT?23*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "MMBFJ112_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy -1.016 0.381) (xy -1.016 -0.381) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 1.905) (xy 0.254 -1.905)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 1.27 0)
+					(radius 2.8194)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 2.54) (xy 2.54 1.397) (xy 0.254 1.397)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -2.54) (xy 2.54 -1.397) (xy 0.254 -1.397)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MMBFJ112_1_1"
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "D"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -5.08 90)
+					(length 2.54)
+					(name "S"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "G"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:+12V"
 			(power global)
 			(pin_numbers
@@ -4993,34 +5213,122 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8af")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d6")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50d99")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d76")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0f")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b5")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a4")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585d")
 		)
 		(instances
 			(project "Rockman EQ"
 				(path "/db3f3fe9-bd0a-4e59-bcc7-a7bde26fbeb6"
 					(reference "IC105")
 					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:MMBFJ112")
+		(at 355.6 101.6 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0ce83da4-49c5-4315-b426-43b55c111609")
+		(property "Reference" "Q503"
+			(at 360.68 100.3299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MMBFJ112"
+			(at 360.68 102.8699 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_THT:TO-92_Wide"
+			(at 360.68 103.505 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/MMBFJ113-D.PDF"
+			(at 360.68 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "5mA min, 35V, 50mOhm max, 1-5V Vgs(off), N-Channel JFET, SOT-23"
+			(at 355.6 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "3"
+			(uuid "5611ad6d-d442-4931-9390-4fdde7aae86f")
+		)
+		(pin "2"
+			(uuid "815e15f2-780b-456e-89cf-005dd9cddc90")
+		)
+		(pin "1"
+			(uuid "39306f16-1079-440d-a3b8-817a53a2ed47")
+		)
+		(instances
+			(project "Rockman EQ"
+				(path "/db3f3fe9-bd0a-4e59-bcc7-a7bde26fbeb6"
+					(reference "Q503")
+					(unit 1)
 				)
 			)
 		)
@@ -5405,7 +5713,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Rockman:Resistor-Capacitor"
 			(at 321.31 82.55 0)
 			(hide yes)
 			(show_name no)
@@ -6025,28 +6333,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8b0")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d7")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50d9a")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d77")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b10")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b6")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a5")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585e")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -6300,28 +6608,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8b1")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d8")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50d9b")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d78")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b11")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b7")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a6")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585f")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -6398,28 +6706,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8b2")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d9")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50d9c")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d79")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b12")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b8")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a7")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285860")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -6498,28 +6806,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8b3")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488da")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50d9d")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d7a")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b13")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b9")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a8")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285861")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -6762,28 +7070,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8b4")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488db")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50d9e")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d7b")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b14")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9ba")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a9")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285862")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -7205,6 +7513,94 @@
 		)
 	)
 	(symbol
+		(lib_id "Transistor_FET:MMBFJ112")
+		(at 328.93 101.6 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "31c46d57-1739-47c8-8e2f-31d54681d337")
+		(property "Reference" "Q301"
+			(at 334.01 100.3299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MMBFJ112"
+			(at 334.01 102.8699 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_THT:TO-92_Wide"
+			(at 334.01 103.505 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/MMBFJ113-D.PDF"
+			(at 334.01 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Description" "5mA min, 35V, 50mOhm max, 1-5V Vgs(off), N-Channel JFET, SOT-23"
+			(at 328.93 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f6f6cdb3-a46b-44d3-8d7b-ce3276cba252")
+		)
+		(pin "2"
+			(uuid "3e02e6ca-38b2-4691-afa9-c907f8fa35ea")
+		)
+		(pin "3"
+			(uuid "62fd1d61-772f-4b5e-bacd-225f7eb88275")
+		)
+		(instances
+			(project "Rockman EQ"
+				(path "/db3f3fe9-bd0a-4e59-bcc7-a7bde26fbeb6"
+					(reference "Q301")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_US")
 		(at 497.84 233.68 0)
 		(unit 1)
@@ -7592,28 +7988,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8b5")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488dc")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50d9f")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d7c")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b15")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9bb")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6aa")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285863")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -8260,28 +8656,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8b6")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488dd")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50da0")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d7d")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b16")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9bc")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6ab")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285864")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -8360,28 +8756,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8b7")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488de")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50da1")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d7e")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b17")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9bd")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6ac")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285865")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -8830,28 +9226,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8b8")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488df")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50da2")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d7f")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b18")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9be")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6ad")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285866")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -9266,28 +9662,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8b9")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488e0")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50da3")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d80")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b19")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9bf")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6ae")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285867")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -10607,28 +11003,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ba")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488e1")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50da4")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d81")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b1a")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9c0")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6af")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285868")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -10869,28 +11265,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8bb")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488e2")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50da5")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d82")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b1b")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9c1")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6b0")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285869")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -11049,28 +11445,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8bc")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488e3")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50da6")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d83")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b1c")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9c2")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6b1")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28586a")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -12471,28 +12867,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8bd")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488e4")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50da7")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d84")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b1d")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9c3")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6b2")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28586b")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -12979,28 +13375,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8be")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488e5")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50da8")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d85")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b1e")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9c4")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6b3")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28586c")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -13043,7 +13439,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
 			(at 159.385 332.74 0)
 			(hide yes)
 			(show_name no)
@@ -13328,28 +13724,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8bf")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488e6")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50da9")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d86")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b1f")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9c5")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6b4")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28586d")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -13586,28 +13982,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8c0")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488e7")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50daa")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d87")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b20")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9c6")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6b5")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28586e")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -14332,28 +14728,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8c1")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488e8")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50dab")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d88")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b21")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9c7")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6b6")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28586f")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -15012,28 +15408,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8c2")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488e9")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50dac")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d89")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b22")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9c8")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6b7")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285870")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -17394,28 +17790,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8c3")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488ea")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50dad")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d8a")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b23")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9c9")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6b8")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285871")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -18265,28 +18661,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8c4")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488eb")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50dae")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d8b")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b24")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9ca")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6b9")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285872")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -18447,28 +18843,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8c5")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488ec")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50daf")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d8c")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b25")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9cb")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6ba")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285873")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -18545,28 +18941,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8c6")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488ed")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50db0")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d8d")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b26")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9cc")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6bb")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285874")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -18722,28 +19118,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8c7")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488ee")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50db1")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d8e")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b27")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9cd")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6bc")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285875")
 		)
 		(instances
 			(project "Rockman EQ"
@@ -19196,7 +19592,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_TO_SOT_THT:TO-220-3_Vertical"
 			(at 157.48 360.68 0)
 			(hide yes)
 			(show_name no)
@@ -19316,28 +19712,28 @@
 			)
 		)
 		(pin "8"
-			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8ae")
+			(uuid "1097b165-7904-4bf0-9274-3ac4ea62f8c8")
 		)
 		(pin "7"
-			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488d5")
+			(uuid "2669bfda-48b0-4ca8-b00a-32292c6488ef")
 		)
 		(pin "3"
-			(uuid "d8c9faac-7c98-4afa-8690-226354d50d98")
+			(uuid "d8c9faac-7c98-4afa-8690-226354d50db2")
 		)
 		(pin "4"
-			(uuid "d7913e23-53f0-4365-b7af-927e88256d75")
+			(uuid "d7913e23-53f0-4365-b7af-927e88256d8f")
 		)
 		(pin "6"
-			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b0e")
+			(uuid "5ad82470-fa90-439a-9a06-f8fafdcf6b28")
 		)
 		(pin "1"
-			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9b4")
+			(uuid "e76e2ddf-845f-4d39-91a9-f95ceb63e9ce")
 		)
 		(pin "5"
-			(uuid "48eda97e-3731-466d-ba4e-561c598bd6a3")
+			(uuid "48eda97e-3731-466d-ba4e-561c598bd6bd")
 		)
 		(pin "2"
-			(uuid "bcc15462-3fcf-40f7-beae-01ca8b28585c")
+			(uuid "bcc15462-3fcf-40f7-beae-01ca8b285876")
 		)
 		(instances
 			(project "Rockman EQ"
