@@ -1,0 +1,5 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "Rockman") (type "KiCad") (uri "../KiCad/Footprints/Rockman.pretty") (options "") (descr ""))
+	(lib (name "Octopus") (type "KiCad") (uri "${KIPRJMOD}/Octopus.pretty") (options "") (descr "Octopus-specific footprints (Teensy 4.1 socket)"))
+)
