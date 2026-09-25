@@ -11,10 +11,22 @@ constexpr uint8_t kMode2DirectLed = 0x10;
 constexpr uint8_t kPrescale1kHz = 5;       // 25 MHz / (4096 * (5 + 1)) = ~1 kHz, no visible flicker
 constexpr uint8_t kFullBit = 0x10;         // bit 4 of LEDn_ON_H / LEDn_OFF_H
 
-// MCP23008 registers
-constexpr uint8_t kIodir = 0x00, kIpol = 0x01, kGpinten = 0x02, kIntcon = 0x04, kIocon = 0x05,
-                  kGppu = 0x06, kGpio = 0x09;
+// MCP23017 registers, IOCON.BANK = 0 (A/B pairs interleaved)
+constexpr uint8_t kIodirA = 0x00, kIodirB = 0x01, kIpolA = 0x02, kIpolB = 0x03, kGpintenA = 0x04,
+                  kGpintenB = 0x05, kIntconA = 0x08, kIntconB = 0x09, kIocon = 0x0A,
+                  kGppuA = 0x0C, kGppuB = 0x0D, kGpioA = 0x12, kOlatA = 0x14, kOlatB = 0x15;
+constexpr uint8_t kIoconMirror = 0x40;     // INTA covers both ports
 constexpr uint8_t kIoconOdr = 0x04;        // INT as open-drain (Teensy pin has a pull-up)
+// GPA0-6, GPB0-6 in, GPA7/GPB7 out (driven low); pull-ups on every input
+constexpr uint8_t kInputs = 0x7F;
+// active-low contacts read as 1: buttons (GPA0-6, GPB0) and the encoder push (GPB3);
+// the encoder's A/B (GPB1-2) are left raw for the quadrature decoder
+constexpr uint8_t kIpolAValue = 0x7F, kIpolBValue = 0x09;
+constexpr uint8_t kIntA = 0x7F, kIntB = 0x0F;
+
+// Quadrature transition table, index = old AB * 4 + new AB: +1 / -1 per valid step,
+// 0 for no change or a skipped (invalid) step.
+constexpr int8_t kQuad[16] = {0, -1, 1, 0, 1, 0, 0, -1, -1, 0, 0, 1, 0, 1, -1, 0};
 }  // namespace
 
 Panel::Panel(RelayBank& relays, PresetStore& presets, MidiHandler& midi)
@@ -32,82 +44,132 @@ void Panel::writeReg(uint8_t addr, uint8_t reg, uint8_t value) {
     Wire.endTransmission();
 }
 
-uint8_t Panel::readReg(uint8_t addr, uint8_t reg) {
-    Wire.beginTransmission(addr);
-    Wire.write(reg);
+// GPIOA and GPIOB in one transfer (the MCP23017 auto-increments); reading clears INT.
+uint16_t Panel::readInputs() {
+    Wire.beginTransmission(kMcp);
+    Wire.write(kGpioA);
     Wire.endTransmission(false);
-    Wire.requestFrom(addr, static_cast<uint8_t>(1));
-    return Wire.available() ? Wire.read() : 0;
+    Wire.requestFrom(kMcp, static_cast<uint8_t>(2));
+    uint16_t a = Wire.available() ? Wire.read() : 0;
+    uint16_t b = Wire.available() ? Wire.read() : 0;
+    return a | (b << 8);
 }
 
 void Panel::begin() {
     Wire.begin();
     Wire.setClock(400000);
-    present_ = probe(kPcaRG) && probe(kPcaB) && probe(kMcp);
+    present_ = probe(kPcaRG) && probe(kMcp);
     if (!present_) {
         Serial.println(F("button panel not found on I2C; running without it"));
-        return;
+    } else {
+        writeReg(kPcaRG, kMode1, kMode1Sleep);           // prescaler only writable while asleep
+        writeReg(kPcaRG, kPrescale, kPrescale1kHz);
+        writeReg(kPcaRG, kMode2, kMode2DirectLed);
+        writeReg(kPcaRG, kAllLedOffH, kFullBit);         // everything dark
+        writeReg(kPcaRG, kMode1, kMode1AutoInc);         // wake, register auto-increment
+        delayMicroseconds(500);                          // oscillator start-up
+
+        writeReg(kMcp, kIocon, kIoconMirror | kIoconOdr);
+        writeReg(kMcp, kOlatA, 0x00);
+        writeReg(kMcp, kOlatB, 0x00);
+        writeReg(kMcp, kIodirA, kInputs);
+        writeReg(kMcp, kIodirB, kInputs);
+        writeReg(kMcp, kGppuA, kInputs);
+        writeReg(kMcp, kGppuB, kInputs);
+        writeReg(kMcp, kIpolA, kIpolAValue);
+        writeReg(kMcp, kIpolB, kIpolBValue);
+        writeReg(kMcp, kIntconA, 0x00);                  // interrupt on any change
+        writeReg(kMcp, kIntconB, 0x00);
+        writeReg(kMcp, kGpintenA, kIntA);
+        writeReg(kMcp, kGpintenB, kIntB);
+        pinMode(kIntPin, INPUT_PULLUP);
+        uint16_t raw = readInputs();                     // also clears any pending interrupt
+        stable_ = lastRaw_ = raw & kDebounced;
+        encState_ = ((raw & kEncA) ? 2 : 0) | ((raw & kEncB) ? 1 : 0);
+
+        shown_ = -1;
+        refreshLeds(millis());
     }
-
-    for (uint8_t pca : {kPcaRG, kPcaB}) {
-        writeReg(pca, kMode1, kMode1Sleep);          // prescaler only writable while asleep
-        writeReg(pca, kPrescale, kPrescale1kHz);
-        writeReg(pca, kMode2, kMode2DirectLed);
-        writeReg(pca, kAllLedOffH, kFullBit);        // everything dark
-        writeReg(pca, kMode1, kMode1AutoInc);        // wake, register auto-increment
-    }
-    delayMicroseconds(500);                          // oscillator start-up
-
-    writeReg(kMcp, kIodir, 0xFF);                    // all inputs
-    writeReg(kMcp, kGppu, 0xFF);                     // pull-ups; buttons short to GND
-    writeReg(kMcp, kIpol, 0xFF);                     // so a pressed button reads 1
-    writeReg(kMcp, kIocon, kIoconOdr);
-    writeReg(kMcp, kIntcon, 0x00);                   // interrupt on any change
-    writeReg(kMcp, kGpinten, 0xFF);
-    pinMode(kIntPin, INPUT_PULLUP);
-    stable_ = lastRaw_ = readReg(kMcp, kGpio);       // also clears any pending interrupt
-
-    shown_ = -1;
-    refreshLeds(millis());
+    display_.begin();
+    refreshDisplay(millis());
 }
 
 void Panel::update() {
-    if (!present_) return;
     uint32_t now = millis();
-    // Poll while the MCP23008 flags a change, a button is held (long-press timing),
-    // or a change is still settling; otherwise the bus stays idle.
-    bool busy = digitalRead(kIntPin) == LOW || stable_ != 0 || lastRaw_ != stable_;
-    if (busy && now - lastPoll_ >= kPollMs) {
-        lastPoll_ = now;
-        pollButtons(now);
-    }
-    for (uint8_t b = 0; b < kButtons; b++) {
-        if ((stable_ & (1u << b)) && !(longFired_ & (1u << b)) && now - pressStart_[b] >= kLongPressMs) {
-            longFired_ |= (1u << b);
-            save(now);
+    if (present_) {
+        // Read at once while the MCP23017 flags a change (the encoder needs every
+        // transition); otherwise poll only while a button is held (long-press timing) or
+        // a change is still settling, and leave the bus idle the rest of the time.
+        bool flagged = digitalRead(kIntPin) == LOW;
+        bool busy = stable_ != 0 || lastRaw_ != stable_;
+        if (flagged || (busy && now - lastPoll_ >= kPollMs)) {
+            lastPoll_ = now;
+            pollInputs(now);
         }
+        for (uint8_t b = 0; b < kButtons; b++) {
+            if ((buttonBits(stable_) & (1u << b)) && !(longFired_ & (1u << b)) &&
+                now - pressStart_[b] >= kLongPressMs) {
+                longFired_ |= (1u << b);
+                save(now);
+            }
+        }
+        refreshLeds(now);
     }
-    refreshLeds(now);
+    if (selecting_ && now - lastTurn_ >= kSelectTimeoutMs) selecting_ = false;
+    refreshDisplay(now);
 }
 
-void Panel::pollButtons(uint32_t now) {
-    uint8_t raw = readReg(kMcp, kGpio);
+void Panel::pollInputs(uint32_t now) {
+    uint16_t word = readInputs();
+    encoderStep(word, now);
+    uint16_t raw = word & kDebounced;
     if (raw != lastRaw_) {
         lastRaw_ = raw;
         lastChange_ = now;
         return;
     }
     if (raw == stable_ || now - lastChange_ < kDebounceMs) return;
-    uint8_t changed = raw ^ stable_;
+    uint16_t changed = raw ^ stable_;
+    uint8_t pressedButtons = buttonBits(raw), changedButtons = buttonBits(changed);
     stable_ = raw;
     for (uint8_t b = 0; b < kButtons; b++) {
-        if (!(changed & (1u << b))) continue;
-        if (raw & (1u << b)) {
+        if (!(changedButtons & (1u << b))) continue;
+        if (pressedButtons & (1u << b)) {
             onPress(b, now);
         } else {
             onRelease(b);
         }
     }
+    if ((changed & kEncSw) && (raw & kEncSw)) encoderPush();
+}
+
+// One count per detent. Detents sit at A = B = 1 (both contacts open, with the pull-ups)
+// and, on half-cycle encoders, also at A = B = 0; between two detents the contacts pass
+// through two transitions (half-cycle) or four (full-cycle), so a move counts once it has
+// covered at least two in the same direction -- which also rides out a missed read.
+void Panel::encoderStep(uint16_t raw, uint32_t now) {
+    uint8_t state = ((raw & kEncA) ? 2 : 0) | ((raw & kEncB) ? 1 : 0);
+    if (state == encState_) return;
+    encAccum_ += kQuad[encState_ * 4 + state];
+    encState_ = state;
+    if (state != 3 && !(kHalfCycleDetents && state == 0)) return;
+    int8_t dir = encAccum_ >= 2 ? 1 : encAccum_ <= -2 ? -1 : 0;
+    encAccum_ = 0;
+    if (dir == 0) return;
+    if (kEncoderReverse) dir = -dir;
+    if (!selecting_) pending_ = midi_.currentPreset();
+    // wraps 128 -> 1 and 1 -> 128
+    pending_ = (pending_ + dir + PresetStore::kPresetCount) % PresetStore::kPresetCount;
+    selecting_ = true;
+    lastTurn_ = now;
+}
+
+void Panel::encoderPush() {
+    if (!selecting_) return;
+    selecting_ = false;
+    midi_.recall(pending_);
+    Serial.print(F("panel: recalled preset "));
+    Serial.println(pending_ + 1);
 }
 
 void Panel::onPress(uint8_t b, uint32_t now) {
@@ -121,7 +183,7 @@ void Panel::onRelease(uint8_t b) {
 }
 
 // Jack b+1: line b+1 is its tip, line b+9 its ring. State s = tip + 2*ring steps
-// 0 (off) -> 1 (tip, red) -> 2 (ring, green) -> 3 (both, blue) -> 0.
+// 0 (off) -> 1 (tip, red) -> 2 (ring, green) -> 3 (both, amber) -> 0.
 void Panel::cycle(uint8_t b) {
     uint16_t p = relays_.pattern();
     uint8_t s = ((p >> b) & 1) | (((p >> (b + 8)) & 1) << 1);
@@ -134,8 +196,10 @@ void Panel::save(uint32_t now) {
     uint8_t slot = midi_.currentPreset();
     presets_.setPreset(slot, relays_.pattern());
     flashUntil_ = now + kFlashMs;
+    savedUntil_ = now + kSavedMs;
+    selecting_ = false;
     Serial.print(F("panel: saved preset "));
-    Serial.println(slot);
+    Serial.println(slot + 1);
 }
 
 void Panel::setChannel(uint8_t addr, uint8_t ch, uint16_t level) {
@@ -156,19 +220,29 @@ void Panel::setChannel(uint8_t addr, uint8_t ch, uint16_t level) {
     Wire.endTransmission();
 }
 
+// Each button's red LED shows its jack's tip line and its green LED the ring line, so
+// both on reads as amber. A save blinks everything off once (buttons may all be lit).
 void Panel::refreshLeds(uint32_t now) {
     bool flash = static_cast<int32_t>(flashUntil_ - now) > 0;
     uint16_t p = relays_.pattern();
     if (static_cast<int32_t>(p) == shown_ && flash == shownFlash_) return;
     for (uint8_t b = 0; b < kButtons; b++) {
-        bool tip = (p >> b) & 1, ring = (p >> (b + 8)) & 1;
-        bool r = flash || (tip && !ring);
-        bool g = flash || (ring && !tip);
-        bool bl = flash || (tip && ring);
-        setChannel(kPcaRG, b, r ? kLevelRed : 0);
-        setChannel(kPcaRG, 8 + b, g ? kLevelGreen : 0);
-        setChannel(kPcaB, b, bl ? kLevelBlue : 0);
+        bool tip = !flash && ((p >> b) & 1), ring = !flash && ((p >> (b + 8)) & 1);
+        setChannel(kPcaRG, b, tip ? kLevelRed : 0);
+        setChannel(kPcaRG, 8 + b, ring ? kLevelGreen : 0);
     }
     shown_ = p;
     shownFlash_ = flash;
+}
+
+void Panel::refreshDisplay(uint32_t now) {
+    uint8_t current = midi_.currentPreset();
+    bool edited = relays_.pattern() != presets_.preset(current);
+    if (selecting_) {
+        display_.show(Display::Mode::Selecting, pending_, false);
+    } else if (static_cast<int32_t>(savedUntil_ - now) > 0) {
+        display_.show(Display::Mode::Saved, current, false);
+    } else {
+        display_.show(Display::Mode::Current, current, edited);
+    }
 }

@@ -21,8 +21,12 @@ public:
     void handleProgramChange(uint8_t channel, uint8_t number);
     void handleControlChange(uint8_t channel, uint8_t number, uint8_t value);
 
-    // Last preset recalled by Program Change (0 until the first one arrives);
-    // the button panel's long-press saves into this slot.
+    // Recall preset 0-127 (all 16 lines at once): Program Change and the front-panel
+    // encoder both come through here.
+    void recall(uint8_t preset);
+
+    // Last preset recalled (0 until the first one); the button panel's long-press saves
+    // into this slot, and the display shows it (as 1-128).
     uint8_t currentPreset() const { return current_; }
 
 private:

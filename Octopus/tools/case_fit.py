@@ -4,7 +4,7 @@ Needs:  pip install cadquery-ocp matplotlib numpy   (plain CPython, not KiCad's 
 Run:    python tools/case_fit.py
 
 Writes panel/build/case_fit_side.png (side section through the right-hand button
-column: case solids, board, switch and both usable cap styles) and prints whether the
+column: case solids, board, and the Omron B3W-9 switch with its cap) and prints whether the
 board's plane inside the groove is clear of case material. Geometry constants come
 from gen_panel_pcb.py's docstring / measured values; case frame is x across,
 y front->back, z up (mm).
@@ -34,8 +34,9 @@ BOARD_T = 1.6
 PANEL_X0, PANEL_Z1, PANEL_FRONT = -108.12, 43.31, -72.23
 BUTTON_X = 8.5 * 25.4 - 25.4 + PANEL_X0
 ROWS_Z = [PANEL_Z1 - (44.45 / 2 - 7.62), PANEL_Z1 - (44.45 / 2 + 7.62)]
-SWITCH_H, SWITCH_W, HOLE = 7.2, 7.2, 8.0
-CAPS = {"A (round, 3.5 mm)": (3.5, 7.3), "D (cylinder, 9.4 mm)": (9.4, 7.4)}
+# Omron B3W-9: 6.6 mm body + 4.4 mm cap = 11 mm, 10 x 10 mm; square 10.6 mm panel cut-out
+SWITCH_H, SWITCH_W, HOLE = 6.6, 10.0, 10.6
+CAPS = {"B3W-9 10x10": (4.4, 10.0)}
 
 
 def load(name):
@@ -73,7 +74,8 @@ def side_section():
     img = np.array([[solid_at(BUTTON_X, y, z) for y in ys] for z in zs])
     for z in ROWS_Z:                         # cap holes aren't in the panel model yet
         img[(np.abs(zs - z) < HOLE / 2)[:, None] & ((ys > PANEL_FRONT) & (ys < -69.8))[None, :] & (img == 3)] = 0
-    fig, axes = plt.subplots(1, len(CAPS), figsize=(14, 7), sharey=True)
+    fig, axes = plt.subplots(1, len(CAPS), figsize=(7 * len(CAPS), 7), sharey=True, squeeze=False)
+    axes = axes[0]
     for ax, (name, (cap_h, cap_d)) in zip(axes, CAPS.items()):
         ax.imshow(img, origin="lower", extent=[ys[0], ys[-1], zs[0], zs[-1]], cmap="tab10", vmin=0, vmax=9,
                   aspect="equal", interpolation="nearest")

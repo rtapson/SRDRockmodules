@@ -1,0 +1,34 @@
+Quantity,Manufacturer Part Number,Manufacturer,Digi-Key Part Number,Customer Reference,Description,Notes
+1,DEV-16771,SparkFun Electronics,,Main U1,Teensy 4.1 development board (no headers),
+2,PPTC241LFBN-RC,Sullins Connector Solutions,S7022-ND,Main U1 socket,"Female header 1x24, 2.54 mm, through hole",Teensy socket on the main board
+2,PBC24SAAN,Sullins Connector Solutions,S1011E-24-ND,Teensy pins,"Male header 1x24, 2.54 mm",Soldered to the Teensy
+1,6N138,Lite-On Inc.,,Main U2,"Optocoupler, high-speed, DIP-8",MIDI IN
+2,ULN2803A,STMicroelectronics,,"Main U3, U5","Darlington array 8x 50 V 500 mA, DIP-18",TI ULN2803AN is obsolete
+1,R-78E5.0-1.0,RECOM Power,,Main U4,"5 V 1 A switching regulator, SIP-3",
+1,SN74HCT14N,Texas Instruments,,Main U6,"Hex Schmitt inverter, HCT, DIP-14",MIDI THRU buffer
+16,G5V-1-DC5,Omron Electronics,,Main K1-K16,"Relay SPDT 1 A, 5 VDC coil",
+8,RN112BPC,Switchcraft Inc.,SC1123-ND,Main J3-J10,"1/4 in TRS jack, right angle PC mount",Outputs 1-8
+2,FM6725,Cliff Electronic Components,,"Main J1, J12","DIN-5 180 deg socket, screened, right angle PCB",MIDI IN/THRU; if DigiKey has none: Farnell 2679726 or TME
+1,1715721,Phoenix Contact,,Main J2,"Terminal block 2 pos, 5.08 mm (MKDS 1,5/ 2-5,08)",9-12 VDC input
+2,B6B-XH-A(LF)(SN),JST Sales America Inc.,,"Main J11, Panel J1","JST-XH header 6 pos, vertical",
+2,XHP-6,JST Sales America Inc.,,Panel cable,JST-XH housing 6 pos,Cable main J11 to panel J1
+12,SXH-001T-P0.6,JST Sales America Inc.,,Panel cable,"JST-XH crimp contact, 26-22 AWG",Or buy pre-crimped leads
+1,MF-RHT070-0,Bourns Inc.,,Main F1,"PTC resettable fuse 0.7 A hold, radial",
+1,1N4148,onsemi,,Main D1,"Diode 100 V 200 mA, DO-35",
+1,UVR1E100MDD1TD,Nichicon,,Main C1,"10 uF 25 V electrolytic, radial 5x11 mm",Footprint is 6.3 mm / 2.5 mm pitch: 5 mm cap fits with leads formed
+1,UVR1C220MDD1TD,Nichicon,,Main C2,"22 uF 16 V electrolytic, radial 5x11 mm",Footprint is 6.3 mm / 2.5 mm pitch: 5 mm cap fits with leads formed
+1,K104K15X7RF5TL2,Vishay BC Components,,Main C3,"100 nF 50 V X7R ceramic, 5 mm lead spacing",
+3,MFR-25FBF52-220R,YAGEO,,"Main R1, R3, R4",220 ohm 1% 1/4 W axial,
+1,MFR-25FBF52-470R,YAGEO,,Main R2,470 ohm 1% 1/4 W axial,
+8,B3W-9000-RG2N,Omron Electronics Inc-EMC Div,,Panel SW1-SW8,"Tactile switch, illuminated red + green (2 LEDs), 10x10 mm milky-white cap, through hole","Red = tip, green = ring, both = amber"
+1,EC11E15204A3,Alps Alpine,,Panel SW9,"Rotary encoder with push switch, 15 pulses / 30 detents, 20 mm shaft",
+1,WEA012864DWPP3N00003,Winstar Display,4863-WEA012864DWPP3N00003-ND,Panel J2,"OLED 0.96 in 128x64 white, SSD1306 I2C module",DigiKey Marketplace item
+1,"PCA9685PW,118",NXP USA Inc.,,Panel U1,"16-ch PWM LED driver, TSSOP-28",
+1,MCP23017-E/SO,Microchip Technology,,Panel U3,"16-bit I2C I/O expander, SOIC-28",
+2,CAT16-331J4LF,Bourns Inc.,,"Panel RN1, RN2","Resistor array 4 x 330 ohm 5% isolated, 1206 convex",Red LEDs (~10 mA)
+2,CAT16-181J4LF,Bourns Inc.,,"Panel RN3, RN4","Resistor array 4 x 180 ohm 5% isolated, 1206 convex",Green LEDs (~16 mA)
+2,RC0805FR-074K7L,YAGEO,,"Panel R1, R2",4.7 k 1% 0805,I2C pull-ups
+3,RC0805FR-0710KL,YAGEO,,Panel R3-R5,10 k 1% 0805,Encoder pull-ups
+2,CL21B104KBCNNNC,Samsung Electro-Mechanics,,"Panel C1, C2",100 nF 50 V X7R 0805,
+2,CL21A106KAYNNNE,Samsung Electro-Mechanics,,"Panel C3, C4",10 uF 25 V X5R 0805,
+3,CL21B103KBANNNC,Samsung Electro-Mechanics,,Panel C5-C7,10 nF 50 V X7R 0805,Encoder filters
