@@ -78,19 +78,27 @@ def load_power_symbol(name):
 # --------------------------------------------------------------- custom part
 TEENSY_LIBID = "Octopus:Teensy4_1_Partial"
 TEENSY_BASENAME = "Teensy4_1_Partial"
-_gpio = [2,3,4,5,6,7,8,9]
-# listed 9..2 top-to-bottom so each lines up with the ULN2803A input it drives (see channel mapping below)
+_gpio = [2,3,4,5,6,7,8,9]          # lines 1-8  (jack tips)  -> ULN2803A U3
+_gpio_b = [24,25,26,27,28,29,30,31]  # lines 9-16 (jack rings) -> ULN2803A U5
+# Each group listed high-to-low top-to-bottom so each pin lines up with the ULN2803A
+# input it drives (see the channel mapping below).
+GROUP_B_DY = 25.4                    # group B / U5 sit this far below group A / U3
 TEENSY_RIGHT = {str(n): (15.24, 5.08 - i*2.54) for i, n in enumerate(reversed(_gpio))}
+TEENSY_RIGHT.update({str(n): (15.24, 5.08 - GROUP_B_DY - i*2.54) for i, n in enumerate(reversed(_gpio_b))})
 TEENSY_LEFT = {
     "VIN": (-15.24, 12.7),
     "G1":  (-15.24, 7.62),
     "3V3": (-15.24, 2.54),
     "G2":  (-15.24, -7.62),
     "0":   (-15.24, -12.7),
+    "18":  (-15.24, -17.78),   # I2C0 SDA -> button panel
+    "19":  (-15.24, -22.86),   # I2C0 SCL -> button panel
+    "22":  (-15.24, -27.94),   # button panel interrupt (MCP23008 INT, open-drain)
 }
 TEENSY_PINS = {**TEENSY_RIGHT, **TEENSY_LEFT}
 TEENSY_PIN_NAMES = {"VIN": "VIN", "G1": "GND", "G2": "GND", "3V3": "3V3", "0": "RX1",
-                     **{str(n): f"IO{n}" for n in _gpio}}
+                     "18": "SDA0", "19": "SCL0", "22": "IO22",
+                     **{str(n): f"IO{n}" for n in _gpio + _gpio_b}}
 
 def build_teensy_block(top_name):
     lines = []
@@ -102,11 +110,11 @@ def build_teensy_block(top_name):
     lines.append('\t\t(in_pos_files yes)')
     lines.append('\t\t(duplicate_pin_numbers_are_jumpers no)')
     lines.append('\t\t(property "Reference" "U" (at 0 19.5 0) (effects (font (size 1.27 1.27))))')
-    lines.append('\t\t(property "Value" "Teensy4_1_Partial" (at 0 -21 0) (effects (font (size 1.27 1.27))))')
+    lines.append('\t\t(property "Value" "Teensy4_1_Partial" (at 0 -43 0) (effects (font (size 1.27 1.27))))')
     lines.append('\t\t(property "Footprint" "" (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27))))')
-    lines.append('\t\t(property "Description" "Teensy 4.1 module -- reduced pinout showing only the pins used by the Octopus design (VIN, 2x GND, MIDI RX1, 8x relay-driver GPIO). The physical board has many more pins available on its header for future expansion." (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27))))')
+    lines.append('\t\t(property "Description" "Teensy 4.1 module -- reduced pinout showing only the pins used by the Octopus design (VIN, 3V3, 2x GND, MIDI RX1, 16x relay-driver GPIO). The physical board has many more pins available on its header for future expansion." (at 0 0 0) (show_name no) (do_not_autoplace no) (hide yes) (effects (font (size 1.27 1.27))))')
     lines.append(f'\t\t(symbol "{TEENSY_BASENAME}_0_1"')
-    lines.append('\t\t\t(rectangle (start -12.7 17.78) (end 12.7 -17.78)')
+    lines.append('\t\t\t(rectangle (start -12.7 17.78) (end 12.7 -40.64)')
     lines.append('\t\t\t\t(stroke (width 0.254) (type default)) (fill (type background)))')
     lines.append('\t\t)')
     lines.append(f'\t\t(symbol "{TEENSY_BASENAME}_1_1"')
@@ -153,9 +161,10 @@ def stable_uuid(key):
     return str(uuid.uuid5(UUID_NS, key))
 
 FOOTPRINTS = {
-    "Connector:Barrel_Jack": "Connector_BarrelJack:BarrelJack_Horizontal",
+    "Connector:Screw_Terminal_01x02": "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
     "Device:Polyfuse_Small": "Fuse:Fuse_Bourns_MF-RHT070",
-    "Regulator_Linear:L7805": "Package_TO_SOT_THT:TO-220-3_Vertical",
+    "Converter_DCDC:R-78E5.0-0.5": "Converter_DCDC:Converter_DCDC_RECOM_R-78E-0.5_THT",
+    "Device:C_Polarized": "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm",
     "Connector:DIN-5": "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical",
     "Device:R": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
     "Device:D": "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal",
@@ -163,16 +172,19 @@ FOOTPRINTS = {
     "Transistor_Array:ULN2803A": "Package_DIP:DIP-18_W7.62mm",
     "Relay:G5V-1": "Relay_THT:Relay_SPDT_Omron_G5V-1",
     "Device:LED": "LED_THT:LED_D3.0mm",
-    "Connector_Audio:AudioJack2": "Octopus:Jack_6.35mm_Switchcraft_RN111PC_Vertical",
+    "Connector_Audio:AudioJack3": "Octopus:Jack_6.35mm_Switchcraft_RN112BPC_Horizontal",
     "Jumper:SolderJumper_3_Bridged12": "Jumper:SolderJumper-3_P1.3mm_Bridged12_RoundedPad1.0x1.5mm",
     "Octopus:Teensy4_1_Partial": "Octopus:Teensy41_Socketed",
     "Mechanical:MountingHole": "MountingHole:MountingHole_3.2mm_M3",
+    "Connector_Generic:Conn_01x06": "Connector_JST:JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical",
 }
+# LED resistors stand upright so each relay/LED/resistor cell fits the 19.05 mm jack pitch.
+LED_R_FOOTPRINT = "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 
-def place(libid, ref, value, x, y, pins_local, show_value=True, ref_hidden=False, value_dy=-6, in_bom=True):
+def place(libid, ref, value, x, y, pins_local, show_value=True, ref_hidden=False, value_dy=-6, in_bom=True, footprint=None):
     """pins_local: dict num -> (lx,ly). Returns sheet pin positions dict."""
     inst_uuid = stable_uuid(ref)
-    footprint = FOOTPRINTS.get(libid, "")
+    footprint = footprint or FOOTPRINTS.get(libid, "")
     lines = []
     lines.append('\t(symbol')
     lines.append(f'\t\t(lib_id "{libid}")')
@@ -226,26 +238,40 @@ LED_PINS = pins_of("Device.kicad_sym", "LED", "Device:LED")
 FUSE_PINS = pins_of("Device.kicad_sym", "Polyfuse_Small", "Device:Polyfuse_Small")
 OPTO_PINS = pins_of("Isolator.kicad_sym", "6N138", "Isolator:6N138")
 ULN_PINS  = pins_of("Transistor_Array.kicad_sym", "ULN2803A", "Transistor_Array:ULN2803A")
-REG_PINS  = pins_of("Regulator_Linear.kicad_sym", "L7805", "Regulator_Linear:L7805")
+REG_PINS  = pins_of("Converter_DCDC.kicad_sym", "R-78E5.0-0.5", "Converter_DCDC:R-78E5.0-0.5")
+CP_PINS   = pins_of("Device.kicad_sym", "C_Polarized", "Device:C_Polarized")
 DIN_PINS  = pins_of("Connector.kicad_sym", "DIN-5", "Connector:DIN-5")
-JACK_PINS = pins_of("Connector.kicad_sym", "Barrel_Jack", "Connector:Barrel_Jack")
+PWR_IN_PINS = pins_of("Connector.kicad_sym", "Screw_Terminal_01x02", "Connector:Screw_Terminal_01x02")
 RELAY_PINS = pins_of("Relay.kicad_sym", "G5V-1", "Relay:G5V-1")
-JACK_TS_PINS = pins_of("Connector_Audio.kicad_sym", "AudioJack2", "Connector_Audio:AudioJack2")
+JACK_TRS_PINS = pins_of("Connector_Audio.kicad_sym", "AudioJack3", "Connector_Audio:AudioJack3")
 JUMPER3_PINS = pins_of("Jumper.kicad_sym", "SolderJumper_3_Bridged12", "Jumper:SolderJumper_3_Bridged12")
 HOLE_PINS = pins_of("Mechanical.kicad_sym", "MountingHole", "Mechanical:MountingHole")
+CONN6_PINS = pins_of("Connector_Generic.kicad_sym", "Conn_01x06", "Connector_Generic:Conn_01x06")
 
 LIB_CACHE[TEENSY_LIBID] = (build_teensy_block(TEENSY_LIBID), {n: {"x": lx, "y": ly} for n, (lx, ly) in TEENSY_PINS.items()})
 
 # ------------------------------------------------------------- POWER SECTION
-J2 = place("Connector:Barrel_Jack", "J2", "9-12VDC IN", 20, 30, JACK_PINS)
+# Screw terminal rather than a barrel jack: the back panel has no DC jack hole. It takes a
+# pigtail from a panel/inline DC jack now, or the DC output of a 12 V mains module later.
+J2 = place("Connector:Screw_Terminal_01x02", "J2", "9-12VDC IN", 20, 30, PWR_IN_PINS)
 F1 = place("Device:Polyfuse_Small", "F1", "MF-RHT070 0.7A", 45, 30, FUSE_PINS)
-U4 = place("Regulator_Linear:L7805", "U4", "L7805", 65, 30, REG_PINS)
+# 16 relay coils put the 5 V load near 630 mA -- far too much for a linear 7805 from
+# 9-12 V, so a Recom R-78E switching module (7805 pinout) is used instead.
+U4 = place("Converter_DCDC:R-78E5.0-0.5", "U4", "R-78E5.0-1.0", 65, 30, REG_PINS)
+C1 = place("Device:C_Polarized", "C1", "10uF 25V", 52, 42, CP_PINS)
+C2 = place("Device:C_Polarized", "C2", "22uF 10V", 80, 42, CP_PINS)
 
-route(J2["1"], F1["1"])          # tip -> fuse
+route(J2["1"], F1["1"])          # + -> fuse
 route(F1["2"], U4["1"])          # fuse -> regulator IN
+cin_tap = (C1["1"][0], F1["2"][1])
+route(C1["1"], cin_tap)          # input cap taps the IN line
+forced_junctions.add(cin_tap)
+route(C2["1"], U4["3"], via="vh")   # output cap on OUT
+power_flag("GND", *C1["2"])
+power_flag("GND", *C2["2"])
 power_flag("+5V", *U4["3"])      # regulator OUT -> +5V
 power_flag("GND", *U4["2"])      # regulator GND
-power_flag("GND", *J2["2"])      # barrel jack sleeve -> GND
+power_flag("GND", *J2["2"])      # - -> GND
 power_flag("PWR_FLAG", *U4["1"])  # mark raw DC input as externally driven (silences ERC)
 power_flag("PWR_FLAG", *U4["2"])  # mark GND net as externally driven (silences ERC)
 
@@ -280,6 +306,7 @@ MIDI_RX = R2["2"]
 # ------------------------------------------------------- TEENSY + ULN2803A
 U1 = place(TEENSY_LIBID, "U1", "Teensy4.1", 150, 150, TEENSY_PINS)
 U3 = place("Transistor_Array:ULN2803A", "U3", "ULN2803A", 185, 150, ULN_PINS)
+U5 = place("Transistor_Array:ULN2803A", "U5", "ULN2803A", 185, 150 + GROUP_B_DY, ULN_PINS)
 
 power_flag("+5V", *U1["VIN"])
 power_flag("+3V3", *U1["3V3"])      # Teensy's onboard 3.3 V regulator feeds the MIDI opto side
@@ -290,92 +317,114 @@ power_flag("GND", *U1["G2"])
 # long way round, avoiding crossing straight through the Teensy body
 wire_path([MIDI_RX, (125, MIDI_RX[1]), (125, U1["0"][1]), U1["0"]])
 
-# Channel k (Teensy pin k+1) uses ULN2803A input I(9-k) / output O(9-k). Both parts are
-# counter-clockwise numbered, so on the PCB (Teensy above, ULN inputs facing it) this
-# reversal is what lets all 16 driver traces run straight without crossing.
+# Line n: 1-8 drive jack 1-8 TIP via U3 from Teensy pins 2-9; 9-16 drive jack 1-8 RING
+# via U5 from pins 24-31. Within each driver, slot k (1..8) uses input I(9-k) / output
+# O(9-k): both parts are counter-clockwise numbered, so on the PCB (Teensy above, ULN
+# inputs facing it) this reversal is what lets the driver traces run straight.
 def uln_in_pin(k):
     return str(9 - k)          # I(9-k) is DIP pin 9-k
 
 def uln_out_pin(k):
     return str(10 + k)         # O(9-k) is DIP pin 19-(9-k)
 
-for n in _gpio:
-    k = n - 1  # channel 1..8
-    route(U1[str(n)], U3[uln_in_pin(k)])
+LINES = {}                     # line n -> (teensy pin, driver refdes, driver pins, slot k)
+for k in range(1, 9):
+    LINES[k] = (k + 1, "U3", U3, k)
+    LINES[k + 8] = (k + 23, "U5", U5, k)
 
-power_flag("GND", *U3["9"])
-power_flag("+5V", *U3["10"])
+for n, (tpin, _, drv, k) in LINES.items():
+    route(U1[str(tpin)], drv[uln_in_pin(k)])
+
+for drv in (U3, U5):
+    power_flag("GND", *drv["9"])
+    power_flag("+5V", *drv["10"])
 
 # ------------------------------------------------------------- RELAY CHANNELS
-CHANNEL_Y = [40 + i * 26 for i in range(8)]
-FANOUT_X = 210
-BP_X = 225
-RELAY_X = 240
-LEDRES_X = 225
-TERM_X = 270
-
 labels = []  # (name, x, y, angle)
 
 def label(name, x, y, angle):
     labels.append((name, x, y, angle))
 
-# Each fan-out gets its own X lane so no two channels' wires ever overlap.
-# Channels whose target row is above their ULN output get lanes increasing
-# with channel number; those going down get lanes decreasing, so no crossings.
-def fanout_lane(i, out_y, row_y):
-    if row_y <= out_y:
-        return 200 + i * 2.54
-    return 200 + (7 - i) * 2.54
+def jack_of(n):
+    return (n - 1) % 8 + 1     # lines n and n+8 share jack n (tip and ring)
 
-for i in range(8):
-    n = 8 - i              # rows run channel 8 (top) .. channel 1 (bottom), matching ULN output order
-    ry = CHANNEL_Y[i]
-    out_pin = U3[uln_out_pin(n)]
-    FANOUT_X = fanout_lane(i, out_pin[1], ry)
+# Driver outputs reach their channel blocks by net label (DRVn), not wires.
+for n, (_, _, drv, k) in LINES.items():
+    px, py = drv[uln_out_pin(k)]
+    end = (round(px + 5.08, 4), py)
+    add_wire((px, py), end)
+    label(f"DRV{n}", end[0], end[1], 0)
 
-    K = place("Relay:G5V-1", f"K{n}", "G5V-1", RELAY_X, ry, RELAY_PINS)
+# Two banks of 8 channel blocks: lines 1-8 (tips) then 9-16 (rings).
+for n in range(1, 17):
+    bx = 225 + ((n - 1) // 8) * 140
+    ry = 40 + ((n - 1) % 8) * 26
+    j = jack_of(n)
+
+    K = place("Relay:G5V-1", f"K{n}", "G5V-1", bx + 15, ry, RELAY_PINS)
     power_flag("+5V", *K["2"])   # coil A -> +5V
 
-    Rled = place("Device:R", f"R1{n:02d}", "1k", LEDRES_X, ry - 20, R_PINS)
+    Rled = place("Device:R", f"R1{n:02d}", "1k", bx, ry - 20, R_PINS, footprint=LED_R_FOOTPRINT)
     power_flag("+5V", *Rled["1"])
-    Led = place("Device:LED", f"LED{n}", "LED", LEDRES_X, ry - 10, LED_PINS)
+    Led = place("Device:LED", f"LED{n}", "LED", bx, ry - 10, LED_PINS)
     route(Rled["2"], Led["2"])   # resistor -> LED anode
 
-    bp = (BP_X, ry)
-    wire_path([out_pin, (FANOUT_X, out_pin[1]), (FANOUT_X, ry), bp])
-    route(bp, K["9"])            # -> relay coil B (switched node)
-    route(bp, Led["1"])          # -> LED cathode (switched node)
+    bp = (bx, ry)                # switched node: coil B + LED cathode, driven by DRVn
+    route(bp, K["9"])
+    route(bp, Led["1"])
+    label(f"DRV{n}", bp[0], bp[1], 270)
 
     # G5V-1: blade pivot (COM) = pins 5/6, rests on pin 1 (NC), swings to pin 10 (NO).
-    # Everything below is joined with net labels on short stubs, so no wire corners are shared.
+    # COM goes to the jack sleeve, shared by that jack's tip and ring lines.
     stub = 5.08
-    for pin, sig, direction in (("5", "COM", +1), ("10", "NO", -1), ("1", "NC", -1)):
+    for pin, net, direction in (("5", f"JACK{j}_SLV", +1), ("10", f"CH{n}_NO", -1), ("1", f"CH{n}_NC", -1)):
         px, py = K[pin]
         end = (px, round(py + direction * stub, 4))
         add_wire((px, py), end)
-        label(f"CH{n}_{sig}", end[0], end[1], 270 if direction > 0 else 90)
+        label(net, end[0], end[1], 270 if direction > 0 else 90)
 
-    # Switchcraft RN111PC mono jack: sleeve = COM always; tip comes from the jumper.
-    T = place("Connector_Audio:AudioJack2", f"J{2+n}", "RN111PC", TERM_X, ry, JACK_TS_PINS)
-    for pin, sig in (("S", "COM"), ("T", "TIP")):
-        px, py = T[pin]
-        end = (round(px + 7.62, 4), py)
-        add_wire((px, py), end)
-        label(f"CH{n}_{sig}", end[0], end[1], 0)
-
-    # Per-channel NO/NC select: ships bridged 1-2 (tip = NO, closes when the relay is on).
-    # Cut the 1-2 bridge and solder 2-3 for tip = NC (opens when the relay is on).
-    JP = place("Jumper:SolderJumper_3_Bridged12", f"JP{n}", "NO|NC", TERM_X + 45, ry, JUMPER3_PINS, in_bom=False)
-    for pin, sig, (dx, dy), angle in (("1", "NO", (-5.08, 0), 180),
-                                      ("3", "NC", (5.08, 0), 0),
-                                      ("2", "TIP", (0, 5.08), 270)):
+    # Per-line NO/NC select: ships bridged 1-2 (output = NO: closed to sleeve while the
+    # line is on). Cut the 1-2 bridge and solder 2-3 for NC (open while the line is on).
+    JP = place("Jumper:SolderJumper_3_Bridged12", f"JP{n}", "NO|NC", bx + 60, ry, JUMPER3_PINS, in_bom=False)
+    for pin, net, (dx, dy), angle in (("1", f"CH{n}_NO", (-5.08, 0), 180),
+                                      ("3", f"CH{n}_NC", (5.08, 0), 0),
+                                      ("2", f"CH{n}_OUT", (0, 5.08), 270)):
         px, py = JP[pin]
         end = (round(px + dx, 4), round(py + dy, 4))
         add_wire((px, py), end)
-        label(f"CH{n}_{sig}", end[0], end[1], angle)
+        label(net, end[0], end[1], angle)
+
+# Switchcraft RN112BPC TRS jacks: tip = line j, ring = line j+8, sleeve = their common.
+for j in range(1, 9):
+    T = place("Connector_Audio:AudioJack3", f"J{2 + j}", "RN112BPC", 480, 40 + (j - 1) * 26, JACK_TRS_PINS)
+    for pin, net in (("T", f"CH{j}_OUT"), ("R", f"CH{j + 8}_OUT"), ("S", f"JACK{j}_SLV")):
+        px, py = T[pin]
+        end = (round(px + 7.62, 4), py)
+        add_wire((px, py), end)
+        label(net, end[0], end[1], 0)
+
+# ------------------------------------------------------- button panel link
+# 6-pin cable to the button board (panel/OctopusPanel); its I2C pull-ups live there.
+for pin, net in (("18", "I2C_SDA"), ("19", "I2C_SCL"), ("22", "PANEL_INT")):
+    px, py = U1[pin]
+    end = (round(px - 5.08, 4), py)
+    add_wire((px, py), end)
+    label(net, end[0], end[1], 180)
+
+J11 = place("Connector_Generic:Conn_01x06", "J11", "Button panel", 100, 210, CONN6_PINS)
+for pin, kind, net in (("1", "+5V", None), ("2", "+3V3", None), ("3", "GND", None),
+                       ("4", None, "I2C_SDA"), ("5", None, "I2C_SCL"), ("6", None, "PANEL_INT")):
+    px, py = J11[pin]
+    end = (round(px - 5.08, 4), py)
+    add_wire((px, py), end)
+    if kind:
+        power_flag(kind, *end)
+    else:
+        label(net, end[0], end[1], 180)
 
 # ----------------------------------------------------------- mounting holes
-for i in range(4):
+# two, on the case floor's screw bosses (the jack nuts hold the back edge)
+for i in range(2):
     place("Mechanical:MountingHole", f"H{i + 1}", "M3", 20 + i * 12, 130, HOLE_PINS, in_bom=False)
 
 # ------------------------------------------------------------ junction detect
@@ -416,7 +465,7 @@ out.append(f'\t(uuid "{SHEET_UUID}")')
 out.append('\t(paper "A2")')
 out.append('\t(title_block')
 out.append('\t\t(title "Octopus")')
-out.append('\t\t(comment 1 "SR&D Octopus clone - Teensy 4.1 MIDI 8-relay switcher")')
+out.append('\t\t(comment 1 "SR&D Octopus clone - Teensy 4.1 MIDI 16-line relay switcher")')
 out.append('\t)')
 out.append('\t(lib_symbols')
 out.append(lib_symbols_block)

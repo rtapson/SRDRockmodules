@@ -33,6 +33,7 @@ void MidiHandler::update() {
 }
 
 void MidiHandler::handleProgramChange(uint8_t /*channel*/, uint8_t number) {
+    current_ = number;
     relays_.setPattern(presets_.preset(number));
 }
 

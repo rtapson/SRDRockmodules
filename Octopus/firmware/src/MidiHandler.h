@@ -4,11 +4,13 @@
 #include "PresetStore.h"
 
 // Serial-MIDI (5-pin DIN, via Serial1) input handling.
-// Program Change recalls a stored preset (sets all 8 relays at once).
-// Control Change (kBaseCC..kBaseCC+7) toggles a single relay live.
+// Program Change recalls a stored preset (sets all 16 lines at once).
+// Control Change (kBaseCC..kBaseCC+15) switches a single line live.
 class MidiHandler {
 public:
-    static constexpr uint8_t kBaseCC = 20; // CC 20-27 -> relays 1-8
+    // CC 102-117 -> lines 1-16. 102-119 are "undefined" in the MIDI spec; a 20-35 range
+    // would include CC 32 (Bank Select LSB), which controllers send with program changes.
+    static constexpr uint8_t kBaseCC = 102;
 
     MidiHandler(RelayBank& relays, PresetStore& presets);
 
@@ -19,7 +21,12 @@ public:
     void handleProgramChange(uint8_t channel, uint8_t number);
     void handleControlChange(uint8_t channel, uint8_t number, uint8_t value);
 
+    // Last preset recalled by Program Change (0 until the first one arrives);
+    // the button panel's long-press saves into this slot.
+    uint8_t currentPreset() const { return current_; }
+
 private:
     RelayBank& relays_;
     PresetStore& presets_;
+    uint8_t current_ = 0;
 };

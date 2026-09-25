@@ -18,4 +18,5 @@ private:
     void handleLine(const String& line);
     void printHelp();
     void printDump();
+    void printPattern(uint16_t pattern);
 };

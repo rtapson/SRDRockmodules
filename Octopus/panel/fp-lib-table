@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "OctopusPanel") (type "KiCad") (uri "${KIPRJMOD}/OctopusPanel.pretty") (options "") (descr "Octopus button board parts"))
+)

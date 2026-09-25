@@ -25,50 +25,91 @@ JAVA = pathlib.Path(os.environ.get("JAVA25", r"C:/Program Files/Eclipse Adoptium
 
 MM = pcbnew.FromMM
 
-# ------------------------------------------------------------------ board frame
-BX, BY, BW, BH = 100.0, 100.0, 160.0, 100.0
+# ------------------------------------------------------------------ case geometry
+# From case/*.step. Case frame: x across (+x = right, seen from the front), y front->back,
+# z up, mm. The board lies flat in the case bottom, component side up, jacks along the
+# back edge with their bushings through the back panel (inside face at y = 64.77).
+PANEL_IN_Y = 64.77                  # back panel inside face
+JACK_Z = 18.10                      # jack hole centres above the case bottom
+JACK_AXIS_ABOVE_PCB = 9.65          # RN112BPC plug axis above the board surface
+BOARD_TOP_Z = JACK_Z - JACK_AXIS_ABOVE_PCB          # 8.45: board rests on ~1.8 mm spacers
+JACK_X = [40.34 - 19.05 * i for i in range(8)]      # hole centres; jack 1 is leftmost seen from the back
+WALL_X = 102.9                      # clear of the side walls and the back-panel groove ribs
+FRONT_Y = -47.5                     # clear of the button board's back-side parts
+BACK_Y = 64.2                       # jack bodies seat on the panel; bushings overhang this edge
+PILLARS = [(0.0, -38.1), (-96.84, 33.34), (96.84, 33.34)]   # top/bottom screw posts
+PILLAR_CLEAR = 5.25                 # radius cut round each post (posts are r 4.75 at board height)
+MOUNT_HOLES = [(-57.15, 9.52), (57.15, 9.52)]        # floor bosses (screw from below)
+PSU_ZONE = (52.0, 38.6, WALL_X, BACK_Y)              # kept free behind the cord hole
+
+# KiCad page coordinates: seen from above, back edge at the top
+OX, OY = 150.0, 100.0
+def K(x, y):
+    return round(OX + x, 3), round(OY - y, 3)
 
 # ------------------------------------------------------------------ placement
-# (x, y, rotation_deg) in board mm; y grows downward. Footprint origins are pad 1,
-# except the output jacks, whose origin is the plug axis.
-TERM_X1 = 110.2          # channel 1 column reference x
-COL = 18.5               # per-channel column pitch (RN111PC needs >= 15.9 mm centres)
-JACK_Y = BY + BH - 9.5   # RN111PC plug axis; body is ~15.8 mm square, stands off the board
-RELAY_Y = 169.0
-LED_Y = 161.0
-RES_Y = 154.0
-T_X, T_Y = 131.5, 118.0  # Teensy centre; rotated 90 so USB points at the left edge
-ULN_Y = 135.0            # ULN2803A input row (rotated 270: inputs on top, facing the Teensy)
+# (x, y, rotation_deg[, "B" for bottom side]) in KiCad mm; y grows toward the FRONT.
+# Footprint origins are pad 1, except the output jacks (plug axis at the body's front face).
+T_X, T_Y = 150.0, 112.0             # Teensy centre; rotated 270, driver pins facing the back
+ULN_IN_Y = T_Y - 17.0               # ULN2803A input row (rotated 90: inputs facing the Teensy)
+RELAY_Y = 63.4                      # relay pin-1 row (NC/NO pins toward the jacks)
+LED_Y, RES_Y = 78.5, 80.0
 
 def teensy_pad_x(position_index):
-    return T_X - 29.21 + position_index * 2.54
+    # header position i, counted from the USB end; with the Teensy at 270 it runs toward -X
+    return T_X + 29.21 - position_index * 2.54
 
 PLACE = {
-    "U1": (T_X, T_Y, 90),
-    # rot 270 puts pin 1 at the origin with pins 1..9 running toward -X on the top row;
-    # pin 1 (I1, channel 8) must sit under Teensy pin 9 (header position 10)
-    "U3": (teensy_pad_x(10), ULN_Y, 270),
-    "J2": (245.0, 113.0, 270),   # barrel jack, plug entry through the top edge
-    "F1": (230.0, 118.0, 0),
-    "U4": (218.0, 108.0, 0),     # TO-220 tab toward the top edge (room for a heatsink)
-    "J1": (178.0, 103.5, 0),     # MIDI harness header at the top edge
-    "U2": (182.0, 115.0, 0),
-    "R1": (195.0, 113.0, 0),
-    "R2": (195.0, 119.0, 0),
-    "D1": (168.0, 114.0, 0),
+    "U1": (T_X, T_Y, 270),
+    # rot 90 puts pin 1 at the origin with pins 1..9 running toward +X on the input row;
+    # each driver's pin 1 (I1) sits right behind the last Teensy pin of its group:
+    # U3 behind pin 9 (header position 10), U5 behind pin 31 (header position 22).
+    "U3": (teensy_pad_x(10), ULN_IN_Y, 90),
+    "U5": (teensy_pad_x(22), ULN_IN_Y, 90),
+    "J11": (125.5, 142.5, 0),        # button-panel cable, at the front edge
+    # power, beside the cord hole corner (J2 takes a DC pigtail now, a 12 V mains module later)
+    "J2": (222.0, 76.0, 0),
+    "F1": (214.0, 84.0, 0),
+    "U4": (226.0, 93.0, 0),          # Recom R-78E (SIP-3)
+    "C1": (215.0, 97.0, 0),
+    "C2": (238.0, 97.0, 0),
+    # MIDI input
+    "J1": (215.0, 142.5, 0),
+    "D1": (208.0, 128.0, 0),
+    "U2": (222.0, 122.0, 0),
+    "R1": (234.0, 118.0, 0),
+    "R2": (234.0, 124.0, 0),
 }
-for k in range(1, 9):
-    tx = TERM_X1 + (k - 1) * COL
-    PLACE[f"J{2 + k}"] = (tx + 5.08, JACK_Y, 0)
-    # NO/NC solder jumper on the *bottom* side, just below the jack's plug hole: the
-    # component side faces the jack panel, so the back is what you can reach.
-    PLACE[f"JP{k}"] = (tx + 5.08, JACK_Y + 6.0, 0, "B")
-    PLACE[f"K{k}"] = (tx + 1.0, RELAY_Y, 0)
-    PLACE[f"LED{k}"] = (tx + 1.0, LED_Y, 0)
-    PLACE[f"R1{k:02d}"] = (tx - 1.0, RES_Y, 0)
+for i, (x, y) in enumerate(MOUNT_HOLES, 1):
+    PLACE[f"H{i}"] = (*K(x, y), 0)
 
-for i, (x, y) in enumerate([(104.5, 104.5), (255.5, 104.5), (104.5, 178.0), (255.5, 178.0)], 1):
-    PLACE[f"H{i}"] = (x, y, 0)
+for k, jx in enumerate(JACK_X, 1):
+    X, Y = K(jx, PANEL_IN_Y)
+    PLACE[f"J{2 + k}"] = (X, Y, 90)          # bushing toward the back edge
+    # tip relay left of the jack's axis (under its tip pin), ring relay right of it
+    for line, kx in ((k, X - 8.0), (k + 8, X + 2.0)):
+        PLACE[f"K{line}"] = (kx, RELAY_Y, 0)
+        PLACE[f"LED{line}"] = (kx, LED_Y, 0)
+        PLACE[f"R1{line:02d}"] = (kx + 5.5, RES_Y, 90)
+        # NO/NC solder jumper on the bottom, right behind its relay's NC/NO pins
+        PLACE[f"JP{line}"] = (kx + 2.54, RELAY_Y - 3.8, 0, "B")
+
+# Jack 8 sits in front of the left rear screw post: its cell is stacked in the space
+# right of the post, with its LEDs below the notch.
+X8 = PLACE["J10"][0]
+PLACE.update({
+    "K16": (X8 + 3.2, RELAY_Y, 0), "JP16": (X8 + 5.74, RELAY_Y - 3.8, 0, "B"),
+    "K8": (X8 + 3.2, RELAY_Y + 14.9, 0), "JP8": (X8 + 5.74, RELAY_Y + 28.9, 0, "B"),
+    "LED8": (X8 - 7.0, LED_Y, 0), "R108": (X8 - 1.5, RES_Y, 90),
+    "LED16": (X8 - 7.0, LED_Y + 7.5, 0), "R116": (X8 - 1.5, RES_Y + 7.5, 90),
+})
+# ...and jack 7's tip cell moves over a little to make room for it
+for ref in ("K7", "LED7", "R107", "JP7"):
+    x, y, *rest = PLACE[ref]
+    PLACE[ref] = (x + 0.4, y, *rest)
+
+# standing LED resistors are too tight for a silkscreen reference (each sits beside its LED)
+NO_SILK_REF = {f"R1{n:02d}" for n in range(1, 17)}
 
 # ------------------------------------------------------------------ netlist
 def export_netlist():
@@ -122,14 +163,54 @@ def label_jumper(board, fp):
         t.SetPosition(pcbnew.VECTOR2I(pos.x, pos.y + MM(2.1)))  # clears the footprint's pin-1 marker
         board.Add(t)
 
-def edge_rect(board, x, y, w, h):
-    r = pcbnew.PCB_SHAPE(board)
-    r.SetShape(pcbnew.SHAPE_T_RECT)
-    r.SetStart(pcbnew.VECTOR2I_MM(x, y))
-    r.SetEnd(pcbnew.VECTOR2I_MM(x + w, y + h))
-    r.SetLayer(pcbnew.Edge_Cuts)
-    r.SetWidth(MM(0.1))
-    board.Add(r)
+def outline_points():
+    """Board outline (case coordinates): full width, notched round the two rear screw posts."""
+    w, r = WALL_X, PILLAR_CLEAR
+    (_, _), (lx, ly), (rx, ry) = PILLARS
+    return [(-w, FRONT_Y), (w, FRONT_Y), (w, ry - r), (rx - r, ry - r), (rx - r, ry + r), (w, ry + r),
+            (w, BACK_Y), (-w, BACK_Y), (-w, ly + r), (lx + r, ly + r), (lx + r, ly - r), (-w, ly - r)]
+
+def add_outline(board):
+    pts = [K(x, y) for x, y in outline_points()]
+    for a, b in zip(pts, pts[1:] + pts[:1]):
+        s = pcbnew.PCB_SHAPE(board)
+        s.SetShape(pcbnew.SHAPE_T_SEGMENT)
+        s.SetStart(pcbnew.VECTOR2I_MM(*a))
+        s.SetEnd(pcbnew.VECTOR2I_MM(*b))
+        s.SetLayer(pcbnew.Edge_Cuts)
+        s.SetWidth(MM(0.1))
+        board.Add(s)
+    cx, cy = K(*PILLARS[0])                  # front post passes through the board
+    c = pcbnew.PCB_SHAPE(board)
+    c.SetShape(pcbnew.SHAPE_T_CIRCLE)
+    c.SetCenter(pcbnew.VECTOR2I_MM(cx, cy))
+    c.SetEnd(pcbnew.VECTOR2I_MM(cx + PILLAR_CLEAR, cy))
+    c.SetLayer(pcbnew.Edge_Cuts)
+    c.SetWidth(MM(0.1))
+    board.Add(c)
+
+def add_case_notes(board):
+    """Dwgs.User (not fabricated): back panel line and the zone kept free for a mains PSU."""
+    def seg(a, b):
+        s = pcbnew.PCB_SHAPE(board)
+        s.SetShape(pcbnew.SHAPE_T_SEGMENT)
+        s.SetStart(pcbnew.VECTOR2I_MM(*K(*a)))
+        s.SetEnd(pcbnew.VECTOR2I_MM(*K(*b)))
+        s.SetLayer(pcbnew.Dwgs_User)
+        s.SetWidth(MM(0.15))
+        board.Add(s)
+    seg((-WALL_X, PANEL_IN_Y), (WALL_X, PANEL_IN_Y))
+    x0, y0, x1, y1 = PSU_ZONE
+    for a, b in (((x0, y0), (x1, y0)), ((x1, y0), (x1, y1)), ((x1, y1), (x0, y1)), ((x0, y1), (x0, y0))):
+        seg(a, b)
+    for text, (x, y) in (("BACK PANEL (inside face)", (-60.0, PANEL_IN_Y + 1.5)),
+                         ("keep free: future mains PSU", ((x0 + x1) / 2, (y0 + y1) / 2))):
+        tx = pcbnew.PCB_TEXT(board)
+        tx.SetText(text)
+        tx.SetLayer(pcbnew.Dwgs_User)
+        tx.SetTextSize(pcbnew.VECTOR2I_MM(1.5, 1.5))
+        tx.SetPosition(pcbnew.VECTOR2I_MM(*K(x, y)))
+        board.Add(tx)
 
 # ------------------------------------------------------------------ build
 def build(route=True):
@@ -172,8 +253,11 @@ def build(route=True):
             fp.Flip(fp.GetPosition(), pcbnew.FLIP_DIRECTION_LEFT_RIGHT)
         if ref.startswith("JP"):
             label_jumper(board, fp)
+        if ref in NO_SILK_REF:
+            fp.Reference().SetVisible(False)
 
-    edge_rect(board, BX, BY, BW, BH)
+    add_outline(board)
+    add_case_notes(board)
     board.Save(str(PCB))
 
     if route:
@@ -182,7 +266,7 @@ def build(route=True):
         board.Save(str(PCB))
     return board
 
-def autoroute(board, passes=100):
+def autoroute(board, passes=300):
     BUILD.mkdir(exist_ok=True)
     dsn, ses = BUILD / "Octopus.dsn", BUILD / "Octopus.ses"
     if ses.exists():
@@ -205,7 +289,6 @@ def autoroute(board, passes=100):
         raise RuntimeError("SES import failed")
 
 def add_gnd_pours(board, gnd):
-    inset = 0.5
     for layer in (pcbnew.F_Cu, pcbnew.B_Cu):
         z = pcbnew.ZONE(board)
         z.SetLayer(layer)
@@ -217,9 +300,10 @@ def add_gnd_pours(board, gnd):
         z.SetThermalReliefSpokeWidth(MM(0.5))
         o = z.Outline()
         o.NewOutline()
-        for x, y in ((BX + inset, BY + inset), (BX + BW - inset, BY + inset),
-                     (BX + BW - inset, BY + BH - inset), (BX + inset, BY + BH - inset)):
-            o.Append(MM(x), MM(y))
+        # a plain rectangle: the filler clips it to the outline, notches and post hole
+        for x, y in ((-WALL_X, FRONT_Y), (WALL_X, FRONT_Y), (WALL_X, BACK_Y), (-WALL_X, BACK_Y)):
+            px, py = K(x, y)
+            o.Append(MM(px), MM(py))
         board.Add(z)
     pcbnew.ZONE_FILLER(board).Fill(board.Zones())
 
@@ -227,11 +311,16 @@ def report_alignment(board):
     """Sanity check: each Teensy driver pin should sit directly above its ULN input."""
     fps = {f.GetReference(): f for f in board.GetFootprints()}
     pos = lambda ref, num: [pcbnew.ToMM(v) for v in next(p for p in fps[ref].Pads() if p.GetNumber() == num).GetPosition()]
-    for k in range(1, 9):
-        tx, ty = pos("U1", str(k + 1))
-        ux, uy = pos("U3", str(9 - k))
-        ox, oy = pos("U3", str(10 + k))
-        print(f"ch{k}: teensy pin{k+1} ({tx:.2f},{ty:.2f})  ULN in ({ux:.2f},{uy:.2f})  ULN out ({ox:.2f},{oy:.2f})")
+    bad = []
+    for drv, first_pin, base in (("U3", 2, 0), ("U5", 24, 8)):
+        for k in range(1, 9):
+            tx, ty = pos("U1", str(first_pin + k - 1))
+            ux, uy = pos(drv, str(9 - k))
+            ox, oy = pos(drv, str(10 + k))
+            if abs(tx - ux) > 0.01 or abs(ux - ox) > 0.01:
+                bad.append(base + k)
+            print(f"line{base + k:2d}: teensy pin{first_pin + k - 1:2d} x={tx:.2f}  {drv} in x={ux:.2f}  out x={ox:.2f}")
+    print("driver alignment:", "OK" if not bad else f"MISALIGNED lines {bad}")
 
 if __name__ == "__main__":
     b = build(route="--no-route" not in sys.argv)
