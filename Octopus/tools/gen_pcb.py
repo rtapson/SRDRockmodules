@@ -61,7 +61,6 @@ def K(x, y):
 T_X, T_Y = 150.0, 112.0             # Teensy centre; rotated 270, driver pins facing the back
 ULN_IN_Y = T_Y - 17.0               # ULN2803A input row (rotated 90: inputs facing the Teensy)
 RELAY_Y = 64.0                      # relay pin-1 row (NC/NO pins toward the jacks)
-LED_Y, RES_Y = 79.1, 80.6
 
 def teensy_pad_x(position_index):
     # header position i, counted from the USB end; with the Teensy at 270 it runs toward -X
@@ -104,28 +103,24 @@ for k, jx in enumerate(JACK_X, 1):
     # tip relay left of the jack's axis (under its tip pin), ring relay right of it
     for line, kx in ((k, X - 8.0), (k + 8, X + 1.2)):
         PLACE[f"K{line}"] = (kx, RELAY_Y, 0)
-        PLACE[f"LED{line}"] = (kx, LED_Y, 0)
-        PLACE[f"R1{line:02d}"] = (kx + 5.5, RES_Y, 90)
         # NO/NC solder jumper on the bottom, right behind its relay's NC/NO pins
         PLACE[f"JP{line}"] = (kx + 2.54, RELAY_Y - 3.8, 0, "B")
 
 # Jack 8 sits in front of the left rear screw post, so its two relays go side by side in
 # the open area below the notch (the jack wiring comes down the gap right of the notch),
-# each jumper under its relay on the bottom side, LEDs beside them.
+# each jumper under its relay on the bottom side.
 PLACE.update({
     "K16": (49.3, 84.0, 0), "JP16": (51.84, 89.1, 0, "B"),
     "K8": (59.0, 84.0, 0), "JP8": (61.54, 89.1, 0, "B"),
-    "LED16": (68.0, 87.5, 0), "R116": (73.5, 89.0, 90),
-    "LED8": (68.0, 94.0, 0), "R108": (73.5, 95.5, 90),
 })
 
 # ...and jack 7's tip cell shifts right to widen the gap jack 8's wiring runs down
-for ref in ("K7", "LED7", "R107", "JP7"):
+for ref in ("K7", "JP7"):
     x, y, *rest = PLACE[ref]
     PLACE[ref] = (x + 0.5, y, *rest)
 
-# standing LED resistors are too tight for a silkscreen reference (each sits beside its LED)
-NO_SILK_REF = {f"R1{n:02d}" for n in range(1, 17)} | {"JP8", "JP16"}   # (those two: NO/NC labels only)
+# parts whose silkscreen reference is left off
+NO_SILK_REF = {"JP8", "JP16"}          # rotated jumpers: their NO/NC labels are enough
 # reference moved inside the part outline, relative to the footprint origin
 REF_AT = {}
 for _k in range(1, 9):                 # RN112BPC: on the jack body, clear of the pins

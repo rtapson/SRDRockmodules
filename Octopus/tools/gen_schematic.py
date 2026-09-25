@@ -105,7 +105,7 @@ TEENSY_LEFT = {
     "0":   (-15.24, -12.7),
     "18":  (-15.24, -17.78),   # I2C0 SDA -> button panel
     "19":  (-15.24, -22.86),   # I2C0 SCL -> button panel
-    "22":  (-15.24, -27.94),   # button panel interrupt (MCP23008 INT, open-drain)
+    "22":  (-15.24, -27.94),   # button panel interrupt (MCP23017 INTA, open-drain)
 }
 TEENSY_PINS = {**TEENSY_RIGHT, **TEENSY_LEFT}
 TEENSY_PIN_NAMES = {"VIN": "VIN", "G1": "GND", "G2": "GND", "3V3": "3V3", "0": "RX1",
@@ -185,16 +185,12 @@ FOOTPRINTS = {
     "Isolator:6N138": "Package_DIP:DIP-8_W7.62mm",
     "Transistor_Array:ULN2803A": "Package_DIP:DIP-18_W7.62mm",
     "Relay:G5V-1": "Relay_THT:Relay_SPDT_Omron_G5V-1",
-    "Device:LED": "LED_THT:LED_D3.0mm",
     "RN112BPC:RN112BPC": "RN112BPC:SWITCHCRAFT_RN112BPC",
     "Jumper:SolderJumper_3_Bridged12": "Jumper:SolderJumper-3_P1.3mm_Bridged12_RoundedPad1.0x1.5mm",
     "Octopus:Teensy4_1_Partial": "Octopus:Teensy41_Socketed",
     "Mechanical:MountingHole": "MountingHole:MountingHole_3.2mm_M3",
     "Connector_Generic:Conn_01x06": "Connector_JST:JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical",
 }
-# LED resistors stand upright so each relay/LED/resistor cell fits the 19.05 mm jack pitch.
-LED_R_FOOTPRINT = "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
-
 def place(libid, ref, value, x, y, pins_local, show_value=True, ref_hidden=False, value_dy=-6, in_bom=True, footprint=None, unit=1):
     """pins_local: dict num -> (lx,ly), just this unit's pins for a multi-unit part. Returns sheet pin positions."""
     inst_uuid = stable_uuid(ref if unit == 1 else f"{ref}/unit{unit}")
@@ -265,7 +261,6 @@ def unit_pins_of(libfile, symname, libid, unit):
 # preload libs / pin tables
 R_PINS   = pins_of("Device.kicad_sym", "R", "Device:R")
 D_PINS   = pins_of("Device.kicad_sym", "D", "Device:D")
-LED_PINS = pins_of("Device.kicad_sym", "LED", "Device:LED")
 FUSE_PINS = pins_of("Device.kicad_sym", "Polyfuse_Small", "Device:Polyfuse_Small")
 OPTO_PINS = pins_of("Isolator.kicad_sym", "6N138", "Isolator:6N138")
 ULN_PINS  = pins_of("Transistor_Array.kicad_sym", "ULN2803A", "Transistor_Array:ULN2803A")
@@ -320,7 +315,7 @@ F1 = place("Device:Polyfuse_Small", "F1", "MF-RHT070 0.7A", 45, 30, FUSE_PINS)
 # 9-12 V, so a Recom R-78E switching module (7805 pinout) is used instead.
 U4 = place("Converter_DCDC:R-78E5.0-0.5", "U4", "R-78E5.0-1.0", 65, 30, REG_PINS)
 C1 = place("Device:C_Polarized", "C1", "10uF 25V", 52, 42, CP_PINS)
-C2 = place("Device:C_Polarized", "C2", "22uF 10V", 80, 42, CP_PINS)
+C2 = place("Device:C_Polarized", "C2", "22uF 16V", 80, 42, CP_PINS)
 
 route(J2["1"], F1["1"])          # + -> fuse
 route(F1["2"], U4["1"])          # fuse -> regulator IN
@@ -421,14 +416,9 @@ for n in range(1, 17):
     K = place("Relay:G5V-1", f"K{n}", "G5V-1", bx + 15, ry, RELAY_PINS)
     power_flag("+5V", *K["2"])   # coil A -> +5V
 
-    Rled = place("Device:R", f"R1{n:02d}", "1k", bx, ry - 20, R_PINS, footprint=LED_R_FOOTPRINT)
-    power_flag("+5V", *Rled["1"])
-    Led = place("Device:LED", f"LED{n}", "LED", bx, ry - 10, LED_PINS)
-    route(Rled["2"], Led["2"])   # resistor -> LED anode
-
-    bp = (bx, ry)                # switched node: coil B + LED cathode, driven by DRVn
+    # (no per-line status LEDs: the front-panel buttons show every line)
+    bp = (bx, ry)                # coil B, sunk by the ULN2803A output DRVn
     route(bp, K["9"])
-    route(bp, Led["1"])
     label(f"DRV{n}", bp[0], bp[1], 270)
 
     # G5V-1: blade pivot (COM) = pins 5/6, rests on pin 1 (NC), swings to pin 10 (NO).

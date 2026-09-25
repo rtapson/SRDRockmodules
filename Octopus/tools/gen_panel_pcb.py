@@ -1,8 +1,10 @@
 """Builds panel/OctopusPanel.kicad_pcb: the button board.
 
-Front (F.Cu): only the 8 CTS 228C switches, in 2 rows of 4, so the board can sit flat
-behind the case front. Back (B.Cu): each button's 3 LED resistors directly behind it,
-the two PCA9685s, the MCP23008, decoupling, I2C pull-ups and the cable header.
+Front (F.Cu): the 8 Omron B3W-9 switches in 2 rows of 4 at the right, and left of them the
+OLED module (on 5 mm spacers) and the rotary encoder -- only parts the front panel needs.
+Back (B.Cu): each button's 2 LED resistors beside it, the PCA9685 (under
+the display), the MCP23017 with the encoder's RC filters, decoupling, I2C pull-ups and
+the cable header.
 
 All geometry is given in FRONT-PANEL coordinates: origin at the panel's top-left corner
 seen from the front, x to the right, y down, mm. The panel is 8.5" x 1.75" (1U, half
@@ -43,8 +45,14 @@ BUILD = PANEL / "build"
 PANEL_W, PANEL_H = 8.5 * 25.4, 1.75 * 25.4      # 215.9 x 44.45
 PITCH = 15.24                                    # 0.6" between button centres, both ways
 RIGHT_COL_FROM_EDGE = 25.4                       # right-hand column 1.0" in from the panel edge
-CAP_HOLE_D = 8.0                                 # panel hole for the 7.4 mm cap D cylinder
+CAP_HOLE = 10.6                                  # square panel cut-out for the 10 x 10 mm B3W-9 cap
 COLS = [PANEL_W - RIGHT_COL_FROM_EDGE - (3 - c) * PITCH for c in range(4)]
+# display (active area centre) and encoder (shaft), left of the buttons at mid-height
+DISPLAY_U = 121.0
+ENCODER_U = 92.0
+DISPLAY_WINDOW = (25.0, 13.0)                    # panel cut-out: the 23.94 x 12.06 viewing area + margin
+ENCODER_HOLE_D = 7.5                             # clears the EC11E's 6 mm shaft and 7 mm bushing
+ARRAY_U = 137.0                                  # LED resistor arrays, between display and buttons
 ROWS = [PANEL_H / 2 - PITCH / 2, PANEL_H / 2 + PITCH / 2]
 
 # Case frame -> panel coordinates: u = x - PANEL_X0, v = PANEL_Z1 - z
@@ -87,24 +95,35 @@ PLACE = {}                  # ref -> (x, y, rot, side), in panel coordinates
 for n in range(1, 9):
     cx, cy = button_xy(n)
     PLACE[f"SW{n}"] = (cx, cy, 0, "F")
-    for i in range(3):      # R, G, B resistors stacked right behind the button
-        PLACE[f"R{3 * (n - 1) + i + 1}"] = (cx, cy - 2.5 + i * 2.5, 0, "B")
+# OLED header pins and M2.5 screw heads (back side, ~5 mm across) are kept clear below
 PLACE.update({
-    # chips on the back, left of the button grid
-    "U1": (131.0, 13.2, 90, "B"), "C1": (131.0, MID - 1.95, 0, "B"),
-    "U2": (131.0, 31.25, 90, "B"), "C2": (131.0, MID + 1.95, 0, "B"),
-    "U3": (116.5, MID, 90, "B"), "C3": (116.5, 31.0, 0, "B"),
-    "R25": (116.5, 10.0, 0, "B"), "R26": (116.5, 13.0, 0, "B"),
-    # cable header high up and horizontal: its plug points back into the case at ~34 mm
-    # above the floor, clear of the flat main board (top at 8.45 mm) and its parts
+    # front: display module (origin = active area centre) and encoder (origin = pin A;
+    # its shaft is 7.5 mm right of and 2.5 mm below pin A)
+    "J2": (DISPLAY_U, MID, 0, "F"),
+    "SW9": (ENCODER_U - 7.5, MID - 2.5, 0, "F"),
+    # back: the LED driver under the display, between its header and its lower screws,
+    # decoupling on the left so the outputs have the right-hand side to themselves on their
+    # way to the buttons
+    "U1": (DISPLAY_U, MID, 0, "B"), "C1": (DISPLAY_U - 6.0, MID, 90, "B"),
+    # LED resistor arrays in the strip between the display and the first button column,
+    # beside the row they serve (RN1/RN3: red/green of buttons 1-4; RN2/RN4: 5-8). On the
+    # back their LED-side pins (1-4) face the buttons.
+    "RN1": (ARRAY_U, ROWS[0] - 3.5, 0, "B"), "RN3": (ARRAY_U, ROWS[0] + 3.5, 0, "B"),
+    "RN2": (ARRAY_U, ROWS[1] - 3.5, 0, "B"), "RN4": (ARRAY_U, ROWS[1] + 3.5, 0, "B"),
+    # button/encoder expander in the open area left of the encoder, its RC filters beside it
+    "U3": (70.0, MID, 0, "B"), "C2": (70.0, 34.5, 0, "B"),
+    "R3": (79.0, 16.5, 0, "B"), "R4": (79.0, 19.0, 0, "B"), "R5": (79.0, 21.5, 0, "B"),
+    "C5": (79.0, 24.0, 0, "B"), "C6": (79.0, 26.5, 0, "B"), "C7": (79.0, 29.0, 0, "B"),
+    # cable header high up (see the case notes), I2C pull-ups and bulk caps beside the encoder
     "J1": (95.0, 9.5, 0, "B"),
-    "C4": (109.5, 33.5, 0, "B"), "C5": (109.5, 36.5, 0, "B"),
+    "R1": (104.0, 16.0, 0, "B"), "R2": (104.0, 18.5, 0, "B"),
+    "C3": (104.0, 30.5, 0, "B"), "C4": (104.0, 33.0, 0, "B"),
 })
 for i, (x, y) in enumerate(HOLES, 1):
     PLACE[f"H{i}"] = (x, y, 0, "F")
 
 # parts packed too closely for a silkscreen reference
-TIGHT = {f"R{i}" for i in range(1, 27)} | {"C4", "C5"}
+TIGHT = {f"R{i}" for i in range(1, 6)} | {"C3", "C4", "C5", "C6", "C7"}
 
 
 def export_netlist():
@@ -151,13 +170,18 @@ def draw_panel_reference(board):
     add_rect(board, OX, OY, OX + PANEL_W, OY + PANEL_H, pcbnew.Dwgs_User, 0.15)
     for n in range(1, 9):
         cx, cy = button_xy(n)
-        c = pcbnew.PCB_SHAPE(board)
-        c.SetShape(pcbnew.SHAPE_T_CIRCLE)
-        c.SetCenter(pcbnew.VECTOR2I_MM(OX + cx, OY + cy))
-        c.SetEnd(pcbnew.VECTOR2I_MM(OX + cx + CAP_HOLE_D / 2, OY + cy))
-        c.SetLayer(pcbnew.Dwgs_User)
-        c.SetWidth(MM(0.15))
-        board.Add(c)
+        h = CAP_HOLE / 2
+        add_rect(board, OX + cx - h, OY + cy - h, OX + cx + h, OY + cy + h, pcbnew.Dwgs_User, 0.15)
+    w, h = DISPLAY_WINDOW                         # display window and encoder shaft hole
+    add_rect(board, OX + DISPLAY_U - w / 2, OY + MID - h / 2, OX + DISPLAY_U + w / 2, OY + MID + h / 2,
+             pcbnew.Dwgs_User, 0.15)
+    c = pcbnew.PCB_SHAPE(board)
+    c.SetShape(pcbnew.SHAPE_T_CIRCLE)
+    c.SetCenter(pcbnew.VECTOR2I_MM(OX + ENCODER_U, OY + MID))
+    c.SetEnd(pcbnew.VECTOR2I_MM(OX + ENCODER_U + ENCODER_HOLE_D / 2, OY + MID))
+    c.SetLayer(pcbnew.Dwgs_User)
+    c.SetWidth(MM(0.15))
+    board.Add(c)
     silk_text(board, 'FRONT PANEL 8.5" x 1.75" (1U half rack) - reference only, seen from the front',
               OX + PANEL_W / 2 - 40, OY + PANEL_H + 3, pcbnew.Dwgs_User, size=1.5)
 
@@ -197,9 +221,11 @@ def build(route=True):
             fp.Flip(fp.GetPosition(), pcbnew.FLIP_DIRECTION_LEFT_RIGHT)   # after Add(): needs the layer stack
         if ref in TIGHT:
             fp.Reference().SetVisible(False)   # no room on silk; still on the fab layer
-        if ref == "J1":
-            # the front pour only reaches J1's GND pin as a small island between the
-            # header's pins; connect it solid so it isn't flagged as a starved thermal
+        if ref in ("J1", "U3") or ref in {f"SW{n}" for n in range(1, 9)}:
+            # the pour reaches these GND pins through a single gap (J1: a small front island
+            # between the header's pins; U3: VSS between its routed neighbours; the switches'
+            # contact pins among the LED traces); connect them solid so they aren't flagged as
+            # starved thermals
             fp.SetLocalZoneConnection(pcbnew.ZONE_CONNECTION_FULL)
 
     for n in range(1, 9):     # button numbers (= output jacks 1-8), in the gap left of each button

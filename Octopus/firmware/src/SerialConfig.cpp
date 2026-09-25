@@ -51,7 +51,7 @@ void SerialConfig::handleLine(const String& line) {
             Serial.println(F("ERR: expected P<n>=<16 chars of 0/1>"));
             return;
         }
-        int index = cmd.substring(1, eq).toInt();
+        int number = cmd.substring(1, eq).toInt();   // 1-128, as on the display
         // spaces, '-' and '_' are allowed as separators, e.g. P12=00110101 00000000
         String bits;
         for (unsigned int i = eq + 1; i < cmd.length(); i++) {
@@ -63,18 +63,18 @@ void SerialConfig::handleLine(const String& line) {
             }
             bits += c;
         }
-        if (index < 0 || index >= static_cast<int>(PresetStore::kPresetCount) ||
+        if (number < 1 || number > static_cast<int>(PresetStore::kPresetCount) ||
             bits.length() != RelayBank::kChannelCount) {
-            Serial.println(F("ERR: preset must be 0-127, pattern must be 16 chars of 0/1"));
+            Serial.println(F("ERR: preset must be 1-128, pattern must be 16 chars of 0/1"));
             return;
         }
         uint16_t pattern = 0;
         for (uint8_t i = 0; i < RelayBank::kChannelCount; i++) {
             if (bits[i] == '1') pattern |= static_cast<uint16_t>(1u << i);
         }
-        presets_.setPreset(static_cast<uint8_t>(index), pattern);
+        presets_.setPreset(static_cast<uint8_t>(number - 1), pattern);
         Serial.print(F("OK preset "));
-        Serial.print(index);
+        Serial.print(number);
         Serial.print(F(" = "));
         printPattern(pattern);
         Serial.println();
@@ -94,7 +94,8 @@ void SerialConfig::printPattern(uint16_t pattern) {
 
 void SerialConfig::printHelp() {
     Serial.println(F("Octopus config console:"));
-    Serial.println(F("  P<n>=<16 bits>  set preset n (0-127). Char i = line i+1: chars 1-8 are jack 1-8 TIP,"));
+    Serial.println(F("  P<n>=<16 bits>  set preset n (1-128; Program Change 0 = preset 1). Char i = line i+1:"));
+    Serial.println(F("                  chars 1-8 are jack 1-8 TIP,"));
     Serial.println(F("                  chars 9-16 are jack 1-8 RING. e.g. P12=00110101 00000001"));
     Serial.println(F("  CH=<n>          set MIDI channel, 0 = omni, 1-16 = fixed channel"));
     Serial.println(F("  DUMP            list all non-empty presets and current channel"));
@@ -108,7 +109,7 @@ void SerialConfig::printDump() {
         uint16_t pattern = presets_.preset(static_cast<uint8_t>(i));
         if (pattern == 0) continue;
         Serial.print(F("preset "));
-        Serial.print(i);
+        Serial.print(i + 1);
         Serial.print(F(" = "));
         printPattern(pattern);
         Serial.println();

@@ -23,7 +23,7 @@ MIDI IN (J1, FM6725) --220R--> 6N138 opto (isolated) --> Teensy 4.1 RX1 (3.3 V s
                         ULN2803A U3    ULN2803A U5      (sink the relay coils)
                                |            |
                                v            v
-                  8x relay + LED (tips)   8x relay + LED (rings)
+                     8x relay (tips)         8x relay (rings)
                                |            |
                   8x NO/NC jumper         8x NO/NC jumper
                                |            |
@@ -33,10 +33,12 @@ MIDI IN (J1, FM6725) --220R--> 6N138 opto (isolated) --> Teensy 4.1 RX1 (3.3 V s
 9-12VDC in (J2 screw terminal) --> polyfuse --> Recom R-78E 5 V switcher --> +5V: Teensy VIN, relay coils, ULN COMs
 Teensy 3.3 V pin --> +3V3: 6N138 output side + RX1 pull-up
 
-Teensy I2C0 (pins 18/19) + pin 22 --J11, 6-pin cable--> button panel: 8x RGB button, PCA9685 x2, MCP23008
+Teensy I2C0 (pins 18/19) + pin 22 --J11, 6-pin cable--> button panel: 8x red/green button, PCA9685, MCP23017, OLED, encoder
 ```
 
 ## Bill of materials
+
+`BOM_DigiKey.csv` lists every part for one unit (both boards and the panel cable) by manufacturer part number, ready to upload to DigiKey's BOM Manager. Mechanical hardware isn't in it: see the notes after the table below.
 
 | Ref | Part | Footprint | Notes |
 |---|---|---|---|
@@ -45,13 +47,11 @@ Teensy I2C0 (pins 18/19) + pin 22 --J11, 6-pin cable--> button panel: 8x RGB but
 | U3, U5 | ULN2803A | DIP-18 | Octal Darlington sink drivers (U3 = tip lines, U5 = ring lines), internal flyback diodes |
 | U4 | Recom R-78E5.0-1.0 | SIP-3 (`RECOM_R-78E`) | 5 V / 1 A switching regulator, 7805 pinout. Runs cool at the ~630 mA load, where a 7805 would burn ~4.4 W from 12 V |
 | C1 | 10 µF 25 V electrolytic | radial 6.3 mm | Regulator input capacitor |
-| C2 | 22 µF 10 V electrolytic | radial 6.3 mm | Regulator output capacitor |
+| C2 | 22 µF 16 V electrolytic | radial 6.3 mm | Regulator output capacitor |
 | K1-K16 | Omron G5V-1 (5 VDC coil) | `Relay_SPDT_Omron_G5V-1` | SPDT: COM = pins 5+6, NC = pin 1, NO = pin 10. K1-K8 switch jack tips, K9-K16 rings |
 | D1 | 1N4148 | DO-35 | Reverse-parallel across the opto LED (MIDI reverse-voltage protection) |
 | R1 | 220 Ω | axial 0207 | In series between DIN pin 4 and the opto LED (MIDI spec) |
 | R2 | 470 Ω | axial 0207 | Opto output pull-up to **3.3 V** (Teensy 4.1 pins are not 5 V tolerant) |
-| R101-R116 | 1 kΩ | axial 0207, **standing** (2.54 mm pitch) | LED series resistor, one per line |
-| LED1-LED16 | 3 mm LED | LED_D3.0mm | Wired in parallel with each relay coil; lights when that line is on |
 | J1 | Cliff FM6725 (DIN-5 180°, screened, right-angle PCB) | `Octopus:DIN-5_180deg_Cliff_FM6725_Horizontal` | **MIDI IN**, through the back panel. Only pins 4 and 5 are used; pin 2 and the screen are left unconnected, as the MIDI spec requires for an input |
 | J12 | Cliff FM6725 | `Octopus:DIN-5_180deg_Cliff_FM6725_Horizontal` | **MIDI THRU**, through the back panel. Pin 4 → 220 Ω → +5 V, pin 5 → 220 Ω → U6, pin 2 and the screen to GND |
 | U6 | 74HCT14 | DIP-14 | MIDI THRU buffer: two inverters in series from the opto output. HCT's TTL input thresholds take the 3.3 V signal while it drives the 5 V MIDI loop. The other four gates' inputs are grounded |
@@ -72,7 +72,7 @@ Teensy I2C0 (pins 18/19) + pin 22 --J11, 6-pin cable--> button panel: 8x RGB but
 | 2-9 | Lines 1-8 (jack 1-8 **tip**) via U3 |
 | 24-31 | Lines 9-16 (jack 1-8 **ring**) via U5 |
 | 18, 19 | I2C0 SDA / SCL to the button panel (pull-ups are on the panel) |
-| 22 | Button panel interrupt (MCP23008 INT, open-drain, Teensy internal pull-up) |
+| 22 | Button panel interrupt (MCP23017 INTA, open-drain, Teensy internal pull-up) |
 | VIN | +5 V from U4 |
 | 3.3V | Powers the 6N138 output side and the RX1 pull-up |
 | GND | Common ground |
@@ -82,7 +82,7 @@ The firmware's pin table (`firmware/src/RelayBank.cpp`) uses this same map. Pins
 
 ## MIDI control spec
 
-- **Program Change (0-127)** recalls a stored preset: all 16 lines are set at once from that preset's 16-bit pattern (bit N = line N+1, 1 = on).
+- **Program Change (0-127)** recalls stored preset 1-128 (PC 0 = preset 1, as shown on the display): all 16 lines are set at once from that preset's 16-bit pattern (bit N = line N+1, 1 = on).
 - **Control Change 102-117** switches line 1-16 individually: value >= 64 = on, < 64 = off. These CCs are left undefined by the MIDI spec. The old 8-line range (20-27) couldn't simply be extended to 20-35, because CC 32 is Bank Select LSB.
 - **MIDI channel**: omni by default; can be pinned to a single channel via the serial config console (see firmware README).
 - Presets and channel persist across power cycles in the Teensy's emulated EEPROM.
@@ -90,7 +90,7 @@ The firmware's pin table (`firmware/src/RelayBank.cpp`) uses this same map. Pins
 ## PCB
 
 - One flat, 2-layer board, 205.8 × 111.7 mm, all through-hole except the 16 solder jumpers (bare copper on the bottom). GND pour on both layers.
-- Layout, from the back edge forward: the eight RN112BPC jacks on a 17.78 mm (0.700") pitch, then the MIDI IN and THRU sockets and the power terminal J2 just inside the cord hole; for each jack, its tip relay and ring relay side by side, with their LEDs and resistors in front; the two ULN2803As, each directly behind its Teensy pin group; the Teensy (USB toward the right side). The MIDI opto, THRU buffer and regulator are just in front of the DIN sockets. The button-panel header J11 is at the front edge.
+- Layout, from the back edge forward: the eight RN112BPC jacks on a 17.78 mm (0.700") pitch, then the MIDI IN and THRU sockets and the power terminal J2 just inside the cord hole; for each jack, its tip relay and ring relay side by side; the two ULN2803As, each directly behind its Teensy pin group; the Teensy (USB toward the right side). The MIDI opto, THRU buffer and regulator are just in front of the DIN sockets. The button-panel header J11 is at the front edge.
 - Net classes (in `Octopus.kicad_pro`): Default 0.3 mm, **Power** (+5V, GND, raw DC in) 0.8 mm, **Relay** (the `/CHn_*` and `/JACKn_SLV` contact nets) 0.6 mm, which is ample for the relays' 1 A rating. Relay clearance is 0.24 mm because the solder jumper's pads are 0.25 mm apart by design, which is fine for the low-voltage duty these relays are limited to anyway (see cautions). Freerouting routes with a 10 µm margin over every clearance, so its rounding can't land a track under KiCad's rule.
 - Verified: `kicad-cli pcb drc --schematic-parity --refill-zones` → 0 errors, 0 unconnected, 0 parity issues; ERC 0 errors. The only DRC warnings are 16 × *silkscreen clipped by board edge*: SnapMagic's RN112BPC outline includes the bushing, which overhangs the back edge by design. The library footprint is used exactly as supplied, so these are left alone.
 - Jack 8's tip run (from its tip pin, down the gap beside the rear-post notch, to JP8 under relay K8) is laid by hand and locked before autorouting (`add_preroutes()` in `gen_pcb.py`); Freerouting otherwise boxes that pin in.
@@ -128,31 +128,35 @@ The DIN holes only need to pass the plug's shell into the socket (Ø14 opening),
 
 ### Cautions before ordering
 
-1. **Power.** Worst-case 5 V load is about 700 mA: 16 coils × 30 mA, the Teensy, 16 on-board LEDs, and up to 8 button-panel LEDs × 8 mA. That's within the R-78E5.0-1.0's 1 A. From 12 V it draws about 0.35 A at the input, comfortably under the polyfuse's 0.7 A hold. The panel's logic (~10 mA) runs from the Teensy's 3.3 V pin, which can supply 250 mA.
+1. **Power.** Worst-case 5 V load is about 800 mA: 16 coils × 30 mA, the Teensy, and all 8 buttons lit amber (≈26 mA each: 10 mA red + 16 mA green). That's within the R-78E5.0-1.0's 1 A. From 12 V it draws about 0.4 A at the input, comfortably under the polyfuse's 0.7 A hold. The panel's logic (~10 mA) runs from the Teensy's 3.3 V pin, which can supply 250 mA.
 2. **Teensy VIN/VUSB.** If USB may be plugged in while J2 is powered, cut the VIN–VUSB trace on the Teensy's underside (per PJRC). Otherwise the two supplies back-feed each other.
 3. **Contact ratings.** The G5V-1 is rated 1 A at 30 VDC (0.5 A at 125 VAC), and the board's clearances are sized for low voltage. **Don't switch mains** with this board as-is. Likewise, don't bring the mains cord onto this board: a mains module needs its own creepage-rated wiring and fusing.
 4. **Shared sleeve.** A jack's tip and ring lines share its sleeve as their common, as dual footswitches expect. They are not isolated from each other the way separate jacks are.
-5. **LED visibility.** The main board's 16 status LEDs are for bench testing; the button panel is the user-facing display.
+5. **No status LEDs on the main board.** The front-panel buttons show every line. For bench testing without the button board, the serial console (`DUMP`) or a meter on the jacks will show what's switched.
 
 ## Button panel
 
-A separate board (`panel/OctopusPanel.*`) slides into the groove in the case top and bottom, just behind the front panel, with 8 illuminated buttons, one per output jack.
+A separate board (`panel/OctopusPanel.*`) slides into the groove in the case top and bottom, just behind the front panel, with 8 illuminated buttons (one per output jack), a 0.96" OLED showing the current preset, and a rotary encoder with push switch for picking presets.
 
 | Button LED | Jack state |
 |---|---|
 | off | tip and ring both off |
 | red | tip on |
 | green | ring on |
-| blue | tip and ring both on |
+| amber (red + green) | tip and ring both on |
 
-- **Press** (acts on release) to step a jack: off → red → green → blue → off.
-- **Hold 2 s** to save all 16 lines into the last preset recalled by MIDI Program Change (preset 0 until one arrives). All LEDs flash white to confirm, and the serial console prints the slot.
+- **Press** (acts on release) to step a jack: off → red → green → amber → off.
+- **Hold 2 s** to save all 16 lines into the current preset (the one on the display). The LEDs blink off once, the display says SAVED, and the serial console prints the number.
+- **Display:** the current preset, **1-128** (MIDI Program Change 0 = preset 1), in big digits. "EDITED" appears when the buttons have changed the lines since the preset was loaded (hold a button to save it, or recall the preset to drop the change).
+- **Encoder:** turn to pick a preset. The display shows it under an inverted SELECT? label (turning wraps 128 → 1). **Push** to load it, which is the same as a MIDI Program Change. Leave it for 5 s and the display goes back to the current preset without changing anything.
 - The LEDs always mirror the relays, so MIDI program changes and CCs show up on the buttons too.
 - If the panel isn't connected, the main board runs normally without it.
 
-**Circuit.** Each switch's RGB LED is common anode on +5V, with a resistor on each cathode: 390 Ω for red and green, 220 Ω for blue, about 8 mA. The cathodes go to two **PCA9685** PWM LED drivers (U1 @0x40: red LED0-7, green LED8-15; U2 @0x41: blue LED0-7). The chips run at 3.3 V with open-drain outputs, which are 5.5 V tolerant, so the Teensy's I²C stays at 3.3 V (NXP datasheet, "direct LED connection"). The buttons go to an **MCP23008** (U3 @0x20, GP0-7 = buttons 1-8) with its interrupt on Teensy pin 22. The only I²C pull-ups (4.7 kΩ) are on the panel. Per-color brightness can be trimmed in firmware (`kLevelRed/Green/Blue` in `Panel.h`).
+**Circuit.** The switches are **Omron B3W-9000-RG2N**: 10 × 10 mm milky-white cap, with a red and a green LED on separate leads. Both anodes go to +5V, and each cathode has its own resistor: 330 Ω red (≈10 mA) and 180 Ω green (≈16 mA), in four isolated 4-resistor arrays (Bourns CAT16-331J4 / -181J4, 1206). RN1 and RN2 carry the red of buttons 1-4 and 5-8, RN3 and RN4 the green. Each element dissipates at most ~46 mW of its 62.5 mW rating. That's Omron's recommended 12:20 red:green ratio for an even amber, scaled down a little. The cathodes go to one **PCA9685** PWM LED driver (U1 @0x40: red LED0-7, green LED8-15). The chip runs at 3.3 V with open-drain outputs, which are 5.5 V tolerant, so the Teensy's I²C stays at 3.3 V (NXP datasheet, "direct LED connection"). The buttons and the encoder go to an **MCP23017** (U3 @0x20: buttons 1-7 on GPA0-6, button 8 on GPB0, encoder A/B/push on GPB1-3), with its interrupt (INTA, mirrored for both ports) on Teensy pin 22. GPA7 and GPB7 are left unused: Microchip's current datasheet makes them output-only. Each encoder line has a 10 kΩ pull-up and 10 nF to ground. The display is a **Winstar WEA012864D-03** 0.96" 128×64 SSD1306 module at I²C 0x3C, powered from 3.3 V (12 mA typical). Generic 0.96" modules usually share its outline, but check the pin order: many swap VCC and GND, and this board expects VCC, GND, SCL, SDA from the left, seen from the front. The only I²C pull-ups (4.7 kΩ) are on the panel. Red and green brightness (and so the amber mix) can be trimmed in firmware (`kLevelRed/Green` in `Panel.h`).
 
-**Board.** The front carries only the 8 switches, in **2 rows of 4** on 15.24 mm (0.6") centres, grouped at the right-hand side of the front panel. Buttons 1-4 are the top row and 5-8 the bottom row, left to right, each numbered on the silkscreen. Everything else is on the back: the resistors behind each button, the three chips, and J1 (a 6-pin JST-XH, cabled pin-for-pin to the main board's J11). J1 lies horizontal near the board's top edge, about 34 mm above the case floor, so the cable's plug stays clear of the main board below it. It's 210.96 × 38.37 mm, 2 layers, SMD, fully routed with 0 DRC errors and 0 schematic-parity issues. The KiCad board also shows the front-panel outline and cap holes on the `Dwgs.User` layer (not fabricated), as a fit check and drilling reference.
+*Why not RGB?* The first choice, CTS 228CMVARGBFR, is discontinued, and no stocked RGB tactile switch was tall enough to reach through the panel. The only RGB one found, E-Switch TL3220, is 2 mm tall and would need custom light-pipe caps. With two LEDs, "both lines on" shows as amber, the mix of the other two colours.
+
+**Board.** The front carries the 8 switches, in **2 rows of 4** on 15.24 mm (0.6") centres at the right-hand side of the front panel (buttons 1-4 the top row, 5-8 the bottom row, left to right, numbered on the silkscreen). Left of them are the display (J2) and the encoder (SW9). The display module stands on four **M2.5 × 5 mm spacers**, screwed from the back, and its own header pins go through the board and are soldered at the back. That puts its glass about 2 mm behind the front panel. The encoder (Alps EC11E with switch, 20 mm shaft, or a Bourns PEC11R equivalent) is soldered to the front. Its body clears the panel, and its bushing and shaft pass through a clearance hole with no nut: the groove holds the board, and pushing the knob presses the board against the groove's rear wall like the buttons do. Everything else is on the back: the four LED resistor arrays in the strip between the display and the buttons, the LED driver under the display, the MCP23017 left of the encoder, and J1 (a 6-pin JST-XH, cabled pin-for-pin to the main board's J11). J1 lies horizontal near the board's top edge, about 34 mm above the case floor, so the cable's plug stays clear of the main board below it. It's 210.96 × 38.37 mm, 2 layers, SMD on the back with the switches, display header and encoder through-hole, fully routed with 0 DRC errors and 0 schematic-parity issues. The KiCad board also shows the front-panel outline, cap holes, display window and encoder hole on the `Dwgs.User` layer (not fabricated), as a fit check and drilling reference.
 
 **Front panel drilling** (8.5" × 1.75", 1U half rack, measured on the panel face seen from the front):
 
@@ -160,29 +164,24 @@ A separate board (`panel/OctopusPanel.*`) slides into the groove in the case top
 |---|---|---|
 | Button columns (buttons 4/8, 3/7, 2/6, 1/5) | 25.40, 40.64, 55.88, 71.12 mm (1.0", 1.6", 2.2", 2.8") | — |
 | Button rows (1-4, 5-8) | — | 14.61, 29.85 mm (0.575", 1.175") |
-| Button holes | Ø 8.0 mm, for the Ø7.4 mm cap D | |
+| Button cut-outs | **square 10.6 × 10.6 mm**, for the 10 × 10 mm caps | |
+| Display window | centre 94.90 mm; 25.0 mm wide | centre 22.23 mm (panel middle); 13.0 mm tall |
+| Encoder shaft hole | 123.90 mm, Ø 7.5 mm | 22.23 mm |
 | Board edges (behind the panel) | 2.3 mm (right) to 213.3 mm (left) | 2.5 mm (top) to 40.8 mm (bottom) |
 
-All of this is set by named constants at the top of `tools/gen_panel_pcb.py` (`PITCH`, `RIGHT_COL_FROM_EDGE`, `CAP_HOLE_D`, and the case measurements `GROOVE_X`, `FLOOR_Z`, `ROOF_Z`, `FIT`...), so changing the spacing is a one-line edit plus a re-run.
+All of this is set by named constants at the top of `tools/gen_panel_pcb.py` (`PITCH`, `RIGHT_COL_FROM_EDGE`, `CAP_HOLE`, `DISPLAY_U`, `ENCODER_U`, `DISPLAY_WINDOW`, `ENCODER_HOLE_D`, and the case measurements `GROOVE_X`, `FLOOR_Z`, `ROOF_Z`, `FIT`...), so changing the spacing is a one-line edit plus a re-run.
 
 **Fit in the case** (measured from `case/Top.step` and `case/Bottom.step`):
 - Ribs on the case's side walls, from floor to roof, form a **2.03 mm groove** about 11 mm behind the panel face. The board (1.6 mm) slides into it with 0.43 mm of play front to back. The outline fills the groove, 2.54 mm into each side wall and from the floor up to the roof, with 0.25 mm clearance all round. The board plane is clear of case material. There are **no mounting holes**: the groove holds the board, and pressing a button pushes it against the groove's rear wall.
 - Ribs on the floor and roof sit directly behind the board's top and bottom edges, and the side-wall slots bite into both ends. Keep-out rule areas on those strips (back side top/bottom, both sides at the ends) keep parts and copper out of the way.
-- The switch body's front is about 2 mm behind the front panel's inner face, so the cap sets how far the button stands out. With the board pushed back (button pressed):
-
-  | CTS 228C cap | Height | Cap top vs panel face |
-  |---|---|---|
-  | A, round Ø7.3 | 3.5 mm | 1.0 mm recessed in the Ø8 hole |
-  | **D, cylinder Ø7.4 (chosen)** | 9.4 mm | **4.9 mm proud** |
-  | B, E | 9.4 mm | don't fit: their Ø10 base hits the back of the panel |
-
-  `tools/case_fit.py` (plain Python with `cadquery-ocp`, `numpy`, `matplotlib`) re-checks the groove plane and draws this side section to `panel/build/case_fit_side.png`.
+- The B3W-9 stands 11 mm tall, cap included. The panel's outer face is 11.27-11.7 mm from the board's front, depending on where the board sits in its groove's 0.43 mm of play. So the cap top sits **0.3-0.7 mm inside the square cut-out**, just under flush. The cap's upper part passes into the 2.4 mm thick panel through the cut-out, and the switch body stays behind it.
+- `tools/case_fit.py` (plain Python with `cadquery-ocp`, `numpy`, `matplotlib`) re-checks the groove plane and draws a side section through a button column, with the B3W-9 in place, to `panel/build/case_fit_side.png`.
 
 
 **Before ordering:**
-- **Switch pin-out.** The footprint follows the CTS 228C datasheet's recommended land pattern: L3 (anode) and L1 (blue) on one row, L4 (green) and L2 (red) on the other. The part's bottom view agrees with that, but its top view shows the LED labels rotated 180°, so **check a real switch before ordering**. The switch contacts themselves are symmetric and can't be fitted wrong.
-- **Caps.** The switch is **`228CMVARGBFDNR`**: cap style **D** (cylinder), colour **N** (Natural, translucent, so the LED shows through; the SMD actuator itself is black), no etching, tape and reel. That's built from the datasheet's ordering code, so confirm it with the distributor. Per the datasheet, SMD caps come **loose in bulk and go on after reflow soldering**.
-- **Assembly.** It's an SMD board with parts on both sides: switches on the front, TSSOP/SOIC chips and 0805 passives on the back. That's hand-solderable, or have the fab assemble it.
+- **Display and encoder heights.** The window and shaft hole assume the Winstar module on 5 mm spacers (glass ~1.9 mm behind the panel's inside face) and an EC11E whose shaft reaches ~20 mm from the board. The front panel's outer face is ~11.7 mm from the board, so ~8 mm of shaft shows for the knob. Check both parts against the drawing before cutting the panel.
+- **Switch orientation.** The B3W-9's LED polarity isn't marked on its pins. Omron puts the anodes on the side with the OMRON mark (datasheet note), and the footprint's silkscreen dot marks the red LED's cathode side (right, seen from the front). Check one switch against the footprint, and fit all eight the same way round.
+- **Assembly.** Parts on both sides: the switches, display header and encoder are through-hole on the front; the TSSOP/SOIC chips and 0805 passives are SMD on the back. That's hand-solderable, or have the fab assemble the SMD side.
 
 ## Regenerating
 
@@ -201,7 +200,7 @@ Re-running any of these **overwrites** its output. Once you start editing a sche
 - [x] Main board schematic — clean ERC (unused pins are marked no-connect), full netlist check passes
 - [x] Main board PCB — flat in the case bottom, RN112BPC right-angle jacks lined up with the back panel holes (`case/BackPanel.step`); autorouted, GND-poured, clean DRC + schematic parity
 - [x] Button panel schematic + PCB — 2x4 grid on the right of the 8.5" x 1.75" panel; clean ERC, netlist check, DRC and parity
-- [x] Button panel fitted to the case groove (from `case/*.step`); cap D chosen (`228CMVARGBFDNR`)
+- [x] Button panel fitted to the case groove (from `case/*.step`); switches are Omron B3W-9000-RG2N (red/green, amber for both)
 - [x] MIDI IN + hardware MIDI THRU on two Cliff FM6725 sockets on the back panel
 - [ ] Update `BackPanel.step` to the hole table above (new jack pitch, two DIN holes, cord hole moved)
 - [ ] Check one real RN112BPC against the new footprint, and the board height (~1.8-2 mm spacers) in the case
