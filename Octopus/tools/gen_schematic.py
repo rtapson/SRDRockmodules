@@ -19,11 +19,23 @@ layout/footprint work by hand in KiCad.
 Verify after regenerating:
     "<kicad>/bin/kicad-cli.exe" sch erc --severity-all Octopus.kicad_sch
 """
-import re, uuid, pathlib
+import re, uuid, pathlib, subprocess
 from collections import defaultdict
 
 LIBDIR = pathlib.Path(r"C:/Program Files/KiCad/10.0/share/kicad/symbols")
+KICAD_CLI = pathlib.Path(r"C:/Program Files/KiCad/10.0/bin/kicad-cli.exe")
 OUT = pathlib.Path(__file__).resolve().parent.parent / "Octopus.kicad_sch"
+BUILD = OUT.parent / "build"
+# Switchcraft RN112BPC symbol/footprint/3D model from SnapMagic, kept as supplied in case/RN112BPC
+RN112BPC_DIR = OUT.parent / "case" / "RN112BPC"
+
+def vendor_symbol_file(path):
+    """The vendor library is in KiCad 6 format; embed a copy upgraded to the current format."""
+    BUILD.mkdir(exist_ok=True)
+    out = BUILD / f"{path.stem}_upgraded.kicad_sym"
+    out.unlink(missing_ok=True)          # kicad-cli won't overwrite
+    subprocess.run([str(KICAD_CLI), "sym", "upgrade", "-o", str(out), str(path)], check=True, capture_output=True)
+    return out
 PROJECT = "Octopus"
 SHEET_UUID = "9e3c88f1-2947-4d19-8b1e-a1133b50f23f"
 
@@ -165,14 +177,16 @@ FOOTPRINTS = {
     "Device:Polyfuse_Small": "Fuse:Fuse_Bourns_MF-RHT070",
     "Converter_DCDC:R-78E5.0-0.5": "Converter_DCDC:Converter_DCDC_RECOM_R-78E-0.5_THT",
     "Device:C_Polarized": "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm",
-    "Connector:DIN-5": "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical",
+    "Connector:DIN-5_180degree": "Octopus:DIN-5_180deg_Cliff_FM6725_Horizontal",
+    "74xx:74HC14": "Package_DIP:DIP-14_W7.62mm",
+    "Device:C": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
     "Device:R": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
     "Device:D": "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal",
     "Isolator:6N138": "Package_DIP:DIP-8_W7.62mm",
     "Transistor_Array:ULN2803A": "Package_DIP:DIP-18_W7.62mm",
     "Relay:G5V-1": "Relay_THT:Relay_SPDT_Omron_G5V-1",
     "Device:LED": "LED_THT:LED_D3.0mm",
-    "Connector_Audio:AudioJack3": "Octopus:Jack_6.35mm_Switchcraft_RN112BPC_Horizontal",
+    "RN112BPC:RN112BPC": "RN112BPC:SWITCHCRAFT_RN112BPC",
     "Jumper:SolderJumper_3_Bridged12": "Jumper:SolderJumper-3_P1.3mm_Bridged12_RoundedPad1.0x1.5mm",
     "Octopus:Teensy4_1_Partial": "Octopus:Teensy41_Socketed",
     "Mechanical:MountingHole": "MountingHole:MountingHole_3.2mm_M3",
@@ -181,15 +195,15 @@ FOOTPRINTS = {
 # LED resistors stand upright so each relay/LED/resistor cell fits the 19.05 mm jack pitch.
 LED_R_FOOTPRINT = "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P2.54mm_Vertical"
 
-def place(libid, ref, value, x, y, pins_local, show_value=True, ref_hidden=False, value_dy=-6, in_bom=True, footprint=None):
-    """pins_local: dict num -> (lx,ly). Returns sheet pin positions dict."""
-    inst_uuid = stable_uuid(ref)
+def place(libid, ref, value, x, y, pins_local, show_value=True, ref_hidden=False, value_dy=-6, in_bom=True, footprint=None, unit=1):
+    """pins_local: dict num -> (lx,ly), just this unit's pins for a multi-unit part. Returns sheet pin positions."""
+    inst_uuid = stable_uuid(ref if unit == 1 else f"{ref}/unit{unit}")
     footprint = footprint or FOOTPRINTS.get(libid, "")
     lines = []
     lines.append('\t(symbol')
     lines.append(f'\t\t(lib_id "{libid}")')
     lines.append(f'\t\t(at {x:g} {y:g} 0)')
-    lines.append('\t\t(unit 1)')
+    lines.append(f'\t\t(unit {unit})')
     lines.append('\t\t(exclude_from_sim no)')
     lines.append(f'\t\t(in_bom {"yes" if in_bom else "no"})')
     lines.append('\t\t(on_board yes)')
@@ -208,7 +222,7 @@ def place(libid, ref, value, x, y, pins_local, show_value=True, ref_hidden=False
     lines.append(f'\t\t\t(project "{PROJECT}"')
     lines.append(f'\t\t\t\t(path "/{SHEET_UUID}"')
     lines.append(f'\t\t\t\t\t(reference "{ref}")')
-    lines.append('\t\t\t\t\t(unit 1)')
+    lines.append(f'\t\t\t\t\t(unit {unit})')
     lines.append('\t\t\t\t)')
     lines.append('\t\t\t)')
     lines.append('\t\t)')
@@ -231,6 +245,23 @@ def pins_of(libfile, symname, libid):
     _, pins = load_lib_symbol(libfile, symname, libid)
     return {num: (p["x"], p["y"]) for num, p in pins.items()}
 
+def unit_pins_of(libfile, symname, libid, unit):
+    """Local pin positions of one unit of a multi-unit symbol (its _<unit>_0 and _<unit>_1 bodies)."""
+    block, _ = load_lib_symbol(libfile, symname, libid)
+    pins = {}
+    for style in (0, 1):
+        start = block.find(f'(symbol "{symname}_{unit}_{style}"')
+        if start == -1:
+            continue
+        depth, i = 0, start
+        while True:
+            depth += {"(": 1, ")": -1}.get(block[i], 0)
+            if depth == 0:
+                break
+            i += 1
+        pins.update({num: (p["x"], p["y"]) for num, p in list_pins(block[start:i + 1]).items()})
+    return pins
+
 # preload libs / pin tables
 R_PINS   = pins_of("Device.kicad_sym", "R", "Device:R")
 D_PINS   = pins_of("Device.kicad_sym", "D", "Device:D")
@@ -240,15 +271,45 @@ OPTO_PINS = pins_of("Isolator.kicad_sym", "6N138", "Isolator:6N138")
 ULN_PINS  = pins_of("Transistor_Array.kicad_sym", "ULN2803A", "Transistor_Array:ULN2803A")
 REG_PINS  = pins_of("Converter_DCDC.kicad_sym", "R-78E5.0-0.5", "Converter_DCDC:R-78E5.0-0.5")
 CP_PINS   = pins_of("Device.kicad_sym", "C_Polarized", "Device:C_Polarized")
-DIN_PINS  = pins_of("Connector.kicad_sym", "DIN-5", "Connector:DIN-5")
+DIN_PINS  = pins_of("Connector.kicad_sym", "DIN-5_180degree", "Connector:DIN-5_180degree")
+C_PINS    = pins_of("Device.kicad_sym", "C", "Device:C")
+HC14_UNITS = {u: unit_pins_of("74xx.kicad_sym", "74HC14", "74xx:74HC14", u) for u in range(1, 8)}
 PWR_IN_PINS = pins_of("Connector.kicad_sym", "Screw_Terminal_01x02", "Connector:Screw_Terminal_01x02")
 RELAY_PINS = pins_of("Relay.kicad_sym", "G5V-1", "Relay:G5V-1")
-JACK_TRS_PINS = pins_of("Connector_Audio.kicad_sym", "AudioJack3", "Connector_Audio:AudioJack3")
+JACK_TRS_PINS = pins_of(vendor_symbol_file(RN112BPC_DIR / "RN112BPC.kicad_sym"), "RN112BPC", "RN112BPC:RN112BPC")
 JUMPER3_PINS = pins_of("Jumper.kicad_sym", "SolderJumper_3_Bridged12", "Jumper:SolderJumper_3_Bridged12")
 HOLE_PINS = pins_of("Mechanical.kicad_sym", "MountingHole", "Mechanical:MountingHole")
 CONN6_PINS = pins_of("Connector_Generic.kicad_sym", "Conn_01x06", "Connector_Generic:Conn_01x06")
 
 LIB_CACHE[TEENSY_LIBID] = (build_teensy_block(TEENSY_LIBID), {n: {"x": lx, "y": ly} for n, (lx, ly) in TEENSY_PINS.items()})
+
+# ------------------------------------------------------------ labels / stubs
+labels = []  # (name, x, y, angle)
+
+def label(name, x, y, angle):
+    labels.append((name, x, y, angle))
+
+def auto_dir(local):
+    lx, ly = local
+    if abs(lx) >= abs(ly):
+        return "L" if lx < 0 else "R"
+    return "U" if ly > 0 else "D"
+
+def pin_stub(p, direction, net=None, pwr=None, length=5.08):
+    dx, dy = {"L": (-length, 0), "R": (length, 0), "U": (0, -length), "D": (0, length)}[direction]
+    end = (round(p[0] + dx, 4), round(p[1] + dy, 4))
+    add_wire(p, end)
+    if pwr:
+        power_flag(pwr, *end)
+    else:
+        label(net, end[0], end[1], {"L": 180, "R": 0, "U": 90, "D": 270}[direction])
+
+def unit_stubs(pins, local, conns):
+    for num, (net, pwr) in conns.items():
+        if net is None and pwr is None:
+            no_connects.append(pins[num])
+        else:
+            pin_stub(pins[num], auto_dir(local[num]), net, pwr)
 
 # ------------------------------------------------------------- POWER SECTION
 # Screw terminal rather than a barrel jack: the back panel has no DC jack hole. It takes a
@@ -278,20 +339,21 @@ power_flag("PWR_FLAG", *U4["2"])  # mark GND net as externally driven (silences 
 # -------------------------------------------------------------- MIDI SECTION
 # MIDI current loop is powered by the *sending* device; nothing on this side of the
 # opto may touch our supply or ground, or the isolation the MIDI spec requires is lost.
-J1 = place("Connector:DIN-5", "J1", "MIDI IN (to panel DIN)", 20, 90, DIN_PINS)
+# Cliff FM6725 right-angle DIN on the board, through the back panel. Pin 2 and the socket's
+# screen stay unconnected on an IN (MIDI spec: no ground loop through the cable).
+J1 = place("Connector:DIN-5_180degree", "J1", "FM6725 MIDI IN", 20, 90, DIN_PINS)
 R1 = place("Device:R", "R1", "220", 50, 80, R_PINS)
 D1 = place("Device:D", "D1", "1N4148", 65, 90, D_PINS)
 U2 = place("Isolator:6N138", "U2", "6N138", 85, 90, OPTO_PINS)
 R2 = place("Device:R", "R2", "470", 110, 90, R_PINS)
 
-route(J1["4"], R1["1"], via="vh")    # DIN pin 4 -> 220R
-route(R1["2"], U2["2"], via="vh")    # 220R -> opto LED anode
-route(J1["5"], U2["3"])              # DIN pin 5 -> opto LED cathode
-anode_tap = (D1["1"][0], U2["2"][1])
-cathode_tap = (D1["2"][0], U2["3"][1])
-add_wire(D1["1"], anode_tap)         # 1N4148 reverse-parallel across the LED
-add_wire(D1["2"], cathode_tap)
-forced_junctions.update({anode_tap, cathode_tap})
+# DIN pin 4 -> 220R -> opto LED anode; DIN pin 5 -> LED cathode; 1N4148 reverse-parallel
+# across the LED (cathode on the LED's anode)
+for part, local, pin, net in ((J1, DIN_PINS, "4", "MIDI_IN_4"), (R1, R_PINS, "1", "MIDI_IN_4"),
+                              (R1, R_PINS, "2", "OPTO_A"), (U2, OPTO_PINS, "2", "OPTO_A"),
+                              (J1, DIN_PINS, "5", "OPTO_K"), (U2, OPTO_PINS, "3", "OPTO_K"),
+                              (D1, D_PINS, "1", "OPTO_A"), (D1, D_PINS, "2", "OPTO_K")):
+    pin_stub(part[pin], auto_dir(local[pin]), net)
 
 # Output side runs at 3.3 V: the Teensy 4.1 is NOT 5 V tolerant, so the opto is fed
 # from the Teensy's own 3.3 V pin and pulled up there (PJRC's Teensy MIDI circuit).
@@ -340,11 +402,6 @@ for drv in (U3, U5):
     power_flag("+5V", *drv["10"])
 
 # ------------------------------------------------------------- RELAY CHANNELS
-labels = []  # (name, x, y, angle)
-
-def label(name, x, y, angle):
-    labels.append((name, x, y, angle))
-
 def jack_of(n):
     return (n - 1) % 8 + 1     # lines n and n+8 share jack n (tip and ring)
 
@@ -396,12 +453,45 @@ for n in range(1, 17):
 
 # Switchcraft RN112BPC TRS jacks: tip = line j, ring = line j+8, sleeve = their common.
 for j in range(1, 9):
-    T = place("Connector_Audio:AudioJack3", f"J{2 + j}", "RN112BPC", 480, 40 + (j - 1) * 26, JACK_TRS_PINS)
+    T = place("RN112BPC:RN112BPC", f"J{2 + j}", "RN112BPC", 480, 40 + (j - 1) * 26, JACK_TRS_PINS)
     for pin, net in (("T", f"CH{j}_OUT"), ("R", f"CH{j + 8}_OUT"), ("S", f"JACK{j}_SLV")):
         px, py = T[pin]
         end = (round(px + 7.62, 4), py)
         add_wire((px, py), end)
         label(net, end[0], end[1], 0)
+
+# ------------------------------------------------------------------ MIDI THRU
+# Hardware THRU, independent of the firmware: the opto output (3.3 V logic, idle high) goes
+# through two 74HCT14 inverters in series -- HCT inputs switch at TTL levels, so 3.3 V drives
+# them while they run from 5 V -- to a standard 5 V MIDI source: pin 4 -> 220R -> +5V,
+# pin 5 -> 220R -> buffer output. Pin 2 and the socket's screen are grounded (MIDI OUT/THRU).
+label("MIDI_RX", MIDI_RX[0], MIDI_RX[1], 0)   # the opto output node also feeds the THRU buffer
+gates = {1: ("MIDI_RX", "THRU_N"), 2: ("THRU_N", "THRU_TX")}   # (input, output) of the used gates
+for u in range(1, 8):
+    local = HC14_UNITS[u]
+    pins = place("74xx:74HC14", "U6", "74HCT14", 30 + (u - 1) * 40, 260, local, unit=u)
+    by_x = sorted(local, key=lambda n: local[n][0])            # input on the left, output on the right
+    if u in gates:
+        unit_stubs(pins, local, {by_x[0]: (gates[u][0], None), by_x[-1]: (gates[u][1], None)})
+    elif u < 7:
+        unit_stubs(pins, local, {by_x[0]: (None, "GND"), by_x[-1]: (None, None)})   # unused gate
+    else:
+        unit_stubs(pins, local, {n: (None, "+5V" if n == "14" else "GND") for n in local})
+C3 = place("Device:C", "C3", "100n", 300, 260, C_PINS)       # U6 decoupling
+pin_stub(C3["1"], "U", pwr="+5V")
+pin_stub(C3["2"], "D", pwr="GND")
+
+J12 = place("Connector:DIN-5_180degree", "J12", "FM6725 MIDI THRU", 60, 310, DIN_PINS)
+R3 = place("Device:R", "R3", "220", 110, 300, R_PINS)
+R4 = place("Device:R", "R4", "220", 140, 300, R_PINS)
+pin_stub(J12["4"], "L", "THRU_SRC")
+pin_stub(J12["5"], "R", "THRU_SINK")
+pin_stub(J12["2"], "U", pwr="GND")
+no_connects.extend([J12["1"], J12["3"]])
+pin_stub(R3["1"], "U", pwr="+5V")
+pin_stub(R3["2"], "D", "THRU_SRC")
+pin_stub(R4["1"], "U", "THRU_TX")
+pin_stub(R4["2"], "D", "THRU_SINK")
 
 # ------------------------------------------------------- button panel link
 # 6-pin cable to the button board (panel/OctopusPanel); its I2C pull-ups live there.
@@ -518,6 +608,7 @@ SYMTABLE_OUT.write_text(
     '(sym_lib_table\n'
     '\t(version 7)\n'
     '\t(lib (name "Octopus") (type "KiCad") (uri "${KIPRJMOD}/Octopus.kicad_sym") (options "") (descr ""))\n'
+    '\t(lib (name "RN112BPC") (type "KiCad") (uri "${KIPRJMOD}/case/RN112BPC/RN112BPC.kicad_sym") (options "") (descr "Switchcraft RN112BPC (SnapMagic)"))\n'
     ')\n',
     encoding="utf-8",
 )

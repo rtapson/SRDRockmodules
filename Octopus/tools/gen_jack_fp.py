@@ -58,7 +58,7 @@ def footprint(part, spec):
         '\t(layer "F.Cu")',
         f'\t(descr "Switchcraft {part} right-angle 1/4in {spec["kind"]} Hi-D Jax, PC terminals, 3/8-32 bushing overhangs the board edge. Origin = plug axis at the body front face. Switchcraft drawing RN111-RN114 SERIES rev E.")',
         f'\t(tags "Switchcraft 6.35mm 1/4 jack right angle {spec["kind"]} {part}")',
-        '\t(property "Reference" "REF**" (at -12.5 -9.2 0) (layer "F.SilkS")\n\t\t(effects (font (size 1 1) (thickness 0.15))))',
+        '\t(property "Reference" "REF**" (at -14.5 2.5 0) (layer "F.SilkS")\n\t\t(effects (font (size 1 1) (thickness 0.15))))',
         f'\t(property "Value" "{part}" (at -12.5 9.2 0) (layer "F.Fab")\n\t\t(effects (font (size 1 1) (thickness 0.15))))',
         '\t(attr through_hole)',
         '\t(duplicate_pad_numbers_are_jumpers no)',

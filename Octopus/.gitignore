@@ -1,2 +1,7 @@
 build/
 __pycache__/
+
+# SnapMagic RN112BPC symbol/footprint/3D model: licensed for use, not redistribution.
+# Keep a local copy in case/RN112BPC (the project finds it through its library tables).
+case/RN112BPC/
+case/RN112BPC.zip

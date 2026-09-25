@@ -9,7 +9,8 @@ A separate **button panel** board (in `panel/`) puts 8 RGB-lit buttons on the fr
 ## Block diagram
 
 ```
-panel DIN-5 --harness--> J1 --220R--> 6N138 opto (isolated) --> Teensy 4.1 RX1 (3.3 V side)
+MIDI IN (J1, FM6725) --220R--> 6N138 opto (isolated) --> Teensy 4.1 RX1 (3.3 V side)
+                                                   \--> 74HCT14 x2 (5 V) --220R--> MIDI THRU (J12, FM6725)
 
                         +--------------------------+
                         |  Teensy 4.1              |
@@ -51,9 +52,13 @@ Teensy I2C0 (pins 18/19) + pin 22 --J11, 6-pin cable--> button panel: 8x RGB but
 | R2 | 470 Ω | axial 0207 | Opto output pull-up to **3.3 V** (Teensy 4.1 pins are not 5 V tolerant) |
 | R101-R116 | 1 kΩ | axial 0207, **standing** (2.54 mm pitch) | LED series resistor, one per line |
 | LED1-LED16 | 3 mm LED | LED_D3.0mm | Wired in parallel with each relay coil; lights when that line is on |
-| J1 | JST-XH 5-pin (B5B-XH-A) | JST_XH_B5B-XH-A | Harness to a **panel-mount** 5-pin DIN socket: header pin *n* = DIN pin *n* (only 4 and 5 are used) |
+| J1 | Cliff FM6725 (DIN-5 180°, screened, right-angle PCB) | `Octopus:DIN-5_180deg_Cliff_FM6725_Horizontal` | **MIDI IN**, through the back panel. Only pins 4 and 5 are used; pin 2 and the screen are left unconnected, as the MIDI spec requires for an input |
+| J12 | Cliff FM6725 | `Octopus:DIN-5_180deg_Cliff_FM6725_Horizontal` | **MIDI THRU**, through the back panel. Pin 4 → 220 Ω → +5 V, pin 5 → 220 Ω → U6, pin 2 and the screen to GND |
+| U6 | 74HCT14 | DIP-14 | MIDI THRU buffer: two inverters in series from the opto output. HCT's TTL input thresholds take the 3.3 V signal while it drives the 5 V MIDI loop. The other four gates' inputs are grounded |
+| R3, R4 | 220 Ω | axial 0207 | MIDI THRU source resistors (pins 4 and 5) |
+| C3 | 100 nF ceramic | disc, 5 mm pitch | U6 decoupling |
 | J2 | 2-way 5.08 mm screw terminal (Phoenix MKDS 1,5/2-5.08) | TerminalBlock_Phoenix_MKDS-1,5-2-5.08 | 9-12 VDC in (1 = +, 2 = GND). The back panel has no DC jack hole, so this takes a pigtail through the cord hole now, and the DC output of a mains module later |
-| J3-J10 | Switchcraft RN112BPC | `Octopus:Jack_6.35mm_Switchcraft_RN112BPC_Horizontal` | Outputs 1-8 (jack 1 is the leftmost seen from the back). ¼" 3-conductor right-angle Hi-D Jax, double open circuit, thermoplastic body, PC terminals. Tip = line n, ring = line n+8, sleeve = common for both |
+| J3-J10 | Switchcraft RN112BPC | `RN112BPC:SWITCHCRAFT_RN112BPC` (SnapMagic, in `case/RN112BPC`) | Outputs 1-8 (jack 1 is the leftmost seen from the back). ¼" 3-conductor right-angle Hi-D Jax, double open circuit, thermoplastic body, PC terminals. Tip = line n, ring = line n+8, sleeve = common for both |
 | JP1-JP16 | 3-pad solder jumper (PCB copper, not a part) | `SolderJumper-3_P1.3mm_Bridged12` | Per-line NO/NC select, on the **bottom** side directly behind each relay, labelled NO / NC. Ships bridged to **NO**: the jack contact is shorted to sleeve while the line is on. For **NC** (open while the line is on), cut the thin trace between the "NO" pad and the center pad, then solder-bridge the center pad to the "NC" pad |
 | F1 | Bourns MF-RHT070 (0.7 A hold) | radial | Input polyfuse |
 | J11 | JST-XH 6-pin (B6B-XH-A) | JST_XH_B6B-XH-A | Cable to the button panel's J1, wired pin-for-pin: 1 +5V, 2 +3V3, 3 GND, 4 SDA, 5 SCL, 6 INT |
@@ -63,7 +68,7 @@ Teensy I2C0 (pins 18/19) + pin 22 --J11, 6-pin cable--> button panel: 8x RGB but
 
 | Teensy pin | Function |
 |---|---|
-| 0 (RX1) | MIDI IN (Serial1), from the opto output |
+| 0 (RX1) | MIDI IN (Serial1), from the opto output. The same node feeds the hardware MIDI THRU, so THRU works whatever the firmware is doing; the MIDI library's software thru is turned off |
 | 2-9 | Lines 1-8 (jack 1-8 **tip**) via U3 |
 | 24-31 | Lines 9-16 (jack 1-8 **ring**) via U5 |
 | 18, 19 | I2C0 SDA / SCL to the button panel (pull-ups are on the panel) |
@@ -85,19 +90,41 @@ The firmware's pin table (`firmware/src/RelayBank.cpp`) uses this same map. Pins
 ## PCB
 
 - One flat, 2-layer board, 205.8 × 111.7 mm, all through-hole except the 16 solder jumpers (bare copper on the bottom). GND pour on both layers.
-- Layout, from the back edge forward: the eight RN112BPC jacks on the back panel's 19.05 mm (0.75") hole pitch; for each jack, its tip relay and ring relay side by side, with their LEDs and resistors in front; the two ULN2803As, each directly behind its Teensy pin group; the Teensy (USB toward the right side). MIDI and power are on the right, in front of the cord hole. The button-panel header J11 is at the front edge.
+- Layout, from the back edge forward: the eight RN112BPC jacks on a 17.78 mm (0.700") pitch, then the MIDI IN and THRU sockets and the power terminal J2 just inside the cord hole; for each jack, its tip relay and ring relay side by side, with their LEDs and resistors in front; the two ULN2803As, each directly behind its Teensy pin group; the Teensy (USB toward the right side). The MIDI opto, THRU buffer and regulator are just in front of the DIN sockets. The button-panel header J11 is at the front edge.
 - Net classes (in `Octopus.kicad_pro`): Default 0.3 mm, **Power** (+5V, GND, raw DC in) 0.8 mm, **Relay** (the `/CHn_*` and `/JACKn_SLV` contact nets) 0.6 mm, which is ample for the relays' 1 A rating. Relay clearance is 0.24 mm because the solder jumper's pads are 0.25 mm apart by design, which is fine for the low-voltage duty these relays are limited to anyway (see cautions). Freerouting routes with a 10 µm margin over every clearance, so its rounding can't land a track under KiCad's rule.
-- Verified: `kicad-cli pcb drc --schematic-parity --refill-zones` → 0 violations (errors or warnings), 0 unconnected, 0 parity issues; ERC 0 errors.
+- Verified: `kicad-cli pcb drc --schematic-parity --refill-zones` → 0 errors, 0 unconnected, 0 parity issues; ERC 0 errors. The only DRC warnings are 16 × *silkscreen clipped by board edge*: SnapMagic's RN112BPC outline includes the bushing, which overhangs the back edge by design. The library footprint is used exactly as supplied, so these are left alone.
+- Jack 8's tip run (from its tip pin, down the gap beside the rear-post notch, to JP8 under relay K8) is laid by hand and locked before autorouting (`add_preroutes()` in `gen_pcb.py`); Freerouting otherwise boxes that pin in.
 
 ### Fit in the case
 
 Measured from `case/Bottom.step`, `Top.step` and `BackPanel.step` (the back panel's STEP sits 53.34 mm behind the case; it belongs in the back groove, inside face at y = 64.77 mm in the case frame). All in `tools/gen_pcb.py`, `case geometry` section.
 
-- **Jacks.** The RN112BPC is a right-angle jack: it lies on the board, pins down, with its plug axis 9.65 mm (0.380") above the board surface. Its body's front face seats against the inside of the back panel and the 3/8-32 bushing passes through the Ø9.52 mm hole; the washer and nut go on the outside and hold the board's back edge. The footprint follows Switchcraft's customer drawing *RN111-RN114 SERIES, right angle Hi-D Jax* rev E: its origin is the plug axis at the body's front face, the tip pin is 18.38 mm behind that face, the sleeve and ring 5.68 mm, and the three plastic locating posts get 2.45 mm holes.
+- **Jacks.** The RN112BPC is a right-angle jack: it lies on the board, pins down, with its plug axis 9.65 mm (0.380") above the board surface. Its body's front face seats against the inside of the back panel and the 3/8-32 bushing passes through the Ø9.52 mm hole; the washer and nut go on the outside and hold the board's back edge. The symbol, footprint and 3D model are SnapMagic's (`case/RN112BPC`, wired in through the project's `sym-lib-table` and `fp-lib-table`). The footprint agrees with Switchcraft's customer drawing *RN111-RN114 SERIES, right angle Hi-D Jax* rev E: its origin is the sleeve pin, 5.68 mm behind the body's front face, and the tip pin is 12.70 mm further back. The locating-post holes are 2.69 mm, against the drawing's 2.41 mm. The schematic generator embeds the symbol after upgrading it with `kicad-cli sym upgrade` (it's in KiCad 6 format). `gen_pcb.py` attaches the STEP model when it places the jacks, turned 180° and shifted 12.7 mm to match the footprint. The model also contains the nut and washer, drawn floating in front of the bushing, and a flat 'confidential' label plate; both are cosmetic and only show in the 3D view.
 - **Board height.** The jack holes are 18.10 mm above the case bottom, so the board's top must sit at **8.45 mm**, bottom at 6.85 mm. The floor bosses' tops are at 5.02 mm (right one 4.89 mm), so put **~1.8-2.0 mm spacers** (nylon washers, or 2 mm M3 spacers) between the bosses and the board. The panel holes are the same size as the bushings, so the jacks can't take up much error: check the height with the jacks' nuts loose before tightening.
-- **Outline.** It fills the case between the side walls (x ±102.9 mm), from 64.2 mm (0.57 mm short of the back panel; the bushings overhang the edge) to 47.5 mm forward of centre, which clears the parts on the back of the button board. The three screw posts that join the case halves (4.75 mm radius at board height) pass through a Ø10.5 mm hole at the front and two notches at the back corners. The jack bodies end about 2 mm in front of the rear posts. Jack 8's two relays are stacked, because the left rear post sits where the tip relay would go.
+- **DIN sockets.** The FM6725 is a right-angle socket with its front face on the inside of the panel, like the jacks, so its centre is 10.3 mm above the board: **18.75 mm** above the case bottom, 0.65 mm higher than the jacks. The footprint follows the Cliff datasheet (`case/screeneddins.pdf`) and was checked against `case/FM6725.stp`, which KiCad uses as the 3D model. That model puts the centre 0.2 mm lower, at 10.1 mm, which a Ø15 panel hole easily absorbs.
+- **Outline.** It fills the case between the side walls (x ±102.9 mm), from 64.2 mm (0.57 mm short of the back panel; the bushings overhang the edge) to 47.5 mm forward of centre, which clears the parts on the back of the button board. The three screw posts that join the case halves (4.75 mm radius at board height) pass through a Ø10.5 mm hole at the front and two notches at the back corners. The jack bodies end about 2 mm in front of the rear posts. Jack 8's two relays sit further forward, below the notch, because the left rear post is where they would go.
 - **Headroom.** The case roof is 32.6 mm above the board, which clears everything (the Teensy on headers is ~13 mm, the jacks 17 mm). Under the board, 4.6 mm clears the trimmed through-hole leads.
-- **Future mains power.** The corner behind the cord hole (right rear, from above) is left empty and marked on `Dwgs.User`. A 12 V mains module there can feed J2 directly, so the regulator stays as it is.
+- **Future mains power.** The DIN sockets now fill the back corner, so the space kept free for a 12 V mains module is the **front right** of the board (~50 × 52 mm, marked on `Dwgs.User`), with the cord running forward to it from the hole. Its DC output goes to J2, so the regulator stays as it is.
+
+### Back panel holes
+
+The main board fixes where every hole in the back panel goes. Jack 8 sits 0.8 mm clear of the left groove rib, and from jack 1 on come MIDI IN, MIDI THRU and the cord hole, 1.5 mm apart. **These differ from the current `BackPanel.step`:** the jacks close up from a 0.75" to a 0.700" pitch, the two DIN holes are new, and the cord hole moves 3.67 mm toward the edge. Positions are measured on the panel **seen from behind the unit**, from its left and bottom edges (the panel is 211.18 × 38.61 mm). The last three columns are the same centres in the case frame of the STEP files (x across, z up), plus how far each hole moved.
+
+| Hole | From left edge (mm) | From bottom edge (mm) | Diameter (mm) | Case x | Case z | Moved in x |
+|---|---|---|---|---|---|---|
+| Power cord | 13.79 | 19.31 | 14.48 | 91.68 | 21.53 | +3.67 |
+| MIDI THRU | 33.03 | 16.53 | 15.0 | 72.44 | 18.75 | new |
+| MIDI IN | 55.53 | 16.53 | 15.0 | 49.94 | 18.75 | new |
+| Jack 1 | 75.47 | 15.88 | 9.52 | 30.00 | 18.10 | −10.34 |
+| Jack 2 | 93.25 | 15.88 | 9.52 | 12.22 | 18.10 | −9.07 |
+| Jack 3 | 111.03 | 15.88 | 9.52 | −5.56 | 18.10 | −7.80 |
+| Jack 4 | 128.81 | 15.88 | 9.52 | −23.34 | 18.10 | −6.53 |
+| Jack 5 | 146.59 | 15.88 | 9.52 | −41.12 | 18.10 | −5.26 |
+| Jack 6 | 164.37 | 15.88 | 9.52 | −58.90 | 18.10 | −3.99 |
+| Jack 7 | 182.15 | 15.88 | 9.52 | −76.68 | 18.10 | −2.72 |
+| Jack 8 | 199.93 | 15.88 | 9.52 | −94.46 | 18.10 | −1.45 |
+
+The DIN holes only need to pass the plug's shell into the socket (Ø14 opening), so Ø15.0 is a suggestion; check it against your cables. The 0.700" pitch leaves ~1.9 mm between the 15.88 mm jack bodies, and between the washers (0.625" max per Switchcraft).
 
 ### Cautions before ordering
 
@@ -162,7 +189,7 @@ All of this is set by named constants at the top of `tools/gen_panel_pcb.py` (`P
 The schematics and boards are generated, not hand-drawn:
 
 - `tools/gen_schematic.py` writes `Octopus.kicad_sch` (+ `Octopus.kicad_sym`, `sym-lib-table`). Symbol UUIDs are derived from reference designators, so PCB links survive regeneration.
-- `tools/gen_teensy_fp.py` and `tools/gen_jack_fp.py` write the Teensy 4.1 and Switchcraft jack footprints into `Octopus.pretty/`.
+- `tools/gen_teensy_fp.py` and `tools/gen_din_fp.py` write the Teensy 4.1 and Cliff FM6725 footprints into `Octopus.pretty/`. The RN112BPC parts come from SnapMagic (`case/RN112BPC`). `tools/gen_jack_fp.py` still writes my own RN112BPC/RN111PC footprints from the Switchcraft drawing, but they're unused now and kept only for reference.
 - `tools/gen_pcb.py` exports the netlist, places footprints, autoroutes, pours GND and saves `Octopus.kicad_pcb`. It must run with KiCad's bundled Python (`"C:/Program Files/KiCad/10.0/bin/python.exe" tools/gen_pcb.py`). Routing needs [Freerouting](https://github.com/freerouting/freerouting) 2.4.1 and a Java 25 runtime; the paths are set at the top of the script, or via `FREEROUTING_JAR` / `JAVA25`. Pass `--no-route` for placement only.
 - Button panel: `python tools/gen_panel_schematic.py` writes the switch symbol/footprint (`gen_panel_parts.py`), the project files and `panel/OctopusPanel.kicad_sch`. Then `tools/gen_panel_pcb.py`, run with KiCad's Python like `gen_pcb.py`, places, routes and pours `panel/OctopusPanel.kicad_pcb`. Its geometry, taken from the case STEP files, is at the top of the script. `tools/schlib.py` is the shared schematic-writing helper.
 
@@ -175,7 +202,8 @@ Re-running any of these **overwrites** its output. Once you start editing a sche
 - [x] Main board PCB — flat in the case bottom, RN112BPC right-angle jacks lined up with the back panel holes (`case/BackPanel.step`); autorouted, GND-poured, clean DRC + schematic parity
 - [x] Button panel schematic + PCB — 2x4 grid on the right of the 8.5" x 1.75" panel; clean ERC, netlist check, DRC and parity
 - [x] Button panel fitted to the case groove (from `case/*.step`); cap D chosen (`228CMVARGBFDNR`)
-- [ ] MIDI IN: the back panel has no 5-pin DIN hole yet (J1 is a harness header, so the socket can go anywhere)
+- [x] MIDI IN + hardware MIDI THRU on two Cliff FM6725 sockets on the back panel
+- [ ] Update `BackPanel.step` to the hole table above (new jack pitch, two DIN holes, cord hole moved)
 - [ ] Check one real RN112BPC against the new footprint, and the board height (~1.8-2 mm spacers) in the case
 - [ ] Review in KiCad / order boards
 - [ ] Prototype build and bring-up

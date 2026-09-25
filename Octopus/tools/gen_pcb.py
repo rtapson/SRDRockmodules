@@ -33,14 +33,22 @@ PANEL_IN_Y = 64.77                  # back panel inside face
 JACK_Z = 18.10                      # jack hole centres above the case bottom
 JACK_AXIS_ABOVE_PCB = 9.65          # RN112BPC plug axis above the board surface
 BOARD_TOP_Z = JACK_Z - JACK_AXIS_ABOVE_PCB          # 8.45: board rests on ~1.8 mm spacers
-JACK_X = [40.34 - 19.05 * i for i in range(8)]      # hole centres; jack 1 is leftmost seen from the back
+# Back panel holes (the panel is drilled to match these; see the README table). Jack 8 sits
+# 0.8 mm clear of the left groove rib (x -103.19); from jack 1 rightward come MIDI IN, MIDI
+# THRU and the cord hole, 1.5 mm apart.
+JACK_PITCH = 17.78                  # 0.700"
+JACK_SLEEVE_BEHIND_FACE = 5.68      # RN112BPC sleeve pin (footprint origin) behind its front face
+JACK_X = [30.0 - JACK_PITCH * i for i in range(8)]  # hole centres; jack 1 is leftmost seen from the back
+DIN_X = {"J1": 49.94, "J12": 72.44}                 # FM6725 MIDI IN, MIDI THRU
+DIN_AXIS_ABOVE_PCB = 10.3                           # Cliff drawing (10.1 in the 3D model)
+CORD_X, CORD_Z, CORD_D = 91.68, 21.53, 14.48        # power cord hole (unchanged size and height)
 WALL_X = 102.9                      # clear of the side walls and the back-panel groove ribs
 FRONT_Y = -47.5                     # clear of the button board's back-side parts
 BACK_Y = 64.2                       # jack bodies seat on the panel; bushings overhang this edge
 PILLARS = [(0.0, -38.1), (-96.84, 33.34), (96.84, 33.34)]   # top/bottom screw posts
 PILLAR_CLEAR = 5.25                 # radius cut round each post (posts are r 4.75 at board height)
 MOUNT_HOLES = [(-57.15, 9.52), (57.15, 9.52)]        # floor bosses (screw from below)
-PSU_ZONE = (52.0, 38.6, WALL_X, BACK_Y)              # kept free behind the cord hole
+PSU_ZONE = (52.0, FRONT_Y, WALL_X, 5.0)             # front right, kept free for a mains module
 
 # KiCad page coordinates: seen from above, back edge at the top
 OX, OY = 150.0, 100.0
@@ -52,8 +60,8 @@ def K(x, y):
 # Footprint origins are pad 1, except the output jacks (plug axis at the body's front face).
 T_X, T_Y = 150.0, 112.0             # Teensy centre; rotated 270, driver pins facing the back
 ULN_IN_Y = T_Y - 17.0               # ULN2803A input row (rotated 90: inputs facing the Teensy)
-RELAY_Y = 63.4                      # relay pin-1 row (NC/NO pins toward the jacks)
-LED_Y, RES_Y = 78.5, 80.0
+RELAY_Y = 64.0                      # relay pin-1 row (NC/NO pins toward the jacks)
+LED_Y, RES_Y = 79.1, 80.6
 
 def teensy_pad_x(position_index):
     # header position i, counted from the USB end; with the Teensy at 270 it runs toward -X
@@ -67,49 +75,63 @@ PLACE = {
     "U3": (teensy_pad_x(10), ULN_IN_Y, 90),
     "U5": (teensy_pad_x(22), ULN_IN_Y, 90),
     "J11": (125.5, 142.5, 0),        # button-panel cable, at the front edge
-    # power, beside the cord hole corner (J2 takes a DC pigtail now, a 12 V mains module later)
-    "J2": (222.0, 76.0, 0),
-    "F1": (214.0, 84.0, 0),
-    "U4": (226.0, 93.0, 0),          # Recom R-78E (SIP-3)
-    "C1": (215.0, 97.0, 0),
-    "C2": (238.0, 97.0, 0),
-    # MIDI input
-    "J1": (215.0, 142.5, 0),
-    "D1": (208.0, 128.0, 0),
-    "U2": (222.0, 122.0, 0),
-    "R1": (234.0, 118.0, 0),
-    "R2": (234.0, 124.0, 0),
+    # power input right inside the cord hole (a DC pigtail now, a 12 V mains module later)
+    "J2": (238.5, 48.0, 0),
+    "F1": (215.5, 68.0, 0),
+    "U4": (228.5, 72.0, 0),          # Recom R-78E (SIP-3)
+    "C1": (218.0, 76.0, 0),
+    "C2": (230.0, 81.0, 0),
+    # MIDI IN opto and the THRU buffer, just in front of the two DIN sockets
+    "U2": (191.0, 59.0, 0),
+    "D1": (190.5, 72.5, 0),
+    "R1": (190.5, 77.0, 0),
+    "R2": (190.5, 81.5, 0),
+    "U6": (204.0, 59.0, 0),
+    "C3": (204.0, 79.0, 0),
+    "R3": (215.5, 58.5, 0),
+    "R4": (215.5, 63.0, 0),
 }
+for ref, dx in DIN_X.items():
+    PLACE[ref] = (*K(dx, PANEL_IN_Y), 90)    # socket front on the panel, like the jacks
 for i, (x, y) in enumerate(MOUNT_HOLES, 1):
     PLACE[f"H{i}"] = (*K(x, y), 0)
 
 for k, jx in enumerate(JACK_X, 1):
     X, Y = K(jx, PANEL_IN_Y)
-    PLACE[f"J{2 + k}"] = (X, Y, 90)          # bushing toward the back edge
+    # bushing toward the back edge; the footprint's origin is the sleeve pin, 5.68 mm
+    # (0.324" - 0.100") behind the body's front face, which seats on the panel
+    PLACE[f"J{2 + k}"] = (X, Y + JACK_SLEEVE_BEHIND_FACE, 90)
     # tip relay left of the jack's axis (under its tip pin), ring relay right of it
-    for line, kx in ((k, X - 8.0), (k + 8, X + 2.0)):
+    for line, kx in ((k, X - 8.0), (k + 8, X + 1.2)):
         PLACE[f"K{line}"] = (kx, RELAY_Y, 0)
         PLACE[f"LED{line}"] = (kx, LED_Y, 0)
         PLACE[f"R1{line:02d}"] = (kx + 5.5, RES_Y, 90)
         # NO/NC solder jumper on the bottom, right behind its relay's NC/NO pins
         PLACE[f"JP{line}"] = (kx + 2.54, RELAY_Y - 3.8, 0, "B")
 
-# Jack 8 sits in front of the left rear screw post: its cell is stacked in the space
-# right of the post, with its LEDs below the notch.
-X8 = PLACE["J10"][0]
+# Jack 8 sits in front of the left rear screw post, so its two relays go side by side in
+# the open area below the notch (the jack wiring comes down the gap right of the notch),
+# each jumper under its relay on the bottom side, LEDs beside them.
 PLACE.update({
-    "K16": (X8 + 3.2, RELAY_Y, 0), "JP16": (X8 + 5.74, RELAY_Y - 3.8, 0, "B"),
-    "K8": (X8 + 3.2, RELAY_Y + 14.9, 0), "JP8": (X8 + 5.74, RELAY_Y + 28.9, 0, "B"),
-    "LED8": (X8 - 7.0, LED_Y, 0), "R108": (X8 - 1.5, RES_Y, 90),
-    "LED16": (X8 - 7.0, LED_Y + 7.5, 0), "R116": (X8 - 1.5, RES_Y + 7.5, 90),
+    "K16": (49.3, 84.0, 0), "JP16": (51.84, 89.1, 0, "B"),
+    "K8": (59.0, 84.0, 0), "JP8": (61.54, 89.1, 0, "B"),
+    "LED16": (68.0, 87.5, 0), "R116": (73.5, 89.0, 90),
+    "LED8": (68.0, 94.0, 0), "R108": (73.5, 95.5, 90),
 })
-# ...and jack 7's tip cell moves over a little to make room for it
+
+# ...and jack 7's tip cell shifts right to widen the gap jack 8's wiring runs down
 for ref in ("K7", "LED7", "R107", "JP7"):
     x, y, *rest = PLACE[ref]
-    PLACE[ref] = (x + 0.4, y, *rest)
+    PLACE[ref] = (x + 0.5, y, *rest)
 
 # standing LED resistors are too tight for a silkscreen reference (each sits beside its LED)
-NO_SILK_REF = {f"R1{n:02d}" for n in range(1, 17)}
+NO_SILK_REF = {f"R1{n:02d}" for n in range(1, 17)} | {"JP8", "JP16"}   # (those two: NO/NC labels only)
+# reference moved inside the part outline, relative to the footprint origin
+REF_AT = {}
+for _k in range(1, 9):                 # RN112BPC: on the jack body, clear of the pins
+    REF_AT[f"J{2 + _k}"] = (3.5, 9.0)
+# pads whose pour connection is a lone island on one layer: connect solid, not by thermal spokes
+SOLID_ZONE = {"U2"}
 
 # ------------------------------------------------------------------ netlist
 def export_netlist():
@@ -139,19 +161,34 @@ def parse_netlist(text):
     return comps, pinnet, net_names
 
 # ------------------------------------------------------------------ helpers
+# project footprint libraries (as in fp-lib-table); everything else is KiCad's own
+PROJECT_FP_LIBS = {"Octopus": PROJ / "Octopus.pretty", "RN112BPC": PROJ / "case" / "RN112BPC"}
+# The SnapMagic RN112BPC footprint carries no 3D model reference; its STEP model's origin is
+# 12.7 mm behind the sleeve pin with the bushing toward -X, so turn it 180 deg and shift it.
+MODELS = {"RN112BPC:SWITCHCRAFT_RN112BPC": ("${KIPRJMOD}/case/RN112BPC/RN112BPC.step", (12.7, 0, 0), (0, 0, 180))}
+
 def load_fp(fpid):
     nick, name = fpid.split(":", 1)
-    libdir = PROJ / f"{nick}.pretty" if nick == "Octopus" else SYS_FP / f"{nick}.pretty"
+    libdir = PROJECT_FP_LIBS.get(nick, SYS_FP / f"{nick}.pretty")
     fp = pcbnew.FootprintLoad(str(libdir), name)
     if fp is None:
         raise RuntimeError(f"footprint {fpid} not found in {libdir}")
     fp.SetFPID(pcbnew.LIB_ID(nick, name))
+    if fpid in MODELS:
+        path, offset, rotation = MODELS[fpid]
+        m = pcbnew.FP_3DMODEL()
+        m.m_Filename = path
+        m.m_Offset = pcbnew.VECTOR3D(*offset)
+        m.m_Rotation = pcbnew.VECTOR3D(*rotation)
+        m.m_Scale = pcbnew.VECTOR3D(1, 1, 1)
+        fp.Add3DModel(m)
     return fp
 
 def label_jumper(board, fp):
     """Silkscreen 'NO'/'NC' under pads 1/3 of a NO/NC select jumper, on whichever side it sits."""
     layer = pcbnew.B_SilkS if fp.IsFlipped() else pcbnew.F_SilkS
     pads = {p.GetNumber(): p.GetPosition() for p in fp.Pads()}
+    across = abs(pads["1"].x - pads["3"].x) < abs(pads["1"].y - pads["3"].y)   # pads in a column
     for num, text in (("1", "NO"), ("3", "NC")):
         pos = pads[num]
         t = pcbnew.PCB_TEXT(board)
@@ -160,7 +197,10 @@ def label_jumper(board, fp):
         t.SetMirrored(fp.IsFlipped())
         t.SetTextSize(pcbnew.VECTOR2I_MM(0.8, 0.8))
         t.SetTextThickness(MM(0.12))
-        t.SetPosition(pcbnew.VECTOR2I(pos.x, pos.y + MM(2.1)))  # clears the footprint's pin-1 marker
+        if across:
+            t.SetPosition(pcbnew.VECTOR2I(pos.x + MM(2.4), pos.y))
+        else:
+            t.SetPosition(pcbnew.VECTOR2I(pos.x, pos.y + MM(2.1)))  # clears the footprint's pin-1 marker
         board.Add(t)
 
 def outline_points():
@@ -255,9 +295,15 @@ def build(route=True):
             label_jumper(board, fp)
         if ref in NO_SILK_REF:
             fp.Reference().SetVisible(False)
+        if ref in SOLID_ZONE:
+            fp.SetLocalZoneConnection(pcbnew.ZONE_CONNECTION_FULL)
+        if ref in REF_AT:
+            dx, dy = REF_AT[ref]
+            fp.Reference().SetPosition(pcbnew.VECTOR2I_MM(x + dx, y + dy))
 
     add_outline(board)
     add_case_notes(board)
+    add_preroutes(board, nets)
     board.Save(str(PCB))
 
     if route:
@@ -265,6 +311,42 @@ def build(route=True):
         add_gnd_pours(board, nets["GND"])
         board.Save(str(PCB))
     return board
+
+# Locked tracks laid before autorouting, where Freerouting otherwise boxes a pin in.
+# Jack 8's tip pin sits in the corner above the rear-post notch, and its jumper's centre pad
+# sits between the other two under relay K8: lay that whole run by hand -- from the tip
+# pin, under the jack body, down the gap right of the notch, between K8's pins, and through
+# a via onto JP8's centre pad (bottom side).
+def jack8_tip_route():
+    sx, sy = PLACE["J10"][:2]                       # sleeve pin (footprint origin)
+    tip = (sx - 6.35, sy + 12.7)
+    gap_x = K(PILLARS[1][0] + PILLAR_CLEAR, 0)[0] + 1.8   # 1.8 mm right of the notch edge
+    jp_x, jp_y = PLACE["JP8"][:2]                  # JP8 centre pad (pin 2)
+    via = (jp_x, jp_y - 1.6)
+    front = [tip, (gap_x - 3.0, tip[1]), (gap_x, tip[1] + 3.0), (gap_x, 72.4),
+             (jp_x, 72.4 + jp_x - gap_x), via]
+    return {"net": "/CH8_OUT", "width": 0.6, "front": front, "via": via, "back": [via, (jp_x, jp_y)]}
+
+def add_preroutes(board, nets):
+    r = jack8_tip_route()
+    net = nets[r["net"]]
+    for layer, pts in ((pcbnew.F_Cu, r["front"]), (pcbnew.B_Cu, r["back"])):
+        for a, b in zip(pts, pts[1:]):
+            tr = pcbnew.PCB_TRACK(board)
+            tr.SetStart(pcbnew.VECTOR2I_MM(*a))
+            tr.SetEnd(pcbnew.VECTOR2I_MM(*b))
+            tr.SetWidth(MM(r["width"]))
+            tr.SetLayer(layer)
+            tr.SetNet(net)
+            tr.SetLocked(True)
+            board.Add(tr)
+    v = pcbnew.PCB_VIA(board)
+    v.SetPosition(pcbnew.VECTOR2I_MM(*r["via"]))
+    v.SetWidth(MM(1.0))
+    v.SetDrill(MM(0.5))
+    v.SetNet(net)
+    v.SetLocked(True)
+    board.Add(v)
 
 def autoroute(board, passes=300):
     BUILD.mkdir(exist_ok=True)
