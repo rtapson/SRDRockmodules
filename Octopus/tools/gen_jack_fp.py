@@ -15,6 +15,7 @@ orientation can't be gotten wrong. The three plastic locating posts get 2.41 mm
 non-plated holes. Pad numbers match KiCad's AudioJack2/AudioJack3 symbols.
 """
 import pathlib
+import guard  # noqa: E402  (refuses to overwrite hand-edited files)
 
 LIB = pathlib.Path(__file__).resolve().parent.parent / "Octopus.pretty"
 
@@ -80,8 +81,11 @@ def footprint(part, spec):
     path.write_text("\n".join(out), encoding="utf-8")
     print("wrote", path)
 
+outputs = [LIB / f"Jack_6.35mm_Switchcraft_{p}_Horizontal.kicad_mod" for p in VARIANTS]
+guard.check(*outputs)
 LIB.mkdir(parents=True, exist_ok=True)
 for old in LIB.glob("Jack_6.35mm_Switchcraft_*_Vertical.kicad_mod"):
     old.unlink()          # superseded: drawn from the catalog's N-series (board-behind-panel) layout
 for part, spec in VARIANTS.items():
     footprint(part, spec)
+guard.record(*outputs)

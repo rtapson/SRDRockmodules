@@ -14,6 +14,7 @@ Top view, mm: switch pins at (+-3.25, +-2.25); LED 1 (red) anode (0, -3.6), cath
 (+3.6, 0); LED 2 (green) anode (0, +3.6), cathode (-3.6, 0). Eight 1.0 mm holes.
 """
 import pathlib
+import guard  # noqa: E402  (refuses to overwrite hand-edited files)
 
 PANEL = pathlib.Path(__file__).resolve().parent.parent / "panel"
 
@@ -141,7 +142,12 @@ def oled_footprint():
     return "\n".join(out)
 
 
+OUTPUTS = [PANEL / "OctopusPanel.pretty" / f"{FP_NAME}.kicad_mod",
+           PANEL / "OctopusPanel.pretty" / f"{OLED_FP}.kicad_mod", PANEL / "OctopusPanel.kicad_sym"]
+
+
 def main():
+    guard.check(*OUTPUTS)
     (PANEL / "OctopusPanel.pretty").mkdir(parents=True, exist_ok=True)
     (PANEL / "OctopusPanel.pretty" / "CTS_228CMV_RGB.kicad_mod").unlink(missing_ok=True)   # replaced by the B3W-9
     (PANEL / "OctopusPanel.pretty" / f"{FP_NAME}.kicad_mod").write_text(footprint(), encoding="utf-8")
@@ -149,6 +155,7 @@ def main():
     lib = ['(kicad_symbol_lib', '\t(version 20251024)', '\t(generator "kicad_symbol_editor")',
            '\t(generator_version "10.0")', symbol_block(SYMBOL_NAME), '\t(embedded_fonts no)', ')', '']
     (PANEL / "OctopusPanel.kicad_sym").write_text("\n".join(lib), encoding="utf-8")
+    guard.record(*OUTPUTS)
     print("wrote panel symbol + footprint")
 
 

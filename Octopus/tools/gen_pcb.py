@@ -12,6 +12,9 @@ this once you begin hand-editing the layout in KiCad.
 import os, re, subprocess, sys, pathlib
 import pcbnew
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import guard  # noqa: E402  (refuses to overwrite hand-edited files)
+
 HERE = pathlib.Path(__file__).resolve().parent
 PROJ = HERE.parent
 SCH = PROJ / "Octopus.kicad_sch"
@@ -249,6 +252,7 @@ def add_case_notes(board):
 
 # ------------------------------------------------------------------ build
 def build(route=True):
+    guard.check(PCB)
     comps, pinnet, net_names = parse_netlist(export_netlist())
     missing = [r for r in comps if r not in PLACE]
     if missing:
@@ -401,5 +405,6 @@ def report_alignment(board):
 
 if __name__ == "__main__":
     b = build(route="--no-route" not in sys.argv)
+    guard.record(PCB)
     report_alignment(b)
     print("saved", PCB)

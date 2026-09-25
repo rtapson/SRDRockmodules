@@ -24,6 +24,7 @@ import uuid
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import gen_panel_parts  # noqa: E402
+import guard  # noqa: E402  (refuses to overwrite hand-edited files)
 from schlib import Sheet  # noqa: E402
 
 TOOLS = pathlib.Path(__file__).resolve().parent
@@ -191,11 +192,16 @@ def write_project_files():
     board = PANEL / f"{PROJECT}.kicad_pcb"
     if not board.exists():
         shutil.copy(TOOLS / "board_template.kicad_pcb", board)
+        guard.record(board)            # a fresh empty board: gen_panel_pcb.py may fill it
 
+
+OUTPUTS = [PANEL / f"{PROJECT}.kicad_sch", PANEL / "fp-lib-table", PANEL / "sym-lib-table"]
 
 if __name__ == "__main__":
+    guard.check(*OUTPUTS, *gen_panel_parts.OUTPUTS)    # before writing anything
     PANEL.mkdir(exist_ok=True)
     gen_panel_parts.main()
     write_project_files()
     build()
+    guard.record(*OUTPUTS)
     print("wrote", PANEL / f"{PROJECT}.kicad_sch")

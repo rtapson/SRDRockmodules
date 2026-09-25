@@ -21,6 +21,7 @@ Verify after regenerating:
 """
 import re, uuid, pathlib, subprocess
 from collections import defaultdict
+import guard  # noqa: E402  (refuses to overwrite hand-edited files)
 
 LIBDIR = pathlib.Path(r"C:/Program Files/KiCad/10.0/share/kicad/symbols")
 KICAD_CLI = pathlib.Path(r"C:/Program Files/KiCad/10.0/bin/kicad-cli.exe")
@@ -576,6 +577,8 @@ out.append('\t(embedded_fonts no)')
 out.append(')')
 out.append('')
 
+OUTPUTS = [OUT, OUT.parent / "Octopus.kicad_sym", OUT.parent / "sym-lib-table"]
+guard.check(*OUTPUTS)
 OUT.write_text("\n".join(out), encoding="utf-8")
 print(f"Wrote {OUT} ({len(components_text)} components, {len(wires)} wires, {len(auto_junctions)} junctions)")
 
@@ -603,3 +606,4 @@ SYMTABLE_OUT.write_text(
     encoding="utf-8",
 )
 print(f"Wrote {SYMTABLE_OUT}")
+guard.record(*OUTPUTS)

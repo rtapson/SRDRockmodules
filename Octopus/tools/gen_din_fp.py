@@ -15,6 +15,7 @@ Footprint origin = socket axis at the front mounting face, like the jack footpri
 socket is placed by putting its origin on the panel's inside face.
 """
 import pathlib
+import guard  # noqa: E402  (refuses to overwrite hand-edited files)
 
 LIB = pathlib.Path(__file__).resolve().parent.parent / "Octopus.pretty"
 NAME = "DIN-5_180deg_Cliff_FM6725_Horizontal"
@@ -66,7 +67,9 @@ def main():
         '\t(embedded_fonts no)', ')', '']
     LIB.mkdir(parents=True, exist_ok=True)
     path = LIB / f"{NAME}.kicad_mod"
+    guard.check(path)
     path.write_text("\n".join(out), encoding="utf-8")
+    guard.record(path)
     print("wrote", path)
 
 if __name__ == "__main__":

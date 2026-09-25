@@ -1,4 +1,5 @@
 import pathlib
+import guard  # noqa: E402  (refuses to overwrite hand-edited files)
 
 OUT = pathlib.Path(__file__).resolve().parent.parent / "Octopus.pretty" / "Teensy41_Socketed.kicad_mod"
 
@@ -62,5 +63,7 @@ out.append(')')
 out.append('')
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
+guard.check(OUT)
 OUT.write_text("\n".join(out), encoding="utf-8")
+guard.record(OUT)
 print("wrote", OUT)

@@ -1,0 +1,17 @@
+{
+ "Octopus.kicad_pcb": "4e0453378650a52ea9e7b6295b1ed065a891086802f6cc10915241e8eb7c3a1b",
+ "Octopus.kicad_sch": "683e6c8871960fa4926d8d95b15cd397c9298a7b8f03dea3b2c578c8d4bb0455",
+ "Octopus.kicad_sym": "b307cba645426854e98acac703d56b84ba7c9a9daa605c3b18ad342b8f0bf529",
+ "Octopus.pretty/DIN-5_180deg_Cliff_FM6725_Horizontal.kicad_mod": "e56dcb57fe59b3ee308807f0bb7bbae2a288a47aaecfbcb7eb3d2bd40cd18539",
+ "Octopus.pretty/Jack_6.35mm_Switchcraft_RN111PC_Horizontal.kicad_mod": "6b79d973e6d0a7969316dc659762500383cd8608edf1cef3231c35736b4fde70",
+ "Octopus.pretty/Jack_6.35mm_Switchcraft_RN112BPC_Horizontal.kicad_mod": "98a77a76b5c82b18131c8587738786d81ca0f167f76df7d5bd0fccb1187deeef",
+ "Octopus.pretty/Teensy41_Socketed.kicad_mod": "4b6f0120b518f91848bb75f1ec75a7eedf4a0e07651dd85714ec3810f97962d8",
+ "panel/OctopusPanel.kicad_pcb": "4f6301afa3011e21be8a7019c60bb016ccb36e0c9dc7bd69a4023a8e6618ff56",
+ "panel/OctopusPanel.kicad_sch": "8e2ff4b88a0c49b560a42636ed371a8d93a736ad75219c107a9bd0de3228ab20",
+ "panel/OctopusPanel.kicad_sym": "dd9c35689aaad3b4759ccf90db4bc96740f42c0f7733ff26790d67370807e3e0",
+ "panel/OctopusPanel.pretty/OLED_Winstar_WEA012864D-03.kicad_mod": "4506a739c31f032365a5fe6e915aca284309dbbc2edae246ea8a5d845b95df78",
+ "panel/OctopusPanel.pretty/Omron_B3W-9_2LED_10x10.kicad_mod": "1b150738a1c1294808491265d5234816f4116fc3994df6271eed65bcfb21077d",
+ "panel/fp-lib-table": "633f2594bce04d9f6690febed0b366b6d29b187af625df6a87fa8d413d3ec537",
+ "panel/sym-lib-table": "26f05b5e15343c6e38c66cf91fcab9a0ea1b5fbcf199f1714a08ea15bef9208e",
+ "sym-lib-table": "a58c090818813720f6e3967e335844cf9ef0eeeb381a6c81b63ee3a05e50d34b"
+}

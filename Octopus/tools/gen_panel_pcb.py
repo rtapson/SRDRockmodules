@@ -32,6 +32,7 @@ import sys
 import pcbnew
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import guard  # noqa: E402  (refuses to overwrite hand-edited files)
 from gen_pcb import (FREEROUTING_JAR, JAVA, KICAD_CLI, SYS_FP, MM,  # noqa: E402
                      parse_netlist)
 
@@ -187,6 +188,7 @@ def draw_panel_reference(board):
 
 
 def build(route=True):
+    guard.check(PCB)
     comps, pinnet, net_names = parse_netlist(export_netlist())
     missing = [r for r in comps if r not in PLACE]
     if missing:
@@ -313,4 +315,5 @@ def add_gnd_pours(board, gnd):
 
 if __name__ == "__main__":
     build(route="--no-route" not in sys.argv)
+    guard.record(PCB)
     print("saved", PCB)
