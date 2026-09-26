@@ -1,0 +1,167 @@
+(footprint "NE18_2U_EE_P_6AMP"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "C&K NE18 Series DPDT push-push mains power switch, 6A/250VAC, PC pins (P), square 3.3mm actuator. Dimensions reconstructed from C&K outline drawing NE18XX-OL_A (Rev A, 2017-02-28) - VERIFY against physical part before fabrication.")
+	(tags "switch pushbutton push-push DPDT NE18 C&K power mains")
+	(property "Reference" "REF**"
+		(at 0 -7.5 0)
+		(layer "F.SilkS")
+		(uuid "f92bdf45-a019-4420-9875-ef47a597dc02")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "NE18_2U_EE_P_6AMP"
+		(at 0 7.5 0)
+		(layer "F.Fab")
+		(uuid "f9b606cf-b1d1-4a27-8e94-49322af684f4")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "c228add0-c196-4239-ac1e-6a439686234c")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2fd21645-fc17-4efd-9e23-9e2a76d7bd8f")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -9 -5)
+		(end -9 -3.5)
+		(stroke
+			(width 0.15)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "e1a1a1a1-0007-4001-8001-000000000007")
+	)
+	(fp_line
+		(start -9 -5)
+		(end -7.5 -5)
+		(stroke
+			(width 0.15)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "e1a1a1a1-0006-4001-8001-000000000006")
+	)
+	(fp_rect
+		(start -9 -5)
+		(end 9 5)
+		(stroke
+			(width 0.15)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "e1a1a1a1-0003-4001-8001-000000000003")
+	)
+	(fp_rect
+		(start -9.5 -5.5)
+		(end 9.5 5.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "e1a1a1a1-0004-4001-8001-000000000004")
+	)
+	(fp_rect
+		(start -1.65 -1.65)
+		(end 1.65 1.65)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "e1a1a1a1-0005-4001-8001-000000000005")
+	)
+	(pad "1" thru_hole rect
+		(at -3 6.3)
+		(size 2.5 2.5)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "e1a1a1a1-0010-4001-8001-000000000010")
+	)
+	(pad "2" thru_hole circle
+		(at -3 0)
+		(size 2.5 2.5)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "e1a1a1a1-0011-4001-8001-000000000011")
+	)
+	(pad "3" thru_hole circle
+		(at -3 -6.3)
+		(size 2.5 2.5)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "e1a1a1a1-0012-4001-8001-000000000012")
+	)
+	(pad "4" thru_hole circle
+		(at 3 6.3)
+		(size 2.5 2.5)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "e1a1a1a1-0013-4001-8001-000000000013")
+	)
+	(pad "5" thru_hole circle
+		(at 3 0)
+		(size 2.5 2.5)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "e1a1a1a1-0014-4001-8001-000000000014")
+	)
+	(pad "6" thru_hole circle
+		(at 3 -6.3)
+		(size 2.5 2.5)
+		(drill 1.5)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "e1a1a1a1-0015-4001-8001-000000000015")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/KiCad-Library/3dmodels/NE18_2U_EE_P_6AMP.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

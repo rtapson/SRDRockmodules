@@ -1,0 +1,9 @@
+Manufacturer=LITTELFUSE
+PartNumber=NE182UEEP6AMP
+PartCategory=Switch
+PackageCategory=Other
+PinCount=6
+Version=1.6
+Released=2026-07-20 11:12:33
+Downloaded=2026-09-25 18:21:45
+3D=Y

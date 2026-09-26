@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'NE182UEEP6AMP'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "LITTELFUSE", "NE182UEEP6AMP" (!) = "", "NE182UEEP6AMP", "Other", "611-NE182UEEP6AMP", "https://www.mouser.co.uk/ProductDetail/CK/NE182UEEP6AMP?qs=u2NJ%252B70r0go80sgN5CJXfg%3D%3D", "", "", "Pushbutton Switch DPDT Standard Through Hole, Right Angle, 250 V", "https://www.littelfuse.com/assetdocs/littelfuse-c-k-pushbutton-ne18-series-datasheet?assetguid=eaa0cce0-0711-4a80-a25e-fa5683c64f06", "14.4 mm"
+END_PART
+
+END.
