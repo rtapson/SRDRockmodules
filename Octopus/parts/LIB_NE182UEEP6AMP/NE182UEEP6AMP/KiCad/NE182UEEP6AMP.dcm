@@ -1,9 +1,0 @@
-EESchema-DOCLIB  Version 2.0
-#
-$CMP NE182UEEP6AMP
-D Pushbutton Switch DPDT Standard Through Hole, Right Angle, 250 V
-K
-F https://www.littelfuse.com/assetdocs/littelfuse-c-k-pushbutton-ne18-series-datasheet?assetguid=eaa0cce0-0711-4a80-a25e-fa5683c64f06
-$ENDCMP
-#
-#End Doc Library
